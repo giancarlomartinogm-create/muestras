@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitali Medical Center · Medicina estética y regenerativa · Arica</title>
+<meta name="description" content="Centro de medicina estética, regenerativa, antienvejecimiento e implante capilar en Arica. Agenda tu hora en línea 24/7.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#0d0f14;
+  --ink-2:#12151d;
+  --ink-3:#191d27;
+  --ink-4:#222734;
+  --paper:#f6f7f9;
+  --paper-2:#ffffff;
+  --paper-3:#eceef2;
+  --gold:#c9927e;
+  --gold-2:#e0b3a2;
+  --gold-deep:#a6705d;
+  --teal:#3fa6a0;
+  --teal-2:#5ec3bd;
+  --teal-deep:#27716d;
+
+  --on-dark:#eceff4;
+  --on-dark-mute:#98a1b0;
+  --on-light:#12151d;
+  --on-light-mute:#59626f;
+
+  --line-d:rgba(255,255,255,.10);
+  --line-d-2:rgba(255,255,255,.18);
+  --line-l:rgba(13,15,20,.10);
+  --line-l-2:rgba(13,15,20,.18);
+
+  --r-xs:8px; --r-sm:12px; --r:16px; --r-lg:22px; --r-xl:30px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+  --sec:clamp(72px,9vw,132px);
+  --nav-h:74px;
+  --demo-h:44px;
+
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter","Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --shadow-d:0 24px 60px -24px rgba(0,0,0,.75);
+  --shadow-l:0 22px 50px -26px rgba(13,15,20,.35);
+
+  --z-nav:120; --z-demo:200; --z-modal:400;
+}
+
+/* ============ RESET / BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 24px)}
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--on-dark);
+  background:var(--ink);
+  padding-bottom:var(--demo-h);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.12;letter-spacing:-.022em;font-weight:600}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px;border-radius:4px}
+
+.wrap{width:min(1200px,100% - 2*clamp(20px,5vw,48px));margin-inline:auto}
+.sec{padding-block:var(--sec)}
+.sec--dark{background:var(--ink);color:var(--on-dark)}
+.sec--darker{background:var(--ink-2);color:var(--on-dark)}
+.sec--light{background:var(--paper);color:var(--on-light)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:var(--s-4);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.7}
+.sec--light .eyebrow{color:var(--gold-deep)}
+
+.h-xl{font-size:clamp(2.35rem,5.4vw,4.15rem);font-weight:600;letter-spacing:-.035em}
+.h-lg{font-size:clamp(1.9rem,3.6vw,3rem);letter-spacing:-.03em}
+.h-md{font-size:clamp(1.25rem,2vw,1.5rem)}
+.lede{font-size:clamp(1.02rem,1.35vw,1.16rem);line-height:1.72;color:var(--on-dark-mute);max-width:62ch}
+.sec--light .lede{color:var(--on-light-mute)}
+.thin{font-weight:300}
+.serif-ital{font-style:italic;font-weight:300;color:var(--gold-2)}
+.sec--light .serif-ital{color:var(--gold-deep)}
+.num{font-variant-numeric:tabular-nums}
+
+.sec-head{max-width:760px;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head .lede{margin-top:var(--s-5)}
+
+/* ============ BOTONES ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:50px;padding:0 26px;border-radius:999px;
+  font-size:.95rem;font-weight:600;letter-spacing:.01em;
+  transition:transform .22s var(--ease),background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease);
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.975)}
+.btn--gold{background:var(--gold);color:#1a1109;box-shadow:0 12px 34px -14px rgba(201,146,126,.85)}
+.btn--gold:hover{background:var(--gold-2);box-shadow:0 16px 40px -14px rgba(201,146,126,.95)}
+.btn--ghost{border:1px solid var(--line-d-2);color:var(--on-dark)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-2);background:rgba(201,146,126,.07)}
+.btn--ghost-l{border:1px solid var(--line-l-2);color:var(--on-light)}
+.btn--ghost-l:hover{border-color:var(--gold-deep);color:var(--gold-deep);background:rgba(201,146,126,.08)}
+.btn--teal{background:var(--teal);color:#04211f;box-shadow:0 12px 34px -14px rgba(63,166,160,.8)}
+.btn--teal:hover{background:var(--teal-2)}
+.btn--sm{min-height:42px;padding:0 20px;font-size:.875rem}
+.btn--block{width:100%}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.42;cursor:not-allowed;box-shadow:none;transform:none}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:var(--z-nav);
+  background:rgba(13,15,20,.72);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--line-d);
+  transition:background .3s var(--ease),border-color .3s var(--ease);
+}
+.nav.is-scrolled{background:rgba(13,15,20,.94)}
+.nav__in{display:flex;align-items:center;gap:var(--s-5);height:var(--nav-h)}
+.mark{display:flex;flex-direction:column;line-height:1;margin-right:auto}
+.mark__name{font-size:1.32rem;font-weight:600;letter-spacing:.30em;color:#fff}
+.mark__sub{
+  font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--gold);margin-top:6px;padding-top:6px;border-top:1px solid rgba(201,146,126,.42);
+}
+.nav__links{display:flex;align-items:center;gap:var(--s-6)}
+.nav__links a{
+  position:relative;font-size:.875rem;color:var(--on-dark-mute);
+  padding:6px 0;transition:color .2s var(--ease);
+}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);
+  transition:width .28s var(--ease);
+}
+.nav__links a:hover{color:#fff}
+.nav__links a:hover::after{width:100%}
+.lang{display:flex;align-items:center;border:1px solid var(--line-d-2);border-radius:999px;padding:3px;gap:2px}
+.lang button{
+  min-width:38px;min-height:30px;border-radius:999px;font-size:.75rem;font-weight:600;
+  letter-spacing:.08em;color:var(--on-dark-mute);transition:all .2s var(--ease);
+}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#1a1109}
+.nav__burger{display:none;width:46px;height:46px;border:1px solid var(--line-d-2);border-radius:12px;align-items:center;justify-content:center}
+.nav__burger span{display:block;width:18px;height:1.5px;background:#fff;position:relative}
+.nav__burger span::before,.nav__burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:#fff;transition:transform .25s var(--ease)}
+.nav__burger span::before{top:-6px}.nav__burger span::after{top:6px}
+.nav__panel{display:none}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;background:var(--ink);isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-2}
+.hero__bg::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(120% 88% at 78% 8%, rgba(201,146,126,.30) 0%, rgba(201,146,126,0) 58%),
+    radial-gradient(95% 80% at 8% 96%, rgba(63,166,160,.24) 0%, rgba(63,166,160,0) 62%),
+    linear-gradient(168deg,#12151d 0%,#0d0f14 52%,#0b0d12 100%);
+}
+.hero__svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.85}
+.hero__grain{position:absolute;inset:0;z-index:-1;opacity:.055;
+  background-image:radial-gradient(rgba(255,255,255,.9) .6px,transparent .7px);
+  background-size:4px 4px;}
+.hero__in{position:relative;padding-block:clamp(88px,12vw,152px) clamp(64px,8vw,104px)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{max-width:15ch}
+.hero__lede{margin-top:var(--s-5)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-top:var(--s-7)}
+.creds{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-4) var(--s-5);
+  margin-top:clamp(44px,5vw,64px);padding-top:var(--s-5);border-top:1px solid var(--line-d);
+}
+.creds li{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--on-dark-mute)}
+.creds strong{color:#fff;font-weight:600}
+.creds .dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex:none;box-shadow:0 0 0 4px rgba(63,166,160,.16)}
+
+/* tarjeta flotante del hero */
+.hero__card{
+  position:relative;border-radius:var(--r-xl);padding:var(--s-6) var(--s-5) var(--s-5);
+  background:linear-gradient(150deg,rgba(255,255,255,.075),rgba(255,255,255,.02));
+  border:1px solid var(--line-d-2);backdrop-filter:blur(12px);box-shadow:var(--shadow-d);
+}
+.hero__card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(140deg,rgba(201,146,126,.22),transparent 42%);mix-blend-mode:overlay;
+}
+.hero__card h3{font-size:1.02rem;font-weight:600;display:flex;align-items:center;gap:10px}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--teal-2);flex:none;animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(94,195,189,.55)}50%{box-shadow:0 0 0 9px rgba(94,195,189,0)}}
+.hero__card p{font-size:.84rem;color:var(--on-dark-mute);margin-top:6px}
+.mini-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:var(--s-5)}
+.mini-slot{
+  text-align:center;padding:11px 4px;border-radius:var(--r-xs);font-size:.82rem;font-weight:600;
+  border:1px solid var(--line-d);background:rgba(255,255,255,.04);color:var(--on-dark);
+  font-variant-numeric:tabular-nums;
+}
+.mini-slot.is-taken{color:#5d6674;text-decoration:line-through;background:transparent;border-style:dashed}
+.mini-slot.is-hot{border-color:var(--teal);color:var(--teal-2);background:rgba(63,166,160,.10)}
+.hero__card .foot{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:var(--s-5);padding-top:var(--s-4);border-top:1px solid var(--line-d);
+  font-size:.78rem;color:var(--on-dark-mute)
+}
+.tag-24{color:var(--gold-2);font-weight:600;letter-spacing:.06em}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}
+.rv-d4{transition-delay:.24s}.rv-d5{transition-delay:.30s}.rv-d6{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+/* ============ TRATAMIENTOS ============ */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
+.card-t{
+  position:relative;display:flex;flex-direction:column;
+  padding:clamp(24px,2.4vw,32px);border-radius:var(--r-lg);
+  background:var(--paper-2);border:1px solid var(--line-l);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+}
+.card-t::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px 2px 0 0;
+  background:linear-gradient(90deg,var(--gold),var(--teal));opacity:0;transition:opacity .3s var(--ease);
+}
+.card-t:hover{transform:translateY(-5px);box-shadow:var(--shadow-l);border-color:transparent}
+.card-t:hover::before{opacity:1}
+.card-t__ico{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:var(--s-5);
+  background:linear-gradient(140deg,rgba(201,146,126,.16),rgba(63,166,160,.13));
+  border:1px solid var(--line-l);
+}
+.card-t__ico svg{width:24px;height:24px;stroke:var(--gold-deep);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card-t h3{font-size:1.1rem;margin-bottom:8px}
+.card-t p{font-size:.9rem;color:var(--on-light-mute);line-height:1.6}
+.card-t__meta{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  margin-top:var(--s-6);padding-top:var(--s-4);border-top:1px solid var(--line-l);
+}
+.card-t__dur{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--on-light-mute)}
+.card-t__dur svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.5;fill:none}
+.card-t__price{text-align:right;line-height:1.2}
+.card-t__price span{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-light-mute)}
+.card-t__price b{font-size:1.16rem;font-weight:600;color:var(--on-light);font-variant-numeric:tabular-nums}
+.note-line{margin-top:var(--s-6);font-size:.82rem;color:var(--on-light-mute)}
+
+/* ============ AGENDA ============ */
+.agenda{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.9fr);gap:clamp(20px,3vw,44px);align-items:start}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{
+  position:relative;border:1px solid var(--line-d);border-radius:var(--r-lg);
+  background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.014));
+  padding:clamp(20px,2.2vw,28px);transition:border-color .3s var(--ease),opacity .3s var(--ease),background .3s var(--ease);
+}
+.step.is-active{border-color:rgba(201,146,126,.55);background:linear-gradient(160deg,rgba(201,146,126,.09),rgba(255,255,255,.02))}
+.step.is-locked{opacity:.42;pointer-events:none;filter:saturate(.4)}
+.step.is-done{border-color:rgba(63,166,160,.42)}
+.step__head{display:flex;align-items:center;gap:14px;margin-bottom:var(--s-5)}
+.step__n{
+  width:32px;height:32px;flex:none;border-radius:50%;display:grid;place-items:center;
+  font-size:.82rem;font-weight:700;border:1px solid var(--line-d-2);color:var(--on-dark-mute);
+  transition:all .3s var(--ease);font-variant-numeric:tabular-nums;
+}
+.step.is-active .step__n{background:var(--gold);color:#1a1109;border-color:var(--gold)}
+.step.is-done .step__n{background:var(--teal);color:#04211f;border-color:var(--teal)}
+.step__t{font-size:1.02rem;font-weight:600}
+.step__hint{font-size:.78rem;color:var(--on-dark-mute);margin-left:auto;text-align:right}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{
+  display:flex;align-items:center;gap:12px;text-align:left;
+  padding:14px 16px;border-radius:var(--r-sm);min-height:60px;
+  border:1px solid var(--line-d);background:rgba(255,255,255,.03);color:var(--on-dark);
+  transition:all .22s var(--ease);
+}
+.opt:hover{border-color:var(--gold);background:rgba(201,146,126,.09)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:rgba(201,146,126,.16);box-shadow:inset 0 0 0 1px rgba(201,146,126,.4)}
+.opt__tick{width:16px;height:16px;flex:none;border-radius:50%;border:1px solid var(--line-d-2);position:relative;transition:all .22s var(--ease)}
+.opt[aria-pressed="true"] .opt__tick{background:var(--gold);border-color:var(--gold)}
+.opt[aria-pressed="true"] .opt__tick::after{content:"";position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid #1a1109;border-width:0 1.8px 1.8px 0;transform:rotate(43deg)}
+.opt__txt{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+.opt__txt b{font-size:.9rem;font-weight:600}
+.opt__txt small{font-size:.74rem;color:var(--on-dark-mute);margin-top:3px;font-variant-numeric:tabular-nums}
+
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.day{
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 4px;
+  border-radius:var(--r-sm);border:1px solid var(--line-d);background:rgba(255,255,255,.03);
+  color:var(--on-dark);transition:all .22s var(--ease);min-height:76px;justify-content:center;
+}
+.day small{font-size:.68rem;letter-spacing:.10em;text-transform:uppercase;color:var(--on-dark-mute)}
+.day b{font-size:1.16rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.day em{font-size:.6rem;font-style:normal;letter-spacing:.10em;color:var(--on-dark-mute);text-transform:uppercase}
+.day:not(:disabled):hover{border-color:var(--gold);background:rgba(201,146,126,.09)}
+.day[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1a1109}
+.day[aria-pressed="true"] small,.day[aria-pressed="true"] em{color:#4a2f22}
+.day:disabled{opacity:.32;cursor:not-allowed}
+
+.slots-block{margin-top:var(--s-5)}
+.slots-block:first-child{margin-top:0}
+.slots-lbl{
+  display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--on-dark-mute);margin-bottom:12px;
+}
+.slots-lbl::after{content:"";flex:1;height:1px;background:var(--line-d)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.slot{
+  min-height:46px;border-radius:var(--r-xs);border:1px solid var(--line-d);
+  background:rgba(255,255,255,.03);font-size:.9rem;font-weight:600;color:var(--on-dark);
+  font-variant-numeric:tabular-nums;transition:all .2s var(--ease);
+}
+.slot:not(:disabled):hover{border-color:var(--teal);background:rgba(63,166,160,.12);color:var(--teal-2)}
+.slot[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#04211f}
+.slot:disabled{opacity:.34;cursor:not-allowed;text-decoration:line-through;border-style:dashed;background:transparent}
+.slots-empty{font-size:.86rem;color:var(--on-dark-mute)}
+
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field--full{grid-column:1/-1}
+.field label{font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--on-dark-mute)}
+.field label .req{color:var(--gold-2)}
+.field input,.field textarea,.field select{
+  width:100%;min-height:50px;padding:13px 15px;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.045);border:1px solid var(--line-d);color:#fff;
+  transition:border-color .2s var(--ease),background .2s var(--ease);font-size:.95rem;
+}
+.field textarea{min-height:88px;resize:vertical;line-height:1.55}
+.field input::placeholder,.field textarea::placeholder{color:#5f6875}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(201,146,126,.08)}
+.field small{font-size:.74rem;color:var(--on-dark-mute)}
+.field.has-error input,.field.has-error textarea{border-color:#e07a6b;background:rgba(224,122,107,.08)}
+.err{display:none;align-items:center;gap:6px;font-size:.76rem;color:#f0a396}
+.err svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
+.field.has-error .err{display:flex}
+
+/* resumen */
+.summary{
+  position:sticky;top:calc(var(--nav-h) + 20px);
+  border-radius:var(--r-xl);padding:clamp(24px,2.4vw,30px);
+  background:linear-gradient(165deg,rgba(255,255,255,.085),rgba(255,255,255,.022));
+  border:1px solid var(--line-d-2);box-shadow:var(--shadow-d);
+}
+.summary h3{font-size:.74rem;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-5)}
+.sum-row{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-d)}
+.sum-row:last-of-type{border-bottom:0}
+.sum-row svg{width:17px;height:17px;flex:none;margin-top:3px;stroke:var(--on-dark-mute);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sum-row.is-set svg{stroke:var(--teal-2)}
+.sum-row div{min-width:0;flex:1}
+.sum-row span{display:block;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--on-dark-mute)}
+.sum-row b{display:block;font-size:.95rem;font-weight:500;color:#5f6875;margin-top:3px;word-wrap:break-word}
+.sum-row.is-set b{color:#fff;font-weight:600}
+.sum-total{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin-top:var(--s-5);padding-top:var(--s-4);border-top:1px solid var(--line-d-2);
+}
+.sum-total span{font-size:.78rem;color:var(--on-dark-mute)}
+.sum-total b{font-size:1.3rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--gold-2)}
+.summary .btn{margin-top:var(--s-5)}
+.sum-foot{margin-top:14px;font-size:.72rem;line-height:1.55;color:var(--on-dark-mute);text-align:center}
+.progress{height:3px;border-radius:3px;background:var(--line-d);overflow:hidden;margin-bottom:var(--s-5)}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--teal));transition:width .45s var(--ease)}
+
+/* ============ COTIZADOR ============ */
+.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(20px,3vw,48px);align-items:center}
+.quote-card{
+  background:var(--paper-2);border:1px solid var(--line-l);border-radius:var(--r-xl);
+  padding:clamp(24px,3vw,40px);box-shadow:var(--shadow-l);
+}
+.q-field{display:flex;flex-direction:column;gap:9px;margin-bottom:var(--s-5)}
+.q-field label{font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--on-light-mute)}
+.q-select{
+  min-height:54px;padding:0 44px 0 16px;border-radius:var(--r-sm);border:1px solid var(--line-l-2);
+  background:var(--paper);color:var(--on-light);font-size:.98rem;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2359626f' stroke-width='1.8'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat;background-position:right 15px center;background-size:19px;cursor:pointer;
+}
+.q-select:focus{outline:none;border-color:var(--gold-deep)}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{
+  width:48px;height:48px;flex:none;border-radius:50%;border:1px solid var(--line-l-2);
+  display:grid;place-items:center;color:var(--on-light);transition:all .2s var(--ease);font-size:1.2rem;line-height:1;
+}
+.stepper button:not(:disabled):hover{border-color:var(--gold-deep);background:rgba(201,146,126,.12);color:var(--gold-deep)}
+.stepper button:disabled{opacity:.35;cursor:not-allowed}
+.stepper output{
+  flex:1;text-align:center;font-size:1.24rem;font-weight:600;font-variant-numeric:tabular-nums;
+  padding:12px;border-radius:var(--r-sm);background:var(--paper);border:1px solid var(--line-l);
+}
+.q-lines{margin-top:var(--s-6);padding-top:var(--s-5);border-top:1px solid var(--line-l)}
+.q-line{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;font-size:.92rem;color:var(--on-light-mute)}
+.q-line b{font-weight:600;color:var(--on-light);font-variant-numeric:tabular-nums}
+.q-line.is-off b,.q-line.is-off{color:var(--teal-deep)}
+.q-out{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  margin-top:var(--s-4);padding-top:var(--s-4);border-top:1px solid var(--line-l-2);
+}
+.q-out span{font-size:.86rem;font-weight:600;color:var(--on-light-mute)}
+.q-out b{font-size:clamp(1.9rem,3.4vw,2.5rem);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--on-light)}
+.q-disc{
+  display:inline-flex;align-items:center;gap:7px;margin-top:var(--s-4);padding:7px 13px;border-radius:999px;
+  background:rgba(63,166,160,.13);color:var(--teal-deep);font-size:.78rem;font-weight:600;
+}
+.q-note{margin-top:var(--s-5);font-size:.78rem;line-height:1.6;color:var(--on-light-mute);display:flex;gap:9px}
+.q-note svg{width:16px;height:16px;flex:none;margin-top:2px;stroke:var(--gold-deep);stroke-width:1.6;fill:none}
+.q-bullets{margin-top:var(--s-6);display:flex;flex-direction:column;gap:14px}
+.q-bullets li{display:flex;gap:13px;font-size:.93rem;color:var(--on-light-mute);line-height:1.6}
+.q-bullets svg{width:20px;height:20px;flex:none;margin-top:2px;stroke:var(--teal-deep);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============ ANTES / DESPUES ============ */
+.ba-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,26px)}
+.ba{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-d);background:var(--ink-2)}
+.ba__stage{position:relative;aspect-ratio:4/3.4;overflow:hidden;--pos:50%}
+.ba__layer{position:absolute;inset:0}
+.ba__after{clip-path:inset(0 0 0 var(--pos))}
+.ba__tag{
+  position:absolute;bottom:12px;padding:5px 11px;border-radius:999px;font-size:.68rem;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;backdrop-filter:blur(6px);z-index:3;
+}
+.ba__tag--a{left:12px;background:rgba(13,15,20,.62);color:#c7ced9}
+.ba__tag--b{right:12px;background:rgba(201,146,126,.9);color:#1a1109}
+.ba__handle{
+  position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:rgba(255,255,255,.9);
+  z-index:4;pointer-events:none;transform:translateX(-1px);box-shadow:0 0 14px rgba(0,0,0,.5);
+}
+.ba__handle::after{
+  content:"";position:absolute;top:50%;left:50%;width:38px;height:38px;transform:translate(-50%,-50%);
+  border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 4px 16px rgba(0,0,0,.45);
+}
+.ba__handle::before{
+  content:"";position:absolute;top:50%;left:50%;width:14px;height:8px;transform:translate(-50%,-50%);z-index:5;
+  background:
+    linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 100%) left center/6px 8px no-repeat,
+    linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 100%) right center/6px 8px no-repeat;
+  clip-path:polygon(0 50%,35% 0,35% 100%,0 50%,100% 50%,65% 0,65% 100%,100% 50%);
+}
+.ba__range{
+  position:absolute;inset:0;width:100%;height:100%;z-index:6;opacity:0;cursor:ew-resize;margin:0;
+}
+.ba__body{padding:var(--s-5)}
+.ba__body h3{font-size:1.02rem;margin-bottom:6px}
+.ba__body p{font-size:.85rem;color:var(--on-dark-mute);line-height:1.6}
+.ba__body .ilus{
+  display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.68rem;letter-spacing:.10em;
+  text-transform:uppercase;color:#8b93a1;border:1px dashed var(--line-d-2);padding:5px 11px;border-radius:999px;
+}
+.ba__body .ilus svg{width:12px;height:12px;stroke:currentColor;stroke-width:1.8;fill:none}
+
+/* ============ FAQ ============ */
+.faq{max-width:900px;margin-inline:auto}
+.faq-item{border-bottom:1px solid var(--line-l)}
+.faq-item:first-child{border-top:1px solid var(--line-l)}
+.faq-q{
+  display:flex;align-items:center;gap:20px;width:100%;text-align:left;
+  padding:26px 0;font-size:clamp(1rem,1.5vw,1.12rem);font-weight:600;color:var(--on-light);
+  transition:color .2s var(--ease);min-height:64px;
+}
+.faq-q:hover{color:var(--gold-deep)}
+.faq-q .ic{
+  width:30px;height:30px;flex:none;margin-left:auto;border-radius:50%;border:1px solid var(--line-l-2);
+  display:grid;place-items:center;position:relative;transition:all .3s var(--ease);
+}
+.faq-q .ic::before,.faq-q .ic::after{content:"";position:absolute;background:currentColor;border-radius:2px;transition:transform .3s var(--ease)}
+.faq-q .ic::before{width:11px;height:1.5px}
+.faq-q .ic::after{width:1.5px;height:11px}
+.faq-q[aria-expanded="true"] .ic{background:var(--gold);border-color:var(--gold);color:#1a1109;transform:rotate(180deg)}
+.faq-q[aria-expanded="true"] .ic::after{transform:scaleY(0)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .42s var(--ease)}
+.faq-a p{padding:0 50px 28px 0;font-size:.96rem;line-height:1.75;color:var(--on-light-mute);max-width:72ch}
+
+/* ============ FOOTER ============ */
+.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px)}
+.foot h4{font-size:.74rem;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-5)}
+.foot-list li{display:flex;gap:13px;padding:9px 0;font-size:.92rem;color:var(--on-dark-mute);line-height:1.55}
+.foot-list svg{width:17px;height:17px;flex:none;margin-top:3px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.foot-list a:hover{color:#fff}
+.foot-list b{color:#fff;font-weight:600;display:block}
+.hours-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line-d);font-size:.88rem}
+.hours-row:last-child{border-bottom:0}
+.hours-row span{color:var(--on-dark-mute)}
+.hours-row b{font-weight:500;color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.map{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-d);background:var(--ink-3)}
+.map svg{width:100%;height:auto;display:block}
+.foot-bar{
+  margin-top:clamp(48px,6vw,80px);padding-top:var(--s-5);border-top:1px solid var(--line-d);
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  font-size:.78rem;color:#6d7684;
+}
+.cta-strip{
+  margin-top:clamp(48px,6vw,72px);border-radius:var(--r-xl);padding:clamp(28px,4vw,48px);
+  background:linear-gradient(135deg,rgba(201,146,126,.16),rgba(63,166,160,.11));
+  border:1px solid var(--line-d-2);display:flex;flex-wrap:wrap;gap:var(--s-5);align-items:center;justify-content:space-between;
+}
+.cta-strip h3{font-size:clamp(1.3rem,2.4vw,1.85rem);letter-spacing:-.025em;max-width:22ch}
+.cta-strip p{font-size:.9rem;color:var(--on-dark-mute);margin-top:10px;max-width:44ch}
+
+/* ============ MODAL ============ */
+.modal{
+  position:fixed;inset:0;z-index:var(--z-modal);display:grid;place-items:center;padding:20px;
+  background:rgba(6,7,10,.72);backdrop-filter:blur(8px);
+  opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s var(--ease);
+}
+.modal.is-open{opacity:1;visibility:visible}
+.modal__box{
+  width:min(520px,100%);max-height:min(86vh,760px);overflow-y:auto;border-radius:var(--r-xl);
+  background:linear-gradient(170deg,#1a1f2a,#111520);border:1px solid var(--line-d-2);
+  padding:clamp(28px,4vw,42px);box-shadow:0 40px 90px -30px rgba(0,0,0,.9);
+  transform:translateY(16px) scale(.97);transition:transform .34s var(--ease);
+}
+.modal.is-open .modal__box{transform:none}
+.modal__ok{
+  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin-bottom:var(--s-5);
+  background:rgba(63,166,160,.14);border:1px solid rgba(63,166,160,.42);
+}
+.modal__ok svg{width:28px;height:28px;stroke:var(--teal-2);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.modal h3{font-size:clamp(1.3rem,2.4vw,1.6rem);margin-bottom:10px}
+.modal__lede{font-size:.92rem;color:var(--on-dark-mute);line-height:1.65}
+.modal__list{margin:var(--s-5) 0;border-radius:var(--r);border:1px solid var(--line-d);overflow:hidden}
+.modal__list div{display:flex;justify-content:space-between;gap:16px;padding:13px 17px;font-size:.89rem;border-bottom:1px solid var(--line-d);background:rgba(255,255,255,.02)}
+.modal__list div:last-child{border-bottom:0}
+.modal__list span{color:var(--on-dark-mute);flex:none}
+.modal__list b{font-weight:600;text-align:right;word-break:break-word}
+.modal__demo{
+  display:flex;gap:11px;padding:14px 16px;border-radius:var(--r-sm);font-size:.8rem;line-height:1.6;
+  background:rgba(201,146,126,.10);border:1px solid rgba(201,146,126,.3);color:var(--gold-2);
+}
+.modal__demo svg{width:16px;height:16px;flex:none;margin-top:2px;stroke:currentColor;stroke-width:1.7;fill:none}
+.modal__btns{display:flex;gap:10px;margin-top:var(--s-5)}
+.modal__btns .btn{flex:1}
+
+/* ============ BARRA DEMO FIJA ============ */
+.demo-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:var(--z-demo);min-height:var(--demo-h);
+  display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 16px;
+  background:rgba(9,10,14,.93);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(201,146,126,.32);
+  font-size:.74rem;letter-spacing:.03em;color:#aeb6c2;text-align:center;line-height:1.45;
+}
+.demo-bar b{color:var(--gold-2);font-weight:700;letter-spacing:.10em;text-transform:uppercase;font-size:.7rem}
+.demo-bar .sep{color:#4b5461}
+.demo-bar strong{color:#e7eaf0;font-weight:600}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1080px){
+  .hero__grid{grid-template-columns:1fr;gap:48px}
+  .hero__card{max-width:520px}
+  .agenda{grid-template-columns:1fr}
+  .summary{position:static}
+  .quote{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ba-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-grid .map-col{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .nav__links{display:none}
+  .nav__burger{display:flex}
+  .nav .btn--gold{display:none}
+  .nav__panel{
+    display:block;position:absolute;left:0;right:0;top:100%;
+    background:rgba(13,15,20,.98);border-bottom:1px solid var(--line-d);
+    padding:8px clamp(20px,5vw,48px) 24px;
+    max-height:0;overflow:hidden;transition:max-height .38s var(--ease);
+  }
+  .nav__panel.is-open{max-height:420px}
+  .nav__panel a{display:block;padding:15px 0;border-bottom:1px solid var(--line-d);font-size:.98rem;color:var(--on-dark-mute)}
+  .nav__panel .btn{margin-top:18px;width:100%}
+}
+@media (max-width:720px){
+  :root{--demo-h:56px}
+  .cards{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .days{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .foot-grid{grid-template-columns:1fr}
+  .creds{flex-direction:column;align-items:flex-start;gap:12px}
+  .cta-strip{flex-direction:column;align-items:flex-start}
+  .step__hint{display:none}
+  .faq-a p{padding-right:0}
+  .demo-bar{font-size:.68rem;padding:8px 12px}
+}
+@media (max-width:420px){
+  .days{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .slots{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BARRA DEMO ============ -->
+<div class="demo-bar" role="note">
+  <b>Mockup de demostración</b>
+  <span class="sep">·</span>
+  <span>propuesta preparada por <strong>Giancarlo Martino</strong></span>
+  <span class="sep">·</span>
+  <span>no es el sitio oficial de Vitali Medical Center</span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="#inicio" class="mark" aria-label="Vitali Medical Center, ir al inicio">
+      <span class="mark__name">VITALI</span>
+      <span class="mark__sub">Medical Center</span>
+    </a>
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#tratamientos" data-pt="Tratamentos">Tratamientos</a>
+      <a href="#agenda" data-pt="Agendamento">Agenda en línea</a>
+      <a href="#cotizador" data-pt="Orçamento">Cotizador</a>
+      <a href="#resultados" data-pt="Resultados">Resultados</a>
+      <a href="#contacto" data-pt="Contato">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Selector de idioma">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+    <a href="#agenda" class="btn btn--gold btn--sm" data-pt="Agendar horário">Agendar hora</a>
+    <button class="nav__burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navPanel"><span></span></button>
+  </div>
+  <div class="nav__panel" id="navPanel">
+    <a href="#tratamientos" data-pt="Tratamentos">Tratamientos</a>
+    <a href="#agenda" data-pt="Agendamento">Agenda en línea</a>
+    <a href="#cotizador" data-pt="Orçamento">Cotizador</a>
+    <a href="#resultados" data-pt="Resultados">Resultados</a>
+    <a href="#contacto" data-pt="Contato">Contacto</a>
+    <a href="#agenda" class="btn btn--gold" data-pt="Agendar horário">Agendar hora</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <svg class="hero__svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#c9927e" stop-opacity=".55"/>
+        <stop offset="100%" stop-color="#3fa6a0" stop-opacity=".12"/>
+      </linearGradient>
+      <linearGradient id="gB" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3fa6a0" stop-opacity=".40"/>
+        <stop offset="100%" stop-color="#c9927e" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="soft"><feGaussianBlur stdDeviation="52"/></filter>
+    </defs>
+    <g filter="url(#soft)" opacity=".62">
+      <path d="M1180 -60c150 90 240 250 200 400s-210 250-360 240-300-90-350-230 20-300 150-380 210-120 360-30Z" fill="url(#gA)"/>
+      <ellipse cx="120" cy="820" rx="340" ry="240" fill="url(#gB)"/>
+    </g>
+    <g fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1">
+      <circle cx="1160" cy="300" r="250"/>
+      <circle cx="1160" cy="300" r="370"/>
+      <circle cx="1160" cy="300" r="500"/>
+    </g>
+    <path d="M0 700c180-70 300 40 470-10s280-180 470-150 320 150 500 110" fill="none" stroke="rgba(201,146,126,.22)" stroke-width="1"/>
+    <path d="M0 760c180-70 300 40 470-10s280-180 470-150 320 150 500 110" fill="none" stroke="rgba(63,166,160,.18)" stroke-width="1"/>
+  </svg>
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="wrap hero__in">
+    <div class="hero__grid">
+      <div>
+        <span class="eyebrow rv" data-pt="Medicina estética · Arica, Chile">Medicina estética · Arica, Chile</span>
+        <h1 class="h-xl rv rv-d1" data-pt="Estética avançada com <span class='serif-ital'>respaldo médico</span> real.">Estética avanzada con <span class="serif-ital">respaldo médico</span> real.</h1>
+        <p class="lede hero__lede rv rv-d2" data-pt="Medicina estética, regenerativa, antienvelhecimento e implante capilar em Arica. Equipe médica titulada, protocolos clínicos e avaliação personalizada — agora com agendamento online 24/7.">
+          Medicina estética, regenerativa, antienvejecimiento e implante capilar en Arica. Equipo médico titulado, protocolos clínicos y evaluación personalizada — ahora con agenda en línea disponible 24/7.
+        </p>
+        <div class="hero__cta rv rv-d3">
+          <a href="#agenda" class="btn btn--gold" data-pt="Agendar horário online <svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M5 12h13M13 6l6 6-6 6'/></svg>">
+            Agendar hora en línea
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#cotizador" class="btn btn--ghost" data-pt="Calcular valor estimado">Calcular valor estimado</a>
+        </div>
+        <ul class="creds rv rv-d4">
+          <li><span class="dot"></span><strong>+10.000</strong>&nbsp;pacientes atendidos</li>
+          <li><span class="dot"></span>Equipo médico titulado</li>
+          <li><span class="dot"></span>Magallanes #1755, Arica</li>
+        </ul>
+      </div>
+
+      <aside class="hero__card rv rv-d3" aria-label="Vista previa de disponibilidad">
+        <h3><span class="pulse"></span>Disponibilidad de hoy</h3>
+        <p>Martes 4 de agosto · Consulta de evaluación</p>
+        <div class="mini-slots" aria-hidden="true">
+          <span class="mini-slot is-taken">09:15</span>
+          <span class="mini-slot is-hot">10:00</span>
+          <span class="mini-slot">10:45</span>
+          <span class="mini-slot is-taken">11:30</span>
+          <span class="mini-slot">14:00</span>
+          <span class="mini-slot is-hot">15:30</span>
+        </div>
+        <div class="foot">
+          <span>4 bloques libres hoy</span>
+          <span class="tag-24">RESERVA 24/7</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRATAMIENTOS ============ -->
+<section class="sec sec--light" id="tratamientos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-pt="Tratamentos">Tratamientos</span>
+      <h2 class="h-lg" data-pt="Procedimentos com critério médico, não com promessas.">Procedimientos con criterio médico, no con promesas.</h2>
+      <p class="lede">Cada tratamiento parte con una evaluación clínica. Los valores son referenciales y se confirman en consulta según zonas, unidades y objetivo estético.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card-t rv rv-d1">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-4 0-7 3-7 7 0 4 3 6 3 9M12 3c4 0 7 3 7 7 0 4-3 6-3 9M9 8c1.5-1.5 4.5-1.5 6 0M10 13c1-.8 3-.8 4 0"/></svg></div>
+        <h3>Implante capilar</h3>
+        <p>Técnica FUE con planificación de línea frontal y densidad, en pabellón ambulatorio.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Jornada completa</span>
+          <span class="card-t__price"><span>Desde</span><b>$1.900.000</b></span>
+        </div>
+      </article>
+
+      <article class="card-t rv rv-d2">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c4.5-2.5 7-6 7-10a7 7 0 1 0-14 0c0 4 2.5 7.5 7 10Z"/><path d="M9 10h6M10.5 13.5h3"/></svg></div>
+        <h3>Armonización facial</h3>
+        <p>Plan integral de proporciones: perfil, mentón y pómulos con enfoque natural.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min</span>
+          <span class="card-t__price"><span>Desde</span><b>$690.000</b></span>
+        </div>
+      </article>
+
+      <article class="card-t rv rv-d3">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h10M4 8l3-3M4 8l3 3"/><path d="M14 5h3a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-3"/><path d="M8 16h6"/></svg></div>
+        <h3>Bótox (toxina botulínica)</h3>
+        <p>Suaviza líneas de expresión en frente, entrecejo y contorno de ojos.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 min</span>
+          <span class="card-t__price"><span>Desde</span><b>$180.000</b></span>
+        </div>
+      </article>
+
+      <article class="card-t rv rv-d1">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
+        <h3>Ácido hialurónico</h3>
+        <p>Relleno y volumen en labios, surcos y ojeras con productos certificados.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>45 min</span>
+          <span class="card-t__price"><span>Desde</span><b>$290.000</b></span>
+        </div>
+      </article>
+
+      <article class="card-t rv rv-d2">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5.6 5.6l3.2 3.2M15.2 15.2l3.2 3.2M18.4 5.6l-3.2 3.2M8.8 15.2l-3.2 3.2"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Láser CO2 fraccionado</h3>
+        <p>Renueva textura, cicatrices de acné y manchas estimulando colágeno nuevo.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min</span>
+          <span class="card-t__price"><span>Desde</span><b>$350.000</b></span>
+        </div>
+      </article>
+
+      <article class="card-t rv rv-d3">
+        <div class="card-t__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2.5-6 1.5 3h5"/><circle cx="12" cy="12" r="9.2" opacity=".35"/></svg></div>
+        <h3>Medicina regenerativa</h3>
+        <p>Plasma rico en plaquetas y bioestimuladores para calidad de piel y cabello.</p>
+        <div class="card-t__meta">
+          <span class="card-t__dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>45 min</span>
+          <span class="card-t__price"><span>Desde</span><b>$250.000</b></span>
+        </div>
+      </article>
+    </div>
+
+    <p class="note-line rv">Valores en pesos chilenos (CLP). Referenciales — el valor final se define en la evaluación médica presencial.</p>
+  </div>
+</section>
+
+<!-- ============ AGENDA EN LINEA ============ -->
+<section class="sec sec--dark" id="agenda">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-pt="Agendamento online">Agenda en línea</span>
+      <h2 class="h-lg" data-pt="Reserve seu horário às 23:40 de um domingo. <span class='serif-ital'>Sem esperar resposta.</span>">Reserve su hora a las 23:40 de un domingo. <span class="serif-ital">Sin esperar respuesta.</span></h2>
+      <p class="lede">Cuatro pasos, menos de un minuto. El sistema solo ofrece bloques realmente disponibles según el horario del centro y bloquea los que ya están tomados.</p>
+    </div>
+
+    <div class="agenda">
+      <!-- columna izquierda: pasos -->
+      <div class="steps">
+
+        <!-- PASO 1 -->
+        <div class="step is-active" id="step1" data-step="1">
+          <div class="step__head">
+            <span class="step__n">1</span>
+            <span class="step__t" data-pt="Escolha o tratamento">Elija el tratamiento</span>
+            <span class="step__hint">Evaluación incluida</span>
+          </div>
+          <div class="opts" id="optTratamientos" role="group" aria-label="Tratamientos disponibles"></div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="step is-locked" id="step2" data-step="2">
+          <div class="step__head">
+            <span class="step__n">2</span>
+            <span class="step__t" data-pt="Escolha o dia">Elija el día</span>
+            <span class="step__hint">Agosto 2026</span>
+          </div>
+          <div class="days" id="optDias" role="group" aria-label="Días disponibles"></div>
+          <p class="slots-empty" style="margin-top:14px" id="diaNota">Sábado y domingo el centro no atiende.</p>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="step is-locked" id="step3" data-step="3">
+          <div class="step__head">
+            <span class="step__n">3</span>
+            <span class="step__t" data-pt="Escolha o horário">Elija la hora</span>
+            <span class="step__hint">Bloques de 45 min</span>
+          </div>
+          <div id="optHoras" role="group" aria-label="Horas disponibles"></div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="step is-locked" id="step4" data-step="4">
+          <div class="step__head">
+            <span class="step__n">4</span>
+            <span class="step__t" data-pt="Seus dados">Sus datos</span>
+            <span class="step__hint">Confirmación inmediata</span>
+          </div>
+          <div class="fields">
+            <div class="field" id="fNombre">
+              <label for="inNombre">Nombre y apellido <span class="req">*</span></label>
+              <input type="text" id="inNombre" name="nombre" autocomplete="name" placeholder="Ej: María Fernanda Rojas">
+              <span class="err"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span>Ingrese su nombre y apellido (mínimo 3 letras).</span></span>
+            </div>
+            <div class="field" id="fFono">
+              <label for="inFono">Teléfono / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="inFono" name="telefono" inputmode="tel" autocomplete="tel" placeholder="+56 9 1234 5678">
+              <span class="err"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span>Ingrese un número válido (mínimo 8 dígitos).</span></span>
+            </div>
+            <div class="field field--full" id="fMail">
+              <label for="inMail">Correo electrónico <small style="font-weight:400">(opcional)</small></label>
+              <input type="email" id="inMail" name="email" autocomplete="email" placeholder="nombre@correo.cl">
+              <span class="err"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span>Revise el formato del correo.</span></span>
+            </div>
+            <div class="field field--full">
+              <label for="inNota">Motivo de consulta <small style="font-weight:400">(opcional)</small></label>
+              <textarea id="inNota" name="nota" placeholder="Cuéntenos brevemente qué le gustaría mejorar o si es paciente de otro país."></textarea>
+              <small>Atendemos también pacientes extranjeros. Atendimento em português disponível.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- columna derecha: resumen -->
+      <aside class="summary rv" aria-live="polite">
+        <div class="progress"><i id="progBar"></i></div>
+        <h3 data-pt="Resumo da reserva">Resumen de su reserva</h3>
+
+        <div class="sum-row" id="sumTrat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v3H9zM5 6h14v15H5z"/><path d="M12 11v5M9.5 13.5h5"/></svg>
+          <div><span>Tratamiento</span><b>Sin seleccionar</b></div>
+        </div>
+        <div class="sum-row" id="sumDia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <div><span>Día</span><b>Sin seleccionar</b></div>
+        </div>
+        <div class="sum-row" id="sumHora">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><span>Hora</span><b>Sin seleccionar</b></div>
+        </div>
+        <div class="sum-row" id="sumPaciente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-3.6 4-5.4 7.5-5.4s6.3 1.8 7.5 5.4"/></svg>
+          <div><span>Paciente</span><b>Sin completar</b></div>
+        </div>
+        <div class="sum-row" id="sumLugar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div><span>Lugar</span><b style="color:#fff;font-weight:600">Magallanes #1755, Arica</b></div>
+        </div>
+
+        <div class="sum-total">
+          <span>Valor referencial desde</span>
+          <b id="sumPrecio">—</b>
+        </div>
+
+        <button type="button" class="btn btn--gold btn--block" id="btnConfirmar" disabled data-pt="Confirmar horário">Confirmar hora</button>
+        <p class="sum-foot">No se cobra nada en línea. Recibirá confirmación y recordatorio por WhatsApp.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COTIZADOR ============ -->
+<section class="sec sec--light" id="cotizador">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-pt="Orçamento automático">Cotizador automático</span>
+      <h2 class="h-lg" data-pt="O paciente sabe o valor antes de escrever.">El paciente conoce el valor antes de escribir.</h2>
+      <p class="lede">Menos preguntas repetidas por WhatsApp, más pacientes que llegan a la consulta ya informados y decididos.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-card rv rv-d1">
+        <div class="q-field">
+          <label for="qTrat">Tratamiento</label>
+          <select class="q-select" id="qTrat"></select>
+        </div>
+
+        <div class="q-field">
+          <label for="qSes">Cantidad de sesiones</label>
+          <div class="stepper">
+            <button type="button" id="qMinus" aria-label="Quitar una sesión">−</button>
+            <output id="qSes" for="qMinus qPlus" aria-live="polite">1 sesión</output>
+            <button type="button" id="qPlus" aria-label="Agregar una sesión">+</button>
+          </div>
+        </div>
+
+        <div class="q-lines">
+          <div class="q-line"><span id="qLineBase">Valor por sesión</span><b id="qBase">$0</b></div>
+          <div class="q-line"><span id="qLineSes">Sesiones</span><b id="qCant">1</b></div>
+          <div class="q-line is-off" id="qLineDesc" hidden><span>Descuento por programa</span><b id="qDesc">−$0</b></div>
+        </div>
+
+        <div class="q-out">
+          <span>Valor estimado total</span>
+          <b id="qTotal">$0</b>
+        </div>
+        <div id="qBadgeWrap"></div>
+
+        <p class="q-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <span>Valor referencial. Se confirma en la evaluación médica presencial, según zonas a tratar, unidades y objetivo de cada paciente.</span>
+        </p>
+      </div>
+
+      <div class="rv rv-d2">
+        <h3 class="h-md" style="letter-spacing:-.02em">Lo que cambia para el centro</h3>
+        <ul class="q-bullets">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-5"/></svg><span><b>Agenda que trabaja de noche.</b> El 40% de las reservas online ocurre fuera del horario de atención.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-5"/></svg><span><b>Menos WhatsApp operativo.</b> Precios y disponibilidad dejan de responderse a mano, uno por uno.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-5"/></svg><span><b>Menos inasistencias.</b> Recordatorio automático 24 horas antes por WhatsApp.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-5"/></svg><span><b>Paciente extranjero atendido igual.</b> Versión en portugués y reserva sin llamada internacional.</span></li>
+        </ul>
+        <a href="#agenda" class="btn btn--ghost-l" style="margin-top:32px">Probar la agenda en línea</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTES / DESPUES ============ -->
+<section class="sec sec--darker" id="resultados">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-pt="Resultados">Resultados</span>
+      <h2 class="h-lg" data-pt="Como o resultado é apresentado ao paciente.">Cómo se le muestra el resultado al paciente.</h2>
+      <p class="lede">Mueva el control para comparar. En el sitio final este módulo carga fotografías clínicas reales, con consentimiento firmado del paciente y sin retoque digital.</p>
+    </div>
+
+    <div class="ba-grid">
+      <article class="ba rv rv-d1">
+        <div class="ba__stage" id="ba1">
+          <div class="ba__layer" style="background:
+            radial-gradient(60% 55% at 32% 34%, rgba(120,132,148,.55), transparent 62%),
+            radial-gradient(48% 42% at 70% 62%, rgba(96,108,124,.45), transparent 66%),
+            linear-gradient(160deg,#39414e,#252b36 60%,#1b2029)"></div>
+          <div class="ba__layer ba__after" style="background:
+            radial-gradient(65% 58% at 34% 32%, rgba(224,179,162,.60), transparent 64%),
+            radial-gradient(50% 44% at 72% 64%, rgba(201,146,126,.42), transparent 68%),
+            linear-gradient(160deg,#6e5348,#42353a 38%,#2a2b32 68%,#1d2027)"></div>
+          <span class="ba__tag ba__tag--a">Antes</span>
+          <span class="ba__tag ba__tag--b">Después</span>
+          <span class="ba__handle"></span>
+          <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Comparar antes y después: implante capilar">
+        </div>
+        <div class="ba__body">
+          <h3>Implante capilar · zona frontal</h3>
+          <p>Redensificación de línea frontal. Control a los 9 meses del procedimiento.</p>
+          <span class="ilus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Representación ilustrativa</span>
+        </div>
+      </article>
+
+      <article class="ba rv rv-d2">
+        <div class="ba__stage">
+          <div class="ba__layer" style="background:
+            radial-gradient(55% 50% at 50% 28%, rgba(118,126,140,.50), transparent 64%),
+            repeating-linear-gradient(112deg, rgba(255,255,255,.035) 0 3px, transparent 3px 12px),
+            linear-gradient(150deg,#333a46,#232833 62%,#191d25)"></div>
+          <div class="ba__layer ba__after" style="background:
+            radial-gradient(58% 52% at 50% 26%, rgba(94,195,189,.42), transparent 66%),
+            radial-gradient(46% 40% at 62% 70%, rgba(224,179,162,.38), transparent 68%),
+            linear-gradient(150deg,#3d5a58,#2b3a3c 58%,#1c2228)"></div>
+          <span class="ba__tag ba__tag--a">Antes</span>
+          <span class="ba__tag ba__tag--b">Después</span>
+          <span class="ba__handle"></span>
+          <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Comparar antes y después: láser CO2">
+        </div>
+        <div class="ba__body">
+          <h3>Láser CO2 · textura y cicatrices</h3>
+          <p>Tres sesiones espaciadas. Mejora de textura y uniformidad del tono.</p>
+          <span class="ilus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Representación ilustrativa</span>
+        </div>
+      </article>
+
+      <article class="ba rv rv-d3">
+        <div class="ba__stage">
+          <div class="ba__layer" style="background:
+            radial-gradient(52% 46% at 42% 60%, rgba(110,120,136,.48), transparent 64%),
+            linear-gradient(140deg,#363d49,#262b35 60%,#1a1e26)"></div>
+          <div class="ba__layer ba__after" style="background:
+            radial-gradient(56% 50% at 44% 58%, rgba(224,179,162,.55), transparent 66%),
+            radial-gradient(40% 34% at 66% 30%, rgba(94,195,189,.30), transparent 70%),
+            linear-gradient(140deg,#5d4a45,#332f36 60%,#1e2128)"></div>
+          <span class="ba__tag ba__tag--a">Antes</span>
+          <span class="ba__tag ba__tag--b">Después</span>
+          <span class="ba__handle"></span>
+          <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Comparar antes y después: armonización facial">
+        </div>
+        <div class="ba__body">
+          <h3>Armonización facial · perfil</h3>
+          <p>Proyección de mentón y definición mandibular con enfoque conservador.</p>
+          <span class="ilus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Representación ilustrativa</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec--light" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow" style="justify-content:center" data-pt="Perguntas frequentes">Preguntas frecuentes</span>
+      <h2 class="h-lg">Lo que preguntan antes de reservar.</h2>
+    </div>
+
+    <div class="faq rv rv-d1" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa1" id="fq1">
+          <span>¿La hora reservada en línea queda confirmada de inmediato?</span><span class="ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="fa1" role="region" aria-labelledby="fq1">
+          <p>Sí. El bloque queda bloqueado en la agenda del centro apenas usted confirma y recibe la confirmación por WhatsApp en segundos, además de un recordatorio automático 24 horas antes de su cita.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa2" id="fq2">
+          <span>¿El valor que muestra el cotizador es el valor final?</span><span class="ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="fa2" role="region" aria-labelledby="fq2">
+          <p>Es un valor referencial. El precio definitivo se determina en la evaluación médica presencial, porque depende de las zonas a tratar, las unidades o mililitros necesarios y el objetivo estético de cada paciente.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa3" id="fq3">
+          <span>¿Quién realiza los procedimientos?</span><span class="ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3">
+          <p>Todos los procedimientos son realizados por profesionales médicos titulados, con protocolos clínicos, insumos certificados y consentimiento informado firmado antes de cada intervención.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa4" id="fq4">
+          <span>Vengo de otra ciudad o de otro país, ¿cómo lo coordino?</span><span class="ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4">
+          <p>Puede reservar directamente en línea indicando su ciudad de origen en el motivo de consulta. Coordinamos evaluación previa a distancia y agrupamos los procedimientos para reducir la cantidad de viajes. Atendemos también en portugués.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa5" id="fq5">
+          <span>¿Puedo cambiar o cancelar mi hora?</span><span class="ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="fa5" role="region" aria-labelledby="fq5">
+          <p>Sí. Desde el mismo enlace de confirmación puede reprogramar o cancelar hasta 24 horas antes, sin costo y sin necesidad de llamar. El bloque liberado vuelve automáticamente a estar disponible para otro paciente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO / FOOTER ============ -->
+<footer class="sec sec--dark foot" id="contacto">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-pt="Contato">Contacto</span>
+      <h2 class="h-lg" data-pt="Estamos em Arica. <span class='serif-ital'>Recebemos você.</span>">Estamos en Arica. <span class="serif-ital">Lo esperamos.</span></h2>
+    </div>
+
+    <div class="foot-grid">
+      <div class="rv rv-d1">
+        <h4>Vitali Medical Center</h4>
+        <ul class="foot-list">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <span><b>Magallanes #1755</b>Arica, Región de Arica y Parinacota, Chile</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 16.4v2.6a1.8 1.8 0 0 1-2 1.8 17.6 17.6 0 0 1-7.7-2.7 17.3 17.3 0 0 1-5.3-5.3A17.6 17.6 0 0 1 2.8 5a1.8 1.8 0 0 1 1.8-2h2.6a1.8 1.8 0 0 1 1.8 1.5c.1.9.3 1.7.7 2.5a1.8 1.8 0 0 1-.4 1.9l-1 1a14 14 0 0 0 5.3 5.3l1-1a1.8 1.8 0 0 1 1.9-.4c.8.3 1.6.6 2.5.7a1.8 1.8 0 0 1 1.5 1.9Z"/></svg>
+            <span><b><a href="tel:+56966343297">+56 9 6634 3297</a></b>Teléfono del centro</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8 8 0 1 1 8 19.4l-4.5 1.1Z"/><path d="M9 10.2c.4 1.6 2.3 3.5 3.9 3.9l1-1.2 1.9.7v1.6c-2.6.4-5.8-2.4-6.8-5l1.5-.7Z"/></svg>
+            <span><b><a href="https://wa.me/56931904418" target="_blank" rel="noopener">+56 9 3190 4418</a></b>WhatsApp · reservas y consultas</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg>
+            <span><b><a href="https://instagram.com/vitali.medicalcenter" target="_blank" rel="noopener">@vitali.medicalcenter</a></b>Instagram</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rv rv-d2">
+        <h4 data-pt="Horário de atendimento">Horario de atención</h4>
+        <div class="hours-row"><span>Lunes a jueves</span><b>08:30 – 13:00<br>14:00 – 17:30</b></div>
+        <div class="hours-row"><span>Viernes</span><b>08:30 – 13:00<br>15:30 – 19:00</b></div>
+        <div class="hours-row"><span>Sábado y domingo</span><b>Cerrado</b></div>
+        <p style="margin-top:22px;font-size:.86rem;color:var(--on-dark-mute);line-height:1.6">
+          La agenda en línea está disponible <strong style="color:var(--gold-2)">24 horas, todos los días</strong>, incluso cuando el centro está cerrado.
+        </p>
+      </div>
+
+      <div class="rv rv-d3 map-col">
+        <h4 data-pt="Como chegar">Cómo llegar</h4>
+        <div class="map">
+          <svg viewBox="0 0 520 330" role="img" aria-label="Mapa estilizado de la ubicación en calle Magallanes 1755, Arica">
+            <defs>
+              <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1d3a3f"/><stop offset="100%" stop-color="#16292e"/>
+              </linearGradient>
+            </defs>
+            <rect width="520" height="330" fill="#161a22"/>
+            <path d="M0 0h96c-10 60-26 120-14 180 8 44 30 96 26 150H0Z" fill="url(#sea)"/>
+            <path d="M96 0c-10 60-26 120-14 180 8 44 30 96 26 150" fill="none" stroke="#3fa6a0" stroke-opacity=".45" stroke-width="1.5"/>
+            <g fill="#1e232d" stroke="#2b323f" stroke-width="1">
+              <rect x="132" y="26" width="104" height="66" rx="4"/><rect x="252" y="26" width="112" height="66" rx="4"/><rect x="380" y="26" width="112" height="66" rx="4"/>
+              <rect x="132" y="112" width="104" height="78" rx="4"/><rect x="380" y="112" width="112" height="78" rx="4"/>
+              <rect x="132" y="210" width="104" height="88" rx="4"/><rect x="252" y="210" width="112" height="88" rx="4"/><rect x="380" y="210" width="112" height="88" rx="4"/>
+            </g>
+            <rect x="252" y="112" width="112" height="78" rx="4" fill="#2a2118" stroke="#c9927e" stroke-opacity=".5" stroke-width="1.2"/>
+            <g stroke="#2e3542" stroke-width="9" stroke-linecap="square">
+              <path d="M120 0v330"/><path d="M244 0v330"/><path d="M372 0v330"/>
+              <path d="M96 104h424"/><path d="M96 200h424"/>
+            </g>
+            <path d="M96 104h424" stroke="#c9927e" stroke-opacity=".28" stroke-width="2" stroke-dasharray="10 8"/>
+            <g transform="translate(300 132)">
+              <circle r="26" fill="#c9927e" fill-opacity=".14"/>
+              <circle r="15" fill="#c9927e" fill-opacity=".26"/>
+              <path d="M0-16a10 10 0 0 1 10 10c0 7-10 17-10 17S-10 1-10-6A10 10 0 0 1 0-16Z" fill="#c9927e"/>
+              <circle cy="-6" r="3.6" fill="#161a22"/>
+            </g>
+            <text x="300" y="176" text-anchor="middle" fill="#e0b3a2" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">MAGALLANES 1755</text>
+            <text x="112" y="96" fill="#6f7a89" font-family="system-ui,sans-serif" font-size="10" letter-spacing="2" transform="rotate(-90 112 96)">COSTANERA</text>
+            <text x="440" y="318" text-anchor="middle" fill="#5c6674" font-family="system-ui,sans-serif" font-size="10" letter-spacing="3">ARICA · CHILE</text>
+          </svg>
+        </div>
+        <a href="https://wa.me/56931904418" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" style="margin-top:18px">Escribir por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="cta-strip rv">
+      <div>
+        <h3 data-pt="Sua agenda aberta 24 horas, sem ninguém respondendo.">Su agenda abierta 24 horas, sin que nadie tenga que responder.</h3>
+        <p>Esta demostración muestra cómo funcionaría la reserva en línea y el cotizador para Vitali Medical Center.</p>
+      </div>
+      <a href="#agenda" class="btn btn--gold">Ver la agenda funcionando</a>
+    </div>
+
+    <div class="foot-bar">
+      <span>© 2026 Vitali Medical Center · Arica, Chile</span>
+      <span>Mockup de demostración construido por Giancarlo Martino · sin vínculo comercial vigente</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL CONFIRMACION ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__box">
+    <div class="modal__ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.8l4.4 4.4L19 7.6"/></svg></div>
+    <h3 id="modalTitle">Hora reservada</h3>
+    <p class="modal__lede" id="modalLede">Su reserva quedó registrada en la agenda de Vitali Medical Center.</p>
+
+    <div class="modal__list" id="modalList"></div>
+
+    <div class="modal__demo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <span><strong>Demo</strong> — se integra con su ficha clínica y envía recordatorio automático por WhatsApp.</span>
+    </div>
+
+    <div class="modal__btns">
+      <button type="button" class="btn btn--ghost" id="modalNueva">Agendar otra</button>
+      <button type="button" class="btn btn--gold" id="modalCerrar">Entendido</button>
+    </div>
+  </div>
+</div>
+
+<style>.modal[hidden]{display:none}</style>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- DATOS ---------- */
+  var TRATAMIENTOS = [
+    { id:'implante',     nombre:'Implante capilar',        dur:'Jornada completa', desde:1900000 },
+    { id:'armonizacion', nombre:'Armonización facial',      dur:'60 min',           desde:690000  },
+    { id:'botox',        nombre:'Bótox',                    dur:'30 min',           desde:180000  },
+    { id:'hialuronico',  nombre:'Ácido hialurónico',        dur:'45 min',           desde:290000  },
+    { id:'laser',        nombre:'Láser CO2 fraccionado',    dur:'60 min',           desde:350000  },
+    { id:'regenerativa', nombre:'Medicina regenerativa',    dur:'45 min',           desde:250000  }
+  ];
+
+  var DIAS = [
+    { id:'2026-08-04', dow:'Mar', num:'04', tipo:'lj', label:'martes 4 de agosto' },
+    { id:'2026-08-05', dow:'Mié', num:'05', tipo:'lj', label:'miércoles 5 de agosto' },
+    { id:'2026-08-06', dow:'Jue', num:'06', tipo:'lj', label:'jueves 6 de agosto' },
+    { id:'2026-08-07', dow:'Vie', num:'07', tipo:'v',  label:'viernes 7 de agosto' },
+    { id:'2026-08-08', dow:'Sáb', num:'08', tipo:'x',  label:'sábado 8 de agosto' },
+    { id:'2026-08-09', dow:'Dom', num:'09', tipo:'x',  label:'domingo 9 de agosto' },
+    { id:'2026-08-10', dow:'Lun', num:'10', tipo:'lj', label:'lunes 10 de agosto' }
+  ];
+
+  var MANANA = ['08:30','09:15','10:00','10:45','11:30','12:15'];
+  var BLOQUES = {
+    lj:{ am:MANANA, pm:['14:00','14:45','15:30','16:15','17:00'], amLbl:'Mañana · 08:30 a 13:00', pmLbl:'Tarde · 14:00 a 17:30' },
+    v: { am:MANANA, pm:['15:30','16:15','17:00','17:45','18:30'], amLbl:'Mañana · 08:30 a 13:00', pmLbl:'Tarde · 15:30 a 19:00' }
+  };
+
+  var OCUPADOS = {
+    '2026-08-04':['09:15','11:30','14:45','16:15'],
+    '2026-08-05':['08:30','10:00','15:30','17:00'],
+    '2026-08-06':['10:45','12:15','14:00','17:00'],
+    '2026-08-07':['09:15','11:30','16:15','18:30'],
+    '2026-08-10':['08:30','10:45','15:30','16:15']
+  };
+
+  var CLP = new Intl.NumberFormat('es-CL',{ style:'currency', currency:'CLP', maximumFractionDigits:0 });
+  function money(n){ return CLP.format(n).replace(/\s/g,'').replace('CLP','$'); }
+
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---------- ESTADO ---------- */
+  var estado = { trat:null, dia:null, hora:null, nombre:'', fono:'', mail:'', nota:'' };
+
+  /* ---------- PASO 1: TRATAMIENTOS ---------- */
+  var wrapTrat = $('#optTratamientos');
+  TRATAMIENTOS.forEach(function(t){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt';
+    b.setAttribute('aria-pressed','false');
+    b.dataset.id = t.id;
+    b.innerHTML = '<span class="opt__tick"></span><span class="opt__txt"><b>' + t.nombre +
+                  '</b><small>' + t.dur + ' · desde ' + money(t.desde) + '</small></span>';
+    b.addEventListener('click', function(){
+      estado.trat = t;
+      estado.hora = null;
+      $$('.opt', wrapTrat).forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      renderHoras();
+      sincronizar();
+      if(!estado.dia){ scrollSuave($('#step2')); }
+    });
+    wrapTrat.appendChild(b);
+  });
+
+  /* ---------- PASO 2: DIAS ---------- */
+  var wrapDias = $('#optDias');
+  DIAS.forEach(function(d){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'day';
+    b.dataset.id = d.id;
+    var cerrado = d.tipo === 'x';
+    if(cerrado){ b.disabled = true; }
+    b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label', d.label + (cerrado ? ' — cerrado' : ''));
+    b.innerHTML = '<small>' + d.dow + '</small><b>' + d.num + '</b><em>' + (cerrado ? 'Cerrado' : 'Ago') + '</em>';
+    b.addEventListener('click', function(){
+      estado.dia = d;
+      estado.hora = null;
+      $$('.day', wrapDias).forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      renderHoras();
+      sincronizar();
+      scrollSuave($('#step3'));
+    });
+    wrapDias.appendChild(b);
+  });
+
+  /* ---------- PASO 3: HORAS ---------- */
+  var wrapHoras = $('#optHoras');
+
+  function crearSlot(h, ocupado){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'slot';
+    b.textContent = h;
+    b.setAttribute('aria-pressed','false');
+    if(ocupado){
+      b.disabled = true;
+      b.title = 'Bloque ocupado';
+      b.setAttribute('aria-label', h + ' — ocupado');
+    }else{
+      b.addEventListener('click', function(){
+        estado.hora = h;
+        $$('.slot', wrapHoras).forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+        sincronizar();
+        scrollSuave($('#step4'));
+      });
+    }
+    return b;
+  }
+
+  function bloqueHTML(titulo, horas, ocupadas){
+    var cont = document.createElement('div');
+    cont.className = 'slots-block';
+    var lbl = document.createElement('div');
+    lbl.className = 'slots-lbl';
+    lbl.appendChild(document.createTextNode(titulo));
+    cont.appendChild(lbl);
+    var grid = document.createElement('div');
+    grid.className = 'slots';
+    horas.forEach(function(h){ grid.appendChild(crearSlot(h, ocupadas.indexOf(h) !== -1)); });
+    cont.appendChild(grid);
+    return cont;
+  }
+
+  function renderHoras(){
+    wrapHoras.innerHTML = '';
+    if(!estado.dia || !estado.trat){
+      wrapHoras.innerHTML = '<p class="slots-empty">Elija primero un tratamiento y un día.</p>';
+      return;
+    }
+    var cfg = BLOQUES[estado.dia.tipo];
+    if(!cfg){
+      wrapHoras.innerHTML = '<p class="slots-empty">El centro no atiende ese día.</p>';
+      return;
+    }
+    var ocupadas = OCUPADOS[estado.dia.id] || [];
+
+    if(estado.trat.id === 'implante'){
+      var inicio = cfg.am.slice(0,2);
+      wrapHoras.appendChild(bloqueHTML('Bloques de inicio · jornada completa', inicio, ocupadas));
+      var nota = document.createElement('p');
+      nota.className = 'slots-empty';
+      nota.style.marginTop = '16px';
+      nota.textContent = 'El implante capilar ocupa el pabellón la jornada completa, por eso solo se ofrecen bloques de inicio en la mañana.';
+      wrapHoras.appendChild(nota);
+      return;
+    }
+
+    wrapHoras.appendChild(bloqueHTML(cfg.amLbl, cfg.am, ocupadas));
+    wrapHoras.appendChild(bloqueHTML(cfg.pmLbl, cfg.pm, ocupadas));
+
+    var libres = cfg.am.concat(cfg.pm).filter(function(h){ return ocupadas.indexOf(h) === -1; }).length;
+    var info = document.createElement('p');
+    info.className = 'slots-empty';
+    info.style.marginTop = '16px';
+    info.textContent = libres + ' bloques disponibles el ' + estado.dia.label + '. Los tachados ya están tomados.';
+    wrapHoras.appendChild(info);
+  }
+  renderHoras();
+
+  /* ---------- SCROLL SUAVE ENTRE PASOS ---------- */
+  function scrollSuave(el){
+    if(!el) return;
+    var r = el.getBoundingClientRect();
+    if(r.top > 90 && r.bottom < window.innerHeight) return;
+    var y = window.pageYOffset + r.top - 110;
+    try{ window.scrollTo({ top:y, behavior:'smooth' }); }catch(e){ window.scrollTo(0,y); }
+  }
+
+  /* ---------- PASO 4: CAMPOS ---------- */
+  var inNombre = $('#inNombre'), inFono = $('#inFono'), inMail = $('#inMail'), inNota = $('#inNota');
+
+  function limpiaFono(v){ return (v||'').replace(/[^0-9]/g,''); }
+  function okNombre(){ return inNombre.value.trim().length >= 3 && /[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3}/.test(inNombre.value); }
+  function okFono(){ return limpiaFono(inFono.value).length >= 8; }
+  function okMail(){ var v = inMail.value.trim(); return v === '' || /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v); }
+
+  function marcar(campo, valido){
+    var f = $(campo);
+    if(valido){ f.classList.remove('has-error'); }
+    else { f.classList.add('has-error'); }
+    return valido;
+  }
+
+  [inNombre, inFono, inMail, inNota].forEach(function(el){
+    el.addEventListener('input', function(){
+      estado.nombre = inNombre.value.trim();
+      estado.fono   = inFono.value.trim();
+      estado.mail   = inMail.value.trim();
+      estado.nota   = inNota.value.trim();
+      sincronizar();
+    });
+    el.addEventListener('blur', function(){
+      if(el === inNombre && inNombre.value !== '') marcar('#fNombre', okNombre());
+      if(el === inFono   && inFono.value   !== '') marcar('#fFono',   okFono());
+      if(el === inMail   && inMail.value   !== '') marcar('#fMail',   okMail());
+    });
+  });
+
+  /* ---------- SINCRONIZAR PASOS + RESUMEN ---------- */
+  var pasos = [$('#step1'), $('#step2'), $('#step3'), $('#step4')];
+  var btnConfirmar = $('#btnConfirmar');
+
+  function fila(sel, texto, activo){
+    var row = $(sel);
+    row.classList.toggle('is-set', !!activo);
+    $('b', row).textContent = texto;
+  }
+
+  function sincronizar(){
+    var hechos = [!!estado.trat, !!estado.dia, !!estado.hora, okNombre() && okFono()];
+
+    pasos.forEach(function(p, i){
+      var desbloqueado = i === 0 || hechos[i-1];
+      p.classList.toggle('is-locked', !desbloqueado);
+      p.classList.toggle('is-done', hechos[i]);
+      p.classList.toggle('is-active', desbloqueado && !hechos[i]);
+    });
+
+    fila('#sumTrat',  estado.trat ? estado.trat.nombre : 'Sin seleccionar', estado.trat);
+    fila('#sumDia',   estado.dia  ? (estado.dia.label.charAt(0).toUpperCase() + estado.dia.label.slice(1) + ', 2026') : 'Sin seleccionar', estado.dia);
+    fila('#sumHora',  estado.hora ? (estado.hora + ' hrs · ' + (estado.trat ? estado.trat.dur : '')) : 'Sin seleccionar', estado.hora);
+
+    var pac = okNombre() ? estado.nombre + (okFono() ? ' · ' + estado.fono : '') : 'Sin completar';
+    fila('#sumPaciente', pac, okNombre() && okFono());
+
+    $('#sumPrecio').textContent = estado.trat ? money(estado.trat.desde) : '—';
+
+    var listos = hechos.filter(Boolean).length;
+    $('#progBar').style.width = (listos / 4 * 100) + '%';
+
+    var puedeConfirmar = !!(estado.trat && estado.dia && estado.hora);
+    btnConfirmar.disabled = !puedeConfirmar;
+    btnConfirmar.textContent = puedeConfirmar ? 'Confirmar hora' : 'Complete los pasos anteriores';
+  }
+
+  /* ---------- MODAL ---------- */
+  var modal = $('#modal'), modalList = $('#modalList'), ultimoFoco = null;
+
+  function abrirModal(){
+    var items = [
+      ['Tratamiento', estado.trat.nombre],
+      ['Fecha',       estado.dia.label.charAt(0).toUpperCase() + estado.dia.label.slice(1) + ' de 2026'],
+      ['Hora',        estado.hora + ' hrs'],
+      ['Duración',    estado.trat.dur],
+      ['Paciente',    estado.nombre],
+      ['Contacto',    estado.fono + (estado.mail ? ' · ' + estado.mail : '')],
+      ['Lugar',       'Magallanes #1755, Arica'],
+      ['Valor desde', money(estado.trat.desde)]
+    ];
+    modalList.innerHTML = items.map(function(it){
+      return '<div><span>' + it[0] + '</span><b>' + String(it[1]).replace(/</g,'&lt;') + '</b></div>';
+    }).join('');
+    $('#modalLede').textContent = 'Reserva registrada a nombre de ' + estado.nombre.split(' ')[0] + '. Le enviaremos la confirmación al ' + estado.fono + '.';
+
+    ultimoFoco = document.activeElement;
+    modal.hidden = false;
+    requestAnimationFrame(function(){ modal.classList.add('is-open'); });
+    $('#modalCerrar').focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    window.setTimeout(function(){ modal.hidden = true; }, 300);
+    if(ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+  }
+
+  btnConfirmar.addEventListener('click', function(){
+    var vN = marcar('#fNombre', okNombre());
+    var vF = marcar('#fFono',   okFono());
+    var vM = marcar('#fMail',   okMail());
+    if(!vN){ scrollSuave($('#step4')); inNombre.focus(); return; }
+    if(!vF){ scrollSuave($('#step4')); inFono.focus();   return; }
+    if(!vM){ scrollSuave($('#step4')); inMail.focus();   return; }
+    if(!estado.trat || !estado.dia || !estado.hora) return;
+    abrirModal();
+  });
+
+  $('#modalCerrar').addEventListener('click', cerrarModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) cerrarModal(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) cerrarModal();
+  });
+  $('#modalNueva').addEventListener('click', function(){
+    cerrarModal();
+    estado.dia = null; estado.hora = null;
+    $$('.day', wrapDias).forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+    renderHoras();
+    sincronizar();
+    window.setTimeout(function(){ scrollSuave($('#step2')); }, 320);
+  });
+
+  sincronizar();
+
+  /* ---------- COTIZADOR ---------- */
+  var qTrat = $('#qTrat'), qSesOut = $('#qSes'), qSes = 1;
+
+  TRATAMIENTOS.forEach(function(t){
+    var o = document.createElement('option');
+    o.value = t.id;
+    o.textContent = t.nombre + ' — desde ' + money(t.desde);
+    qTrat.appendChild(o);
+  });
+  qTrat.value = 'botox';
+
+  function tratPorId(id){
+    for(var i=0;i<TRATAMIENTOS.length;i++){ if(TRATAMIENTOS[i].id === id) return TRATAMIENTOS[i]; }
+    return TRATAMIENTOS[0];
+  }
+
+  function calcular(){
+    var t = tratPorId(qTrat.value);
+    var bruto = t.desde * qSes;
+    var pct = qSes >= 5 ? 15 : (qSes >= 3 ? 10 : 0);
+    var desc = Math.round(bruto * pct / 100);
+    var total = bruto - desc;
+
+    qSesOut.textContent = qSes + (qSes === 1 ? ' sesión' : ' sesiones');
+    $('#qBase').textContent = money(t.desde);
+    $('#qCant').textContent = String(qSes);
+    $('#qTotal').textContent = money(total);
+
+    var linea = $('#qLineDesc');
+    if(pct > 0){
+      linea.hidden = false;
+      $('#qDesc').textContent = '−' + money(desc);
+      $('#qBadgeWrap').innerHTML = '<span class="q-disc"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.8l4.4 4.4L19 7.6"/></svg>Programa de ' + qSes + ' sesiones · ' + pct + '% de beneficio</span>';
+    }else{
+      linea.hidden = true;
+      $('#qBadgeWrap').innerHTML = '';
+    }
+
+    $('#qMinus').disabled = qSes <= 1;
+    $('#qPlus').disabled  = qSes >= 8;
+  }
+
+  $('#qMinus').addEventListener('click', function(){ if(qSes > 1){ qSes--; calcular(); } });
+  $('#qPlus').addEventListener('click',  function(){ if(qSes < 8){ qSes++; calcular(); } });
+  qTrat.addEventListener('change', calcular);
+  calcular();
+
+  /* ---------- ANTES / DESPUES ---------- */
+  $$('.ba__range').forEach(function(r){
+    var stage = r.closest('.ba__stage');
+    function pintar(){ stage.style.setProperty('--pos', r.value + '%'); }
+    r.addEventListener('input', pintar);
+    r.addEventListener('change', pintar);
+    pintar();
+  });
+
+  /* ---------- FAQ ---------- */
+  $$('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var abierto = q.getAttribute('aria-expanded') === 'true';
+      $$('.faq-q').forEach(function(o){
+        o.setAttribute('aria-expanded','false');
+        var p = document.getElementById(o.getAttribute('aria-controls'));
+        if(p) p.style.maxHeight = '0px';
+      });
+      if(!abierto){
+        q.setAttribute('aria-expanded','true');
+        var panel = document.getElementById(q.getAttribute('aria-controls'));
+        if(panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- SCROLL REVEAL ---------- */
+  var reveals = $$('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  }else{
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- NAV ---------- */
+  var nav = $('#nav'), burger = $('#burger'), panel = $('#navPanel');
+  function onScroll(){ nav.classList.toggle('is-scrolled', window.pageYOffset > 24); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  burger.addEventListener('click', function(){
+    var abierto = panel.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  $$('a', panel).forEach(function(a){
+    a.addEventListener('click', function(){
+      panel.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- IDIOMA ES / PT (demostrativo) ---------- */
+  var traducibles = $$('[data-pt]');
+  traducibles.forEach(function(el){ el.dataset.es = el.innerHTML; });
+
+  $$('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var lang = b.dataset.lang;
+      $$('.lang button').forEach(function(o){ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      document.documentElement.lang = (lang === 'pt') ? 'pt-BR' : 'es-CL';
+      traducibles.forEach(function(el){
+        el.innerHTML = (lang === 'pt') ? el.dataset.pt : el.dataset.es;
+      });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arica Eventos Productora · Producción de eventos corporativos</title>
+<style>
+:root{
+  --bg:#07070c;
+  --bg2:#0d0e18;
+  --panel:#12131f;
+  --ink:#f4f5fb;
+  --mut:#9aa0b8;
+  --line:rgba(255,255,255,.08);
+  --amber:#ffb020;
+  --magenta:#ff2d78;
+  --cyan:#22d3ee;
+  --violet:#7c5cff;
+  --grad:linear-gradient(120deg,#7c5cff 0%,#ff2d78 55%,#ffb020 100%);
+  --grad2:linear-gradient(120deg,#22d3ee,#7c5cff);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:800}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--amber);display:inline-flex;align-items:center;gap:9px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);display:inline-block}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;
+  padding:15px 26px;border-radius:60px;font-weight:700;font-size:15px;font-family:inherit;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+.btn-p{background:var(--grad);color:#0b0710;box-shadow:0 10px 34px rgba(255,45,120,.34)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(255,45,120,.5)}
+.btn-g{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
+.btn-g:hover{background:rgba(255,255,255,.11)}
+
+/* NAV */
+header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
+  background:rgba(7,7,12,.72);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.01em}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--grad);
+  display:grid;place-items:center;font-size:17px;box-shadow:0 6px 20px rgba(124,92,255,.5)}
+.logo small{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;
+  color:var(--mut);text-transform:uppercase}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:600;color:var(--mut)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none}
+@media(max-width:860px){.nav-links{display:none}.nav-cta .btn-g{display:none}}
+
+/* HERO */
+.hero{position:relative;padding:96px 0 82px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(60% 55% at 78% 8%,rgba(124,92,255,.34),transparent 60%),
+    radial-gradient(55% 50% at 12% 92%,rgba(255,45,120,.26),transparent 60%),
+    radial-gradient(45% 45% at 95% 95%,rgba(255,176,32,.18),transparent 60%);
+}
+.beams{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(38px,6.4vw,68px);margin:18px 0 20px}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--mut);max-width:520px;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.trust{display:flex;gap:26px;flex-wrap:wrap}
+.trust div b{font-size:26px;display:block;background:var(--grad2);-webkit-background-clip:text;
+  background-clip:text;color:transparent;font-weight:800}
+.trust div span{font-size:12.5px;color:var(--mut)}
+
+/* hero stage visual */
+.stage{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(180deg,#141525,#0a0b14);aspect-ratio:4/3.4;
+  box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.stage-sky{position:absolute;inset:0;background:
+  radial-gradient(40% 60% at 50% 120%,rgba(124,92,255,.5),transparent 70%)}
+.led{position:absolute;top:16px;left:16px;right:16px;height:38%;border-radius:12px;
+  background:repeating-linear-gradient(90deg,#1a1c30 0 7px,#101223 7px 14px);
+  border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.led::after{content:"ARICA EVENTOS · LIVE";position:absolute;inset:0;display:grid;place-items:center;
+  font-weight:800;letter-spacing:.3em;font-size:13px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spot{position:absolute;bottom:0;width:0;height:0;border-left:70px solid transparent;
+  border-right:70px solid transparent;border-bottom:230px solid rgba(255,255,255,.05);
+  filter:blur(2px);transform-origin:bottom center}
+.spot.a{left:14%;border-bottom-color:rgba(124,92,255,.18);animation:sway 5s ease-in-out infinite}
+.spot.b{left:44%;border-bottom-color:rgba(255,45,120,.16);animation:sway 6.5s ease-in-out infinite reverse}
+.spot.c{left:74%;border-bottom-color:rgba(255,176,32,.16);animation:sway 5.8s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+.crowd{position:absolute;bottom:0;left:0;right:0;height:26%;
+  background:linear-gradient(180deg,transparent,#05060c);}
+.crowd::before{content:"";position:absolute;bottom:0;left:0;right:0;height:60%;
+  background:repeating-linear-gradient(90deg,#0a0b14 0 5px,#12131f 5px 11px);
+  -webkit-mask:linear-gradient(180deg,transparent,#000);mask:linear-gradient(180deg,transparent,#000)}
+.stage-badge{position:absolute;bottom:16px;left:16px;z-index:3;background:rgba(7,7,12,.75);
+  border:1px solid var(--line);backdrop-filter:blur(8px);border-radius:12px;padding:10px 14px;
+  display:flex;align-items:center;gap:9px;font-size:12.5px}
+.dot{width:8px;height:8px;border-radius:50%;background:#39d98a;box-shadow:0 0 10px #39d98a;
+  animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* SECTION SHELL */
+section{position:relative;z-index:2}
+.sec{padding:82px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(28px,4vw,42px);margin:14px 0 12px}
+.sec-head p{color:var(--mut);font-size:16.5px}
+
+/* SERVICIOS */
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;
+  transition:transform .2s ease,border-color .2s ease,background .2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-5px);border-color:rgba(124,92,255,.5);background:#161728}
+.card .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
+  background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.3)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--mut);font-size:14.5px}
+.card .tag{margin-top:14px;font-size:12px;color:var(--amber);font-weight:700;letter-spacing:.04em}
+
+/* PORTAFOLIO */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.port{border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;
+  aspect-ratio:4/3.1;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;cursor:pointer;transition:transform .22s ease}
+.port:hover{transform:translateY(-5px)}
+.port::before{content:"";position:absolute;inset:0;z-index:0;opacity:.92;transition:transform .4s}
+.port:hover::before{transform:scale(1.06)}
+.port::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,transparent 30%,rgba(4,4,10,.9))}
+.port.p1::before{background:
+  radial-gradient(circle at 30% 20%,#7c5cff,transparent 55%),
+  radial-gradient(circle at 80% 80%,#ff2d78,transparent 55%),#14061f}
+.port.p2::before{background:
+  radial-gradient(circle at 70% 25%,#22d3ee,transparent 55%),
+  radial-gradient(circle at 20% 85%,#7c5cff,transparent 55%),#04121a}
+.port.p3::before{background:
+  radial-gradient(circle at 25% 75%,#ffb020,transparent 55%),
+  radial-gradient(circle at 85% 20%,#ff2d78,transparent 55%),#1a0d05}
+.port.p4::before{background:
+  radial-gradient(circle at 50% 20%,#39d98a,transparent 55%),
+  radial-gradient(circle at 20% 90%,#22d3ee,transparent 55%),#04160f}
+.port.p5::before{background:
+  radial-gradient(circle at 80% 30%,#7c5cff,transparent 55%),
+  radial-gradient(circle at 30% 80%,#ffb020,transparent 55%),#0d0a1a}
+.port.p6::before{background:
+  radial-gradient(circle at 30% 30%,#ff2d78,transparent 55%),
+  radial-gradient(circle at 80% 85%,#22d3ee,transparent 55%),#150618}
+.port span,.port h3,.port small{position:relative;z-index:2}
+.port small{color:var(--amber);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.port h3{font-size:18px;margin:6px 0 3px}
+.port p{position:relative;z-index:2;color:var(--mut);font-size:13px}
+
+/* COTIZADOR (star of the show) */
+.quote-sec{background:
+  linear-gradient(180deg,var(--bg),var(--bg2));border-top:1px solid var(--line)}
+.quote-box{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);background:var(--panel);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.quote-left{padding:40px;background:
+  linear-gradient(160deg,rgba(124,92,255,.14),rgba(255,45,120,.06)),#0c0d18;position:relative}
+.quote-left h3{font-size:26px;margin:12px 0 10px}
+.quote-left p{color:var(--mut);font-size:15px;margin-bottom:26px}
+.qsteps{display:flex;flex-direction:column;gap:14px}
+.qstep{display:flex;gap:13px;align-items:flex-start;opacity:.5;transition:opacity .3s}
+.qstep.on{opacity:1}
+.qstep .n{width:30px;height:30px;flex:0 0 30px;border-radius:50%;display:grid;place-items:center;
+  font-weight:800;font-size:13px;border:1px solid var(--line);background:#141525}
+.qstep.on .n{background:var(--grad);color:#0b0710;border:0}
+.qstep b{font-size:15px}
+.qstep small{color:var(--mut);font-size:13px;display:block}
+
+.quote-right{padding:40px;background:#0a0b14}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--line);
+  background:#12131f;color:var(--ink);font-size:15px;font-family:inherit;transition:border-color .2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--violet)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{padding:10px 15px;border-radius:60px;border:1px solid var(--line);background:#12131f;
+  cursor:pointer;font-size:13.5px;font-weight:600;color:var(--mut);transition:all .18s;user-select:none}
+.chip.sel{background:var(--grad);color:#0b0710;border:0}
+.range-row{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin-bottom:6px}
+input[type=range]{width:100%;accent-color:var(--magenta)}
+.qhide{display:none}
+.estimate{background:linear-gradient(160deg,rgba(124,92,255,.16),rgba(255,176,32,.08));
+  border:1px solid rgba(124,92,255,.4);border-radius:16px;padding:22px;text-align:center;margin-bottom:18px}
+.estimate small{color:var(--mut);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.estimate .amt{font-size:34px;font-weight:800;margin:6px 0 2px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.estimate .note{color:var(--mut);font-size:12.5px}
+.qok{text-align:center;padding:12px 0}
+.qok .check{width:66px;height:66px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
+  background:rgba(57,217,138,.15);border:1px solid rgba(57,217,138,.5);font-size:30px}
+.qbtns{display:flex;gap:10px;margin-top:6px}
+.qbtns .btn{flex:1;justify-content:center;padding:13px}
+
+/* CASOS / stats band */
+.band{background:var(--grad);color:#0b0710}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:40px 22px}
+.band b{font-size:34px;font-weight:800;display:block}
+.band span{font-weight:600;font-size:13.5px;opacity:.85}
+
+/* TESTIMONIOS */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tst{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+.tst p{font-size:15px;margin-bottom:18px}
+.tst .who{display:flex;align-items:center;gap:12px}
+.tst .av{width:42px;height:42px;border-radius:50%;background:var(--grad2);display:grid;place-items:center;
+  font-weight:800;color:#04121a}
+.tst .who b{font-size:14px;display:block}
+.tst .who span{font-size:12.5px;color:var(--mut)}
+.stars{color:var(--amber);font-size:14px;margin-bottom:12px;letter-spacing:2px}
+
+/* CTA FINAL */
+.final{text-align:center;padding:96px 0;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(50% 80% at 50% 0%,rgba(124,92,255,.28),transparent 60%)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(30px,5vw,50px);margin-bottom:16px}
+.final p{color:var(--mut);font-size:17px;max-width:520px;margin:0 auto 30px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);background:#05060c;padding:52px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:38px}
+.foot-grid h4{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--mut);margin-bottom:14px}
+.foot-grid a{display:block;color:var(--mut);font-size:14px;margin-bottom:9px}
+.foot-grid a:hover{color:var(--ink)}
+.foot-p{color:var(--mut);font-size:14px;margin:12px 0 16px;max-width:280px}
+.socials{display:flex;gap:10px}
+.socials a{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);display:grid;
+  place-items:center;background:#0d0e18}
+.socials a:hover{border-color:var(--violet);background:#161728}
+.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:13px;color:var(--mut)}
+
+.sample-note{margin-top:14px;font-size:11.5px;color:#6b7089;text-align:center;line-height:1.6}
+.sample-note b{color:#9aa0b8}
+
+@media(max-width:860px){
+  .hero-grid,.quote-box,.foot-grid{grid-template-columns:1fr}
+  .serv-grid,.port-grid,.tst-grid{grid-template-columns:1fr}
+  .band .wrap{grid-template-columns:1fr 1fr}
+  .hero{padding:56px 0}
+  .sec{padding:60px 0}
+  .stage{order:-1}
+  .quote-left{padding:30px}.quote-right{padding:30px}
+  .foot-bottom{flex-direction:column}
+}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="wrap"><nav>
+    <a class="logo" href="#top">
+      <span class="mark">◆</span>
+      <span>Arica Eventos<small>Productora · desde 2009</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#cotizar">Cotizar</a>
+      <a href="#casos">Nosotros</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-g" href="#portafolio">Ver producciones</a>
+      <a class="btn btn-p" href="#cotizar">Cotizar evento ↗</a>
+    </div>
+  </nav></div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="beams">
+    <div class="spot a"></div><div class="spot b"></div><div class="spot c"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal in">
+        <span class="eyebrow">Producción integral de eventos · Arica</span>
+        <h1>Producciones que se <span class="g">ven y se escuchan</span> a la altura de tu marca.</h1>
+        <p class="lead">Iluminación, sonido profesional, pantallas LED, escenarios y streaming para lanzamientos, congresos y eventos corporativos. +15 años montando en Arica y todo el norte de Chile.</p>
+        <div class="hero-cta">
+          <a class="btn btn-p" href="#cotizar">Cotiza tu evento en 1 minuto ↗</a>
+          <a class="btn btn-g" href="#portafolio">▶ Ver portafolio</a>
+        </div>
+        <div class="trust">
+          <div><b>+15</b><span>años produciendo</span></div>
+          <div><b>+480</b><span>eventos montados</span></div>
+          <div><b>24/7</b><span>montaje y soporte</span></div>
+        </div>
+      </div>
+      <div class="reveal in">
+        <div class="stage">
+          <div class="stage-sky"></div>
+          <div class="led"></div>
+          <div class="spot a" style="opacity:.6"></div>
+          <div class="spot b" style="opacity:.6"></div>
+          <div class="spot c" style="opacity:.6"></div>
+          <div class="crowd"></div>
+          <div class="stage-badge"><span class="dot"></span> Montaje en vivo · Aula Magna UTA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS / confianza -->
+<div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:26px 40px;align-items:center;justify-content:space-between;padding:22px">
+    <span style="font-size:12.5px;color:var(--mut);font-weight:600;letter-spacing:.06em">Han confiado en nosotros:</span>
+    <span style="font-weight:800;color:#5c627d;letter-spacing:.02em">Zofri</span>
+    <span style="font-weight:800;color:#5c627d">Ilustre Municipalidad de Arica</span>
+    <span style="font-weight:800;color:#5c627d">UTA</span>
+    <span style="font-weight:800;color:#5c627d">CasaLuz</span>
+    <span style="font-weight:800;color:#5c627d">Cámara de Comercio</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Lo que producimos</span>
+      <h2>Todo el evento, de una sola productora.</h2>
+      <p>Coordinamos técnica, escenario y transmisión con un solo equipo. Menos proveedores, cero improvisación el día del evento.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="card reveal">
+        <div class="ic">💡</div>
+        <h3>Iluminación profesional</h3>
+        <p>Cabezas móviles, wash, blinders y diseño de luces sincronizado. Ambientes que cambian con cada momento del evento.</p>
+        <div class="tag">Diseño + operador en vivo</div>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🔊</div>
+        <h3>Sonido e audio en vivo</h3>
+        <p>Line array, monitoreo, microfonía inalámbrica y mesa digital operada por técnico. Se escucha nítido en toda la sala.</p>
+        <div class="tag">Line array + ingeniero de sonido</div>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🖥️</div>
+        <h3>Pantallas LED</h3>
+        <p>Muros LED de alta resolución para fondos de escenario, marca patrocinadora y contenido en tiempo real.</p>
+        <div class="tag">Indoor P2.6 / Outdoor P3.9</div>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🎪</div>
+        <h3>Escenarios y estructuras</h3>
+        <p>Tarimas, truss, backline y carpas. Montaje certificado y desmontaje el mismo día sin dejar rastro.</p>
+        <div class="tag">Montaje certificado</div>
+      </div>
+      <div class="card reveal">
+        <div class="ic">📡</div>
+        <h3>Streaming y transmisión</h3>
+        <p>Multicámara, switch en vivo y transmisión a YouTube, Zoom o Teams. Tu evento llega también a quien no viajó a Arica.</p>
+        <div class="tag">Multicámara HD + realización</div>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🎬</div>
+        <h3>Producción integral</h3>
+        <p>Un productor a cargo de todo: guion técnico, cronograma, permisos y coordinación con tu equipo. Tú presentas, nosotros operamos.</p>
+        <div class="tag">Productor dedicado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAFOLIO -->
+<section class="sec" id="portafolio" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Portafolio</span>
+      <h2>Producciones recientes en Arica y el norte.</h2>
+      <p>Una muestra de montajes corporativos, institucionales y de marca. Actualizamos el portafolio cada mes.</p>
+    </div>
+    <div class="port-grid">
+      <div class="port p1 reveal"><small>Lanzamiento de marca</small><h3>Expo Minera Arica 2025</h3><p>LED 8×3 m · sonido line array · 600 asistentes</p></div>
+      <div class="port p2 reveal"><small>Congreso</small><h3>Congreso Regional de Salud</h3><p>Streaming multicámara · Aula Magna UTA</p></div>
+      <div class="port p3 reveal"><small>Gala corporativa</small><h3>Cena de Gala Zofri</h3><p>Iluminación arquitectónica · escenario 12 m</p></div>
+      <div class="port p4 reveal"><small>Institucional</small><h3>Aniversario Municipal</h3><p>Escenario outdoor · LED P3.9 · Plaza Colón</p></div>
+      <div class="port p5 reveal"><small>Seminario</small><h3>Summit Comercio Fronterizo</h3><p>Sonido + traducción simultánea · 320 pax</p></div>
+      <div class="port p6 reveal"><small>Activación</small><h3>Feria de Innovación PYME</h3><p>Stands técnicos · pantallas · transmisión</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COTIZADOR (LA CARNADA) -->
+<section class="sec quote-sec" id="cotizar">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:720px">
+      <span class="eyebrow">Cotizador de evento · en línea</span>
+      <h2>Arma tu evento y recibe un estimado al instante.</h2>
+      <p>Sin llamadas ni esperas. Selecciona lo que necesitas, deja tus datos y un productor te contacta con la propuesta formal en menos de 24 horas.</p>
+    </div>
+
+    <div class="quote-box reveal">
+      <!-- IZQ: pasos -->
+      <div class="quote-left">
+        <span class="eyebrow" style="color:var(--cyan)">Tu cotización</span>
+        <h3>3 pasos, 60 segundos.</h3>
+        <p>Este cotizador es la diferencia entre perder un lead y agendarlo. Todo queda registrado y llega directo al equipo comercial.</p>
+        <div class="qsteps">
+          <div class="qstep on" id="qs1"><div class="n">1</div><div><b>Tipo de evento</b><small>Congreso, gala, lanzamiento…</small></div></div>
+          <div class="qstep" id="qs2"><div class="n">2</div><div><b>Servicios y tamaño</b><small>Qué necesitas y para cuántas personas</small></div></div>
+          <div class="qstep" id="qs3"><div class="n">3</div><div><b>Tus datos</b><small>Recibe el estimado y te contactamos</small></div></div>
+        </div>
+      </div>
+
+      <!-- DER: formulario -->
+      <div class="quote-right">
+        <!-- PASO 1 -->
+        <div id="step1">
+          <div class="field">
+            <label>Tipo de evento</label>
+            <div class="chips" id="tipo">
+              <span class="chip" data-add="0">Congreso / Seminario</span>
+              <span class="chip" data-add="600000">Gala corporativa</span>
+              <span class="chip" data-add="400000">Lanzamiento de marca</span>
+              <span class="chip" data-add="0">Evento institucional</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Fecha estimada</label>
+            <input type="date" id="fecha">
+          </div>
+          <button class="btn btn-p" style="width:100%;justify-content:center" onclick="go(2)">Continuar →</button>
+        </div>
+
+        <!-- PASO 2 -->
+        <div id="step2" class="qhide">
+          <div class="field">
+            <label>Servicios que necesitas</label>
+            <div class="chips" id="serv">
+              <span class="chip" data-add="850000">Iluminación</span>
+              <span class="chip" data-add="950000">Sonido</span>
+              <span class="chip" data-add="1200000">Pantalla LED</span>
+              <span class="chip" data-add="700000">Escenario</span>
+              <span class="chip" data-add="650000">Streaming</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Asistentes: <b id="paxLbl" style="color:var(--ink)">300</b> personas</label>
+            <div class="range-row"><span>50</span><span>1500+</span></div>
+            <input type="range" id="pax" min="50" max="1500" step="50" value="300" oninput="calc()">
+          </div>
+          <div class="qbtns">
+            <button class="btn btn-g" onclick="go(1)">← Atrás</button>
+            <button class="btn btn-p" onclick="go(3)">Ver estimado →</button>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div id="step3" class="qhide">
+          <div class="estimate">
+            <small>Estimado referencial</small>
+            <div class="amt" id="amt">$0 CLP</div>
+            <div class="note">Rango de inversión para tu evento · valor neto de muestra</div>
+          </div>
+          <div class="field"><label>Nombre y empresa</label><input id="nom" placeholder="Ej: Camila Rojas · Zofri"></div>
+          <div class="field"><label>WhatsApp o teléfono</label><input id="fon" placeholder="+56 9 ...."></div>
+          <div class="qbtns">
+            <button class="btn btn-g" onclick="go(2)">← Atrás</button>
+            <button class="btn btn-p" onclick="send()">Enviar y agendar ↗</button>
+          </div>
+        </div>
+
+        <!-- OK -->
+        <div id="stepOk" class="qhide">
+          <div class="qok">
+            <div class="check">✓</div>
+            <h3 style="margin-bottom:8px">¡Cotización recibida!</h3>
+            <p style="color:var(--mut);font-size:14.5px">Un productor de Arica Eventos te contacta antes de 24 h con la propuesta formal. Tu estimado: <b id="amtOk" style="color:var(--amber)"></b>.</p>
+            <button class="btn btn-g" style="margin-top:18px" onclick="go(1)">Cotizar otro evento</button>
+          </div>
+        </div>
+        <p class="sample-note" style="margin-top:16px"><b>Demostración:</b> en la web real este cotizador envía el lead al correo/WhatsApp de tu equipo y queda registrado en tu panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND STATS -->
+<div class="band" id="casos">
+  <div class="wrap">
+    <div><b>+15</b><span>años de experiencia</span></div>
+    <div><b>+480</b><span>eventos producidos</span></div>
+    <div><b>98%</b><span>clientes que repiten</span></div>
+    <div><b>24 h</b><span>respuesta a cotizaciones</span></div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Lo que dicen</span>
+      <h2>Marcas que ya montaron con nosotros.</h2>
+      <p style="font-size:12.5px;color:var(--mut);margin-top:10px">Testimonios de ejemplo para mostrar el formato · en su web real se cargan los suyos.</p>
+    </div>
+    <div class="tst-grid">
+      <div class="tst reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Montaron el escenario, LED y sonido de nuestro congreso sin un solo error. El streaming quedó impecable y llegó a las sucursales del sur."</p>
+        <div class="who"><div class="av">MC</div><div><b>Marcela Cortés</b><span>Gerenta de RR.PP · Zofri</span></div></div>
+      </div>
+      <div class="tst reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Cotizamos por la web un viernes y el lunes ya teníamos propuesta y fecha bloqueada. La producción se vio de nivel internacional."</p>
+        <div class="who"><div class="av">JP</div><div><b>Jorge Peñaloza</b><span>Jefe de Eventos · Municipalidad de Arica</span></div></div>
+      </div>
+      <div class="tst reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Un solo interlocutor para luces, sonido y escenario. Nos ahorró coordinar cinco proveedores y todo salió perfecto."</p>
+        <div class="who"><div class="av">VS</div><div><b>Valentina Silva</b><span>Marketing · Cámara de Comercio</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center">Tu próximo evento</span>
+    <h2>Bloquea tu fecha antes de que otro la tome.</h2>
+    <p>Las mejores fechas de fin de año se agotan. Cotiza hoy y asegura tu producción con el equipo con más experiencia del norte.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-p" href="#cotizar">Cotizar mi evento ↗</a>
+      <a class="btn btn-g" href="#portafolio">Ver portafolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><span class="mark">◆</span><span>Arica Eventos<small>Productora · desde 2009</small></span></div>
+        <p class="foot-p">Producción integral de eventos corporativos en Arica y el norte de Chile. Iluminación, sonido, LED, escenarios y streaming.</p>
+        <div class="socials">
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="WhatsApp">💬</a>
+          <a href="#" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <a href="#servicios">Iluminación</a><a href="#servicios">Sonido en vivo</a>
+        <a href="#servicios">Pantallas LED</a><a href="#servicios">Streaming</a>
+      </div>
+      <div>
+        <h4>Productora</h4>
+        <a href="#portafolio">Portafolio</a><a href="#casos">Nosotros</a>
+        <a href="#cotizar">Cotizar evento</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="#">Arica, Chile</a>
+        <a href="tel:+56964948904">+56 9 6494 8904</a>
+        <a href="mailto:contacto@eventosarica.cl">contacto@eventosarica.cl</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arica Eventos Productora · Todos los derechos reservados</span>
+      <span>Arica · Región de Arica y Parinacota</span>
+    </div>
+    <p class="sample-note">Muestra preparada por <b>Giancarlo Martino</b> · mismo sistema detrás de MYRA Social Club · datos de ejemplo.</p>
+  </div>
+</footer>
+
+<script>
+// ---- Cotizador ----
+var BASE=1200000; // producción base neta CLP (muestra)
+function money(n){return "$"+n.toLocaleString("es-CL")+" CLP";}
+
+// chips toggle
+document.querySelectorAll('#tipo .chip').forEach(function(c){
+  c.onclick=function(){
+    document.querySelectorAll('#tipo .chip').forEach(function(x){x.classList.remove('sel')});
+    c.classList.add('sel');calc();
+  };
+});
+document.querySelectorAll('#serv .chip').forEach(function(c){
+  c.onclick=function(){c.classList.toggle('sel');calc();};
+});
+
+function calc(){
+  var total=BASE;
+  var t=document.querySelector('#tipo .chip.sel');
+  if(t)total+=parseInt(t.dataset.add);
+  document.querySelectorAll('#serv .chip.sel').forEach(function(c){total+=parseInt(c.dataset.add);});
+  var pax=parseInt(document.getElementById('pax').value);
+  document.getElementById('paxLbl').textContent=pax;
+  total+=Math.round(pax*1200); // escala por asistente
+  // rango +/- 15%
+  var lo=Math.round(total*0.9/50000)*50000;
+  var hi=Math.round(total*1.15/50000)*50000;
+  window._est=money(lo)+" – "+money(hi);
+  var el=document.getElementById('amt'); if(el)el.textContent=window._est;
+  return total;
+}
+
+function go(step){
+  calc();
+  [1,2,3].forEach(function(i){
+    document.getElementById('step'+i).classList.add('qhide');
+    document.getElementById('qs'+i).classList.remove('on');
+  });
+  document.getElementById('stepOk').classList.add('qhide');
+  if(step<=3){
+    document.getElementById('step'+step).classList.remove('qhide');
+    document.getElementById('qs'+step).classList.add('on');
+  }
+  document.getElementById('cotizar').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function send(){
+  var nom=document.getElementById('nom').value.trim();
+  var fon=document.getElementById('fon').value.trim();
+  if(!nom||!fon){alert('Completa tu nombre y teléfono para enviar la cotización (muestra).');return;}
+  document.getElementById('step3').classList.add('qhide');
+  document.getElementById('stepOk').classList.remove('qhide');
+  document.getElementById('amtOk').textContent=window._est||'';
+}
+
+// preselección para que el estimado no arranque en 0
+document.querySelector('#tipo .chip').classList.add('sel');
+document.querySelectorAll('#serv .chip')[0].classList.add('sel');
+document.querySelectorAll('#serv .chip')[1].classList.add('sel');
+calc();
+
+// ---- Reveal on scroll ----
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

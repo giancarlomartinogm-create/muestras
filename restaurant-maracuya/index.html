@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Maracuyá · Fine dining frente al mar · Arica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1a1f;
+  --deep:#0e2a33;
+  --teal:#12414d;
+  --sea:#1c6b7a;
+  --sand:#f4ede2;
+  --paper:#fbf7f0;
+  --gold:#c9a24a;
+  --gold-soft:#e6c877;
+  --passion:#e8842b;
+  --text:#26312f;
+  --muted:#6d7a78;
+  --line:rgba(11,26,31,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  color:var(--text);
+  background:var(--paper);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:.72rem;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-family:'Jost',sans-serif;font-weight:500;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:16px 30px;border-radius:2px;cursor:pointer;border:none;
+  transition:.35s cubic-bezier(.2,.7,.3,1);
+}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(201,162,74,.7)}
+.btn-ghost{background:transparent;color:var(--sand);border:1px solid rgba(244,237,226,.4)}
+.btn-ghost:hover{background:rgba(244,237,226,.1);border-color:var(--sand)}
+
+/* NAV */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:.4s;padding:18px 0;
+}
+header.scrolled{background:rgba(11,26,31,.92);backdrop-filter:blur(12px);padding:12px 0;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;color:var(--sand)}
+.logo .mark{width:40px;height:40px;flex:0 0 40px}
+.logo b{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.02em;line-height:1}
+.logo small{display:block;font-family:'Jost';font-size:.58rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold-soft);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{color:rgba(244,237,226,.82);font-size:.82rem;letter-spacing:.08em;transition:.25s}
+.nav-links a:hover{color:var(--gold-soft)}
+.nav-cta{padding:11px 22px;font-size:.72rem}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--sand);transition:.3s}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  color:var(--sand);overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 78% 15%, rgba(232,132,43,.30), transparent 55%),
+    radial-gradient(130% 100% at 15% 88%, rgba(18,65,77,.9), transparent 60%),
+    linear-gradient(160deg,#08171c 0%,#0d2933 45%,#12414d 100%);
+}
+.hero .sea{position:absolute;inset:0;z-index:0;opacity:.9}
+.hero-grain{position:absolute;inset:0;z-index:1;opacity:.05;
+  background-image:radial-gradient(rgba(255,255,255,.7) .5px,transparent .5px);background-size:4px 4px}
+.hero .wrap{position:relative;z-index:3;padding-top:120px;padding-bottom:80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.4rem);letter-spacing:-.01em;margin:22px 0 20px}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero p.lead{font-size:1.12rem;max-width:30ch;color:rgba(244,237,226,.85);font-weight:300}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+.hero-meta{display:flex;gap:30px;margin-top:46px;flex-wrap:wrap}
+.hero-meta .m b{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-soft);display:block;line-height:1}
+.hero-meta .m span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,237,226,.6)}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 16px;
+  border:1px solid rgba(230,200,119,.35);border-radius:100px;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#43d17a;box-shadow:0 0 0 0 rgba(67,209,122,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(67,209,122,.55)}70%{box-shadow:0 0 0 9px rgba(67,209,122,0)}100%{box-shadow:0 0 0 0 rgba(67,209,122,0)}}
+
+/* HERO reservation card */
+.res-card{
+  background:rgba(251,247,240,.98);color:var(--text);border-radius:8px;
+  padding:26px 24px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);
+}
+.res-card h3{font-size:1.7rem;color:var(--ink)}
+.res-card .sub{font-size:.82rem;color:var(--muted);margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:6px;font-weight:500}
+.field input,.field select{
+  width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:4px;
+  font-family:'Jost';font-size:.95rem;background:#fff;color:var(--text);transition:.2s;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.15)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.slot{
+  flex:1 1 auto;min-width:64px;text-align:center;padding:10px 6px;border:1px solid var(--line);
+  border-radius:4px;font-size:.85rem;cursor:pointer;transition:.2s;background:#fff;user-select:none;
+}
+.slot:hover{border-color:var(--gold)}
+.slot.active{background:var(--teal);color:var(--sand);border-color:var(--teal)}
+.slot.full{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.res-card .btn{width:100%;justify-content:center;margin-top:6px}
+.res-note{font-size:.68rem;color:var(--muted);text-align:center;margin-top:12px}
+
+/* SECTION base */
+section{position:relative}
+.pad{padding:110px 0}
+.center{text-align:center}
+.section-head{max-width:640px;margin:0 auto 54px}
+.center .section-head{margin-inline:auto}
+.section-head h2{font-size:clamp(2.2rem,4.6vw,3.4rem);color:var(--ink);margin:14px 0}
+.section-head p{color:var(--muted);font-size:1.05rem}
+
+/* STRIP problem→solution */
+.strip{background:var(--deep);color:var(--sand)}
+.strip .wrap{padding:70px 24px}
+.strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.strip .before{opacity:.9}
+.strip .before .tag{color:#e77b6a}
+.strip .after .tag{color:var(--gold-soft)}
+.strip .tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:block}
+.strip h3{font-size:1.8rem;color:var(--sand);margin-bottom:14px}
+.strip ul{list-style:none}
+.strip li{padding:9px 0 9px 30px;position:relative;font-size:.98rem;color:rgba(244,237,226,.85);border-bottom:1px solid rgba(255,255,255,.07)}
+.strip li:before{position:absolute;left:0;top:8px;font-size:1rem}
+.before li:before{content:"✕";color:#e77b6a}
+.after li:before{content:"✓";color:#43d17a}
+.vs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;z-index:2;box-shadow:0 10px 30px -8px rgba(0,0,0,.5)}
+
+/* MENU */
+.menu-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.tab{
+  padding:11px 22px;border:1px solid var(--line);border-radius:100px;background:#fff;
+  font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.25s;color:var(--muted);
+}
+.tab:hover{border-color:var(--gold)}
+.tab.active{background:var(--ink);color:var(--sand);border-color:var(--ink)}
+.menu-list{max-width:820px;margin:0 auto}
+.dish{
+  display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;
+  padding:20px 0;border-bottom:1px solid var(--line);
+  opacity:0;transform:translateY(14px);animation:rise .5s forwards;
+}
+@keyframes rise{to{opacity:1;transform:none}}
+.dish .d-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink);display:flex;align-items:center;gap:10px}
+.dish .d-desc{grid-column:1/2;color:var(--muted);font-size:.9rem;max-width:52ch}
+.dish .d-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--sea);white-space:nowrap;font-weight:600}
+.chip{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:100px;font-weight:600}
+.chip.chef{background:rgba(201,162,74,.16);color:#9a7822}
+.chip.mar{background:rgba(28,107,122,.14);color:var(--sea)}
+.menu-foot{text-align:center;margin-top:36px;color:var(--muted);font-size:.85rem}
+
+/* GALLERY */
+.gallery{background:var(--sand)}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px}
+.g-cell{border-radius:6px;overflow:hidden;position:relative;color:#fff;display:flex;align-items:flex-end;padding:18px;
+  font-family:'Cormorant Garamond',serif;font-size:1.35rem;transition:.5s}
+.g-cell:hover{transform:scale(.985)}
+.g-cell span{position:relative;z-index:2;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.g-cell:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 60%);z-index:1}
+.tall{grid-row:span 2}
+.wide{grid-column:span 2}
+.g1{background:radial-gradient(120% 120% at 20% 10%,#f6a94c,#c9581f)}
+.g2{background:linear-gradient(160deg,#0e2a33,#1c6b7a)}
+.g3{background:radial-gradient(120% 120% at 80% 20%,#e8842b,#7c2d12)}
+.g4{background:linear-gradient(160deg,#12414d,#0b1a1f)}
+.g5{background:radial-gradient(120% 120% at 30% 80%,#e6c877,#9a7822)}
+.g6{background:linear-gradient(140deg,#1c6b7a,#0e2a33)}
+
+/* EVENTS */
+.events{background:linear-gradient(160deg,#0b1a1f,#12414d);color:var(--sand)}
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ev-grid .section-head{margin:0 0 26px;text-align:left}
+.ev-grid h2{color:var(--sand)}
+.ev-grid p{color:rgba(244,237,226,.8)}
+.ev-list{display:grid;gap:14px;margin:26px 0}
+.ev-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid rgba(255,255,255,.1);border-radius:6px;background:rgba(255,255,255,.03)}
+.ev-item .ico{width:38px;height:38px;flex:0 0 38px;border-radius:8px;background:rgba(201,162,74,.16);display:flex;align-items:center;justify-content:center}
+.ev-item b{color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-size:1.2rem;display:block}
+.ev-item small{color:rgba(244,237,226,.7);font-size:.86rem}
+.ev-form{background:rgba(251,247,240,.98);color:var(--text);border-radius:8px;padding:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.ev-form h3{font-size:1.6rem;color:var(--ink);margin-bottom:4px}
+.ev-form .sub{color:var(--muted);font-size:.85rem;margin-bottom:18px}
+.ev-form .btn{width:100%;justify-content:center;margin-top:6px}
+
+/* REVIEWS */
+.reviews .r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.r-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px;box-shadow:0 20px 50px -34px rgba(11,26,31,.4)}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.95rem;margin-bottom:12px}
+.r-card p{font-size:.98rem;color:var(--text);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.4}
+.r-card .who{margin-top:16px;font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+.r-card .who b{color:var(--ink);font-weight:600}
+.rating-head{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:22px}
+.rating-head .big{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--ink);line-height:1}
+
+/* HOURS / CONTACT / MAP */
+.visit{background:var(--ink);color:var(--sand)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch}
+.visit h2{color:var(--sand)}
+.info-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.info-row .ico{color:var(--gold-soft);flex:0 0 22px}
+.info-row b{display:block;color:var(--sand);font-size:.95rem}
+.info-row span{color:rgba(244,237,226,.7);font-size:.9rem}
+.map{border-radius:8px;overflow:hidden;position:relative;min-height:340px;
+  background:linear-gradient(160deg,#0e2a33,#12414d);border:1px solid rgba(255,255,255,.1)}
+.map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);text-align:center}
+.map .pin .drop{width:20px;height:20px;background:var(--passion);border-radius:50% 50% 50% 0;transform:rotate(-45deg);margin:0 auto 8px;box-shadow:0 0 0 8px rgba(232,132,43,.2)}
+.map .pin small{color:var(--sand);font-size:.8rem;letter-spacing:.06em}
+.map .coast{position:absolute;inset:0;opacity:.5}
+
+/* FOOTER */
+footer{background:#07141a;color:rgba(244,237,226,.7);padding:60px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-grid h4{font-family:'Jost';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:16px}
+.foot-grid a{display:block;color:rgba(244,237,226,.7);padding:5px 0;font-size:.92rem;transition:.2s}
+.foot-grid a:hover{color:var(--gold-soft)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem;color:rgba(244,237,226,.45)}
+
+/* sample badge (fixed) */
+.sample-badge{
+  position:fixed;bottom:16px;left:16px;z-index:200;
+  background:rgba(11,26,31,.9);color:var(--gold-soft);backdrop-filter:blur(8px);
+  border:1px solid rgba(230,200,119,.3);border-radius:100px;
+  padding:8px 15px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.6)
+}
+
+/* toast */
+.toast{
+  position:fixed;top:20px;left:50%;transform:translate(-50%,-140%);z-index:300;
+  background:var(--teal);color:var(--sand);padding:16px 24px;border-radius:6px;
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.6);max-width:90vw;text-align:center;
+  transition:transform .5s cubic-bezier(.2,.8,.3,1);border-left:3px solid var(--gold);
+}
+.toast.show{transform:translate(-50%,0)}
+.toast b{color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-size:1.15rem;display:block}
+.toast small{font-size:.82rem;color:rgba(244,237,226,.85)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .hero-grid,.strip-grid,.ev-grid,.visit-grid,.reviews .r-grid,.foot-grid{grid-template-columns:1fr}
+  .vs{display:none}
+  .g-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+  .wide{grid-column:span 2}
+  .tall{grid-row:span 1}
+  .pad{padding:72px 0}
+  .hero .wrap{padding-top:104px}
+  .reviews .r-grid{gap:16px}
+  .strip-grid{gap:24px}
+}
+@media(max-width:560px){
+  .two{grid-template-columns:1fr}
+  .hero-meta{gap:22px}
+  .foot-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="21" stroke="#c9a24a" stroke-width="1.4"/>
+        <path d="M22 9c7 3 10 8 10 13 0 6-4.5 10-10 10S12 28 12 22c0-5 3-10 10-13z" fill="#e8842b" opacity=".9"/>
+        <path d="M22 9c-2.5 4-3.5 8-3.5 13S19.5 30 22 32" stroke="#0b1a1f" stroke-width="1.3" opacity=".5"/>
+        <path d="M22 9c2.5 4 3.5 8 3.5 13S24.5 30 22 32" stroke="#0b1a1f" stroke-width="1.3" opacity=".5"/>
+      </svg>
+      <span><b>Maracuyá</b><small>Arica · frente al mar</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#carta">Carta</a>
+      <a href="#galeria">Galería</a>
+      <a href="#eventos">Eventos privados</a>
+      <a href="#visita">Visítanos</a>
+      <a href="#reservar" class="btn btn-gold nav-cta">Reservar mesa</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <svg class="sea" preserveAspectRatio="none" viewBox="0 0 1440 900">
+    <defs>
+      <linearGradient id="w1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1c6b7a" stop-opacity="0"/>
+        <stop offset="1" stop-color="#1c6b7a" stop-opacity=".45"/>
+      </linearGradient>
+    </defs>
+    <path d="M0 640 C 260 590 420 700 720 660 C 1010 622 1180 700 1440 650 L1440 900 L0 900 Z" fill="url(#w1)"/>
+    <path d="M0 720 C 300 680 480 770 780 735 C 1080 700 1240 780 1440 740 L1440 900 L0 900 Z" fill="#12414d" opacity=".55"/>
+    <path d="M0 800 C 320 770 520 840 820 815 C 1120 790 1280 850 1440 820 L1440 900 L0 900 Z" fill="#0e2a33" opacity=".7"/>
+  </svg>
+  <div class="hero-grain"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge"><span class="dot"></span> Reservas abiertas · Hoy hay mesas</span>
+        <h1>El sabor del<br><em>Pacífico</em>, servido<br>frente al mar</h1>
+        <p class="lead">Cocina de autor sobre productos del litoral de Arica. Reserva tu mesa en segundos, sin llamadas ni esperas.</p>
+        <div class="hero-actions">
+          <a href="#reservar" class="btn btn-gold">Reservar mesa</a>
+          <a href="#carta" class="btn btn-ghost">Ver la carta</a>
+        </div>
+        <div class="hero-meta">
+          <div class="m"><b>3,9★</b><span>462 reseñas</span></div>
+          <div class="m"><b>2012</b><span>frente al mar</span></div>
+          <div class="m"><b>$$$$</b><span>fine dining</span></div>
+        </div>
+      </div>
+
+      <!-- LIVE reservation card -->
+      <div class="res-card reveal" id="reservar">
+        <h3>Reserva tu mesa</h3>
+        <p class="sub">Confirmación inmediata · sin llamadas</p>
+        <div class="two">
+          <div class="field">
+            <label>Fecha</label>
+            <input type="date" id="r-date">
+          </div>
+          <div class="field">
+            <label>Personas</label>
+            <select id="r-people">
+              <option>2 personas</option>
+              <option>1 persona</option>
+              <option>3 personas</option>
+              <option>4 personas</option>
+              <option>5 personas</option>
+              <option>6 personas</option>
+              <option>7+ (evento)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Hora disponible</label>
+          <div class="slots" id="slots">
+            <div class="slot">13:00</div>
+            <div class="slot">13:30</div>
+            <div class="slot full">14:00</div>
+            <div class="slot active">20:00</div>
+            <div class="slot">20:30</div>
+            <div class="slot">21:00</div>
+            <div class="slot full">21:30</div>
+            <div class="slot">22:00</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Tu nombre</label>
+          <input type="text" id="r-name" placeholder="Nombre y apellido">
+        </div>
+        <button class="btn btn-gold" id="r-submit">Confirmar reserva</button>
+        <p class="res-note">Muestra de demostración · no se envía ningún dato real</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM → SOLUTION STRIP -->
+<section class="strip">
+  <div class="wrap">
+    <div class="strip-grid">
+      <div class="before">
+        <span class="tag">Hoy</span>
+        <h3>Tu mejor mesa, en manos de terceros</h3>
+        <ul>
+          <li>El dominio propio está caído: nadie encuentra tu web</li>
+          <li>Todo el tráfico cae en TripAdvisor y agregadores que no controlas</li>
+          <li>El único contacto público es un correo @hotmail</li>
+          <li>Las reservas dependen del teléfono y del DM</li>
+        </ul>
+      </div>
+      <div class="vs">→</div>
+      <div class="after">
+        <span class="tag">Con tu web viva</span>
+        <h3>El restaurante más caro de Arica, dueño de su vitrina</h3>
+        <ul>
+          <li>Tu dominio recuperado y en el aire, tú al mando</li>
+          <li>Carta viva que editas cuando cambia el precio del día</li>
+          <li>Reserva de mesa en línea 24/7, con confirmación</li>
+          <li>Captación de eventos privados directo a tu bandeja</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="pad" id="carta">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Carta viva</span>
+      <h2>Del mar de Arica al plato</h2>
+      <p>Se actualiza según la pesca del día. Precios en pesos chilenos.</p>
+    </div>
+    <div class="menu-tabs reveal" id="tabs">
+      <div class="tab active" data-cat="entradas">Entradas</div>
+      <div class="tab" data-cat="mar">Del mar</div>
+      <div class="tab" data-cat="fondos">Fondos</div>
+      <div class="tab" data-cat="postres">Postres</div>
+      <div class="tab" data-cat="vinos">Vinos</div>
+    </div>
+    <div class="menu-list" id="menu"></div>
+    <p class="menu-foot">Menú de degustación 5 tiempos · $52.000 por persona · maridaje opcional +$28.000</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery pad" id="galeria">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">La experiencia</span>
+      <h2>Atardecer, mar y sobremesa</h2>
+      <p>Cada mesa con vista al Pacífico. Fotos de referencia; en tu web van tus propias imágenes.</p>
+    </div>
+    <div class="g-grid reveal">
+      <div class="g-cell tall g1"><span>Ceviche de la casa</span></div>
+      <div class="g-cell wide g2"><span>Terraza frente al mar</span></div>
+      <div class="g-cell g3"><span>Pulpo al carbón</span></div>
+      <div class="g-cell g4"><span>Cava de vinos</span></div>
+      <div class="g-cell wide g5"><span>Atardecer en Arica</span></div>
+      <div class="g-cell g6"><span>Postre de maracuyá</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE EVENTS -->
+<section class="events pad" id="eventos">
+  <div class="wrap">
+    <div class="ev-grid">
+      <div class="reveal">
+        <div class="section-head">
+          <span class="eyebrow">Eventos privados</span>
+          <h2>Tu celebración con el mar de testigo</h2>
+          <p>Matrimonios, aniversarios y cenas de empresa con salón exclusivo frente al Pacífico. Cuéntanos y te enviamos una propuesta.</p>
+        </div>
+        <div class="ev-list">
+          <div class="ev-item">
+            <div class="ico">🥂</div>
+            <div><b>Salón privado hasta 60 personas</b><small>Vista completa al mar y terraza propia</small></div>
+          </div>
+          <div class="ev-item">
+            <div class="ico">🍽️</div>
+            <div><b>Menús a medida</b><small>Degustación, cóctel de pie o banquete servido</small></div>
+          </div>
+          <div class="ev-item">
+            <div class="ico">🎷</div>
+            <div><b>Producción completa</b><small>Música en vivo, decoración y maridaje coordinados</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- event capture form -->
+      <div class="ev-form reveal">
+        <h3>Cotiza tu evento</h3>
+        <p class="sub">Respuesta en menos de 24 h hábiles</p>
+        <div class="two">
+          <div class="field"><label>Tipo</label>
+            <select id="e-type"><option>Matrimonio</option><option>Aniversario</option><option>Cena de empresa</option><option>Cumpleaños</option><option>Otro</option></select>
+          </div>
+          <div class="field"><label>Invitados</label>
+            <select id="e-people"><option>10–20</option><option>20–40</option><option>40–60</option></select>
+          </div>
+        </div>
+        <div class="field"><label>Fecha estimada</label><input type="date" id="e-date"></div>
+        <div class="field"><label>Nombre y contacto</label><input type="text" id="e-name" placeholder="Nombre · WhatsApp o correo"></div>
+        <button class="btn btn-gold" id="e-submit">Solicitar propuesta</button>
+        <p class="res-note">Muestra de demostración · no se envía ningún dato real</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews pad">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Lo que dicen</span>
+      <h2>462 reseñas hablan por la cocina</h2>
+      <div class="rating-head">
+        <span class="big">3,9</span>
+        <div style="text-align:left">
+          <div class="stars">★★★★☆</div>
+          <small style="color:var(--muted)">TripAdvisor · rango $$$$</small>
+        </div>
+      </div>
+    </div>
+    <div class="r-grid">
+      <div class="r-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>“La vista al mar mientras cae el sol y un ceviche impecable. Lo mejor de Arica para una cena especial.”</p>
+        <div class="who"><b>Carolina R.</b> · Santiago</div>
+      </div>
+      <div class="r-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>“Celebramos nuestro aniversario en el salón privado. Atención de otro nivel, el pulpo al carbón es memorable.”</p>
+        <div class="who"><b>Rodrigo & Ma. José</b> · Arica</div>
+      </div>
+      <div class="r-card reveal">
+        <div class="stars">★★★★☆</div>
+        <p>“Precio alto pero se justifica: producto fresco del día y una terraza que no encuentras en otro lado.”</p>
+        <div class="who"><b>Andrés T.</b> · Tacna</div>
+      </div>
+    </div>
+    <p class="menu-foot">Reseñas de ejemplo inspiradas en el perfil real · en tu web se conectan a Google y TripAdvisor</p>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit pad" id="visita">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div class="reveal">
+        <div class="section-head" style="text-align:left;margin-bottom:24px">
+          <span class="eyebrow">Visítanos</span>
+          <h2>Frente al mar, en pleno litoral</h2>
+        </div>
+        <div class="info-row"><span class="ico">📍</span><div><b>Av. Comandante San Martín 321</b><span>Arica, Región de Arica y Parinacota</span></div></div>
+        <div class="info-row"><span class="ico">🕗</span><div><b>Almuerzo 13:00–16:00 · Cena 20:00–23:30</b><span>Martes a domingo · lunes cerrado</span></div></div>
+        <div class="info-row"><span class="ico">📞</span><div><b>+56 58 222 7600</b><span>Hoy la reserva depende del teléfono: con la web se toma sola, 24/7</span></div></div>
+        <div class="info-row"><span class="ico">🌐</span><div><b>restaurantmaracuya.cl</b><span>dominio a recuperar e incluir en el servicio</span></div></div>
+        <a href="#reservar" class="btn btn-gold" style="margin-top:26px">Reservar mesa</a>
+      </div>
+      <div class="map reveal">
+        <svg class="coast" viewBox="0 0 400 340" preserveAspectRatio="none">
+          <path d="M0 40 C 120 60 180 120 200 200 C 215 260 300 300 400 320 L400 340 L0 340 Z" fill="#0b1a1f" opacity=".6"/>
+          <path d="M0 60 C 130 80 190 140 210 210 C 225 270 310 305 400 330" stroke="#1c6b7a" stroke-width="2" fill="none" opacity=".6"/>
+          <text x="60" y="150" fill="#1c6b7a" opacity=".5" font-family="Jost" font-size="13" letter-spacing="3">OCÉANO PACÍFICO</text>
+        </svg>
+        <div class="pin"><div class="drop"></div><small>Restaurant Maracuyá</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" style="margin-bottom:16px">
+          <svg class="mark" viewBox="0 0 44 44" fill="none" style="width:36px;height:36px;flex:0 0 36px">
+            <circle cx="22" cy="22" r="21" stroke="#c9a24a" stroke-width="1.4"/>
+            <path d="M22 9c7 3 10 8 10 13 0 6-4.5 10-10 10S12 28 12 22c0-5 3-10 10-13z" fill="#e8842b" opacity=".9"/>
+          </svg>
+          <span><b style="font-size:1.4rem">Maracuyá</b><small>Arica · frente al mar</small></span>
+        </a>
+        <p style="font-size:.9rem;max-width:34ch">Fine dining sobre el litoral de Arica. Cocina de autor, mar y atardecer en cada mesa.</p>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <a href="#carta">Carta viva</a>
+        <a href="#galeria">Galería</a>
+        <a href="#eventos">Eventos privados</a>
+        <a href="#reservar">Reservar mesa</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="#visita">Av. Comandante San Martín 321</a>
+        <a href="#visita">Mar–Dom · 13:00 a 23:30</a>
+        <a href="#reservar">Reserva en línea 24/7</a>
+        <a href="#eventos">Cotiza tu evento</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Restaurant Maracuyá · Arica, Chile · Sitio de muestra</span>
+      <span>Muestra preparada por Giancarlo Martino · mismo sistema detrás de MYRA Social Club · datos de ejemplo</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sample-badge"><span class="dot"></span> Muestra · Giancarlo Martino</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---- nav scroll
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>40)});
+
+// ---- burger (smooth scroll fallback / simple reveal of links)
+document.getElementById('burger').addEventListener('click',()=>{
+  document.querySelector('#reservar').scrollIntoView({behavior:'smooth'});
+});
+
+// ---- date default = today
+const today=new Date().toISOString().split('T')[0];
+['r-date','e-date'].forEach(id=>{const el=document.getElementById(id);if(el){el.value=today;el.min=today;}});
+
+// ---- reservation slots
+document.getElementById('slots').addEventListener('click',e=>{
+  const s=e.target.closest('.slot');
+  if(!s||s.classList.contains('full'))return;
+  document.querySelectorAll('#slots .slot').forEach(x=>x.classList.remove('active'));
+  s.classList.add('active');
+});
+
+// ---- toast
+function toast(title,msg){
+  const t=document.getElementById('toast');
+  t.innerHTML='<b>'+title+'</b><small>'+msg+'</small>';
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t=setTimeout(()=>t.classList.remove('show'),4600);
+}
+
+// ---- reservation submit
+document.getElementById('r-submit').addEventListener('click',()=>{
+  const name=document.getElementById('r-name').value.trim();
+  const people=document.getElementById('r-people').value;
+  const slot=document.querySelector('#slots .slot.active');
+  const date=document.getElementById('r-date').value;
+  if(!slot){toast('Elige una hora','Selecciona un horario disponible para continuar.');return;}
+  if(!name){toast('Falta tu nombre','Escribe tu nombre para confirmar la reserva.');return;}
+  const d=date?new Date(date+'T00:00').toLocaleDateString('es-CL',{weekday:'long',day:'numeric',month:'long'}):'hoy';
+  toast('¡Mesa confirmada, '+name.split(' ')[0]+'! ✓','Te esperamos el '+d+' a las '+slot.textContent+' · '+people+'. (Muestra)');
+});
+
+// ---- event submit
+document.getElementById('e-submit').addEventListener('click',()=>{
+  const name=document.getElementById('e-name').value.trim();
+  const type=document.getElementById('e-type').value;
+  if(!name){toast('Falta tu contacto','Déjanos tu nombre y WhatsApp o correo.');return;}
+  toast('Solicitud recibida ✓','Tu '+type.toLowerCase()+' quedó en cola. Te contactamos en menos de 24 h. (Muestra)');
+});
+
+// ---- MENU data (realista, CLP)
+const MENU={
+  entradas:[
+    ['Ceviche Maracuyá','Reineta del día, leche de tigre con maracuyá, cebolla morada y cilantro','$12.900',['chef']],
+    ['Causa limeña de centolla','Centolla de Magallanes, palta y ají amarillo','$14.500',['mar']],
+    ['Machas a la parmesana','Machas de Arica gratinadas, vino blanco y mantequilla','$11.900',['mar']],
+    ['Tártaro de atún','Atún rojo, sésamo, palta y toque cítrico','$13.500',[]],
+  ],
+  mar:[
+    ['Pulpo al carbón','Pulpo español a las brasas, puré de papa nativa y chimichurri de rocoto','$21.900',['chef','mar']],
+    ['Corvina a la mantequilla','Corvina fresca, mantequilla de hierbas y quinoa del altiplano','$19.500',['mar']],
+    ['Arroz caldoso de mariscos','Camarón, calamar, choritos y azafrán','$18.900',['mar']],
+    ['Congrio frito','Congrio dorado, ensalada chilena y papas rústicas','$17.500',[]],
+  ],
+  fondos:[
+    ['Lomo a lo pobre de autor','Lomo de res, huevo de campo, cebolla caramelizada y papas fritas','$22.900',['chef']],
+    ['Risotto de camarón y maracuyá','Arroz carnaroli, camarón ecuatoriano y reducción de maracuyá','$18.900',['chef']],
+    ['Costillar de cordero','Cordero magallánico, glaseado de merkén y verduras al carbón','$24.500',[]],
+    ['Ravioles de zapallo','Rellenos de zapallo camote, mantequilla de salvia y avellanas','$15.900',[]],
+  ],
+  postres:[
+    ['Volcán de maracuyá','Corazón tibio de maracuyá y helado de vainilla de la casa','$7.900',['chef']],
+    ['Cheesecake de chirimoya','Chirimoya de Arica, base de galleta artesanal','$6.900',[]],
+    ['Suspiro limeño','Manjar, merengue al oporto y canela','$6.500',[]],
+  ],
+  vinos:[
+    ['Sauvignon Blanc · Casablanca','Copa','$6.500',[]],
+    ['Chardonnay reserva · Limarí','Botella','$28.000',[]],
+    ['Carménère gran reserva · Colchagua','Botella','$34.000',['chef']],
+    ['Espumante brut · Valle del Itata','Copa','$7.500',[]],
+  ],
+};
+const CHIP={chef:['chip chef','Sugerencia del chef'],mar:['chip mar','Del mar de Arica']};
+const menuEl=document.getElementById('menu');
+function renderMenu(cat){
+  menuEl.innerHTML='';
+  MENU[cat].forEach((d,i)=>{
+    const chips=d[3].map(c=>CHIP[c]?'<span class="'+CHIP[c][0]+'">'+CHIP[c][1]+'</span>':'').join('');
+    const el=document.createElement('div');
+    el.className='dish';
+    el.style.animationDelay=(i*60)+'ms';
+    el.innerHTML='<div class="d-name">'+d[0]+chips+'</div><div class="d-price">'+d[2]+'</div><div class="d-desc">'+d[1]+'</div>';
+    menuEl.appendChild(el);
+  });
+}
+renderMenu('entradas');
+document.getElementById('tabs').addEventListener('click',e=>{
+  const t=e.target.closest('.tab');if(!t)return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  renderMenu(t.dataset.cat);
+});
+
+// ---- reveal on scroll
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
