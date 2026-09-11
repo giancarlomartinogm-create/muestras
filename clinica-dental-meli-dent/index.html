@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clínica Dental MELI DENT · Arica — Agenda tu hora online</title>
+<meta name="description" content="Clínica dental en Arica. Ortodoncia, implantes y urgencias. Dos sedes, agenda online 24/7 y presupuesto al instante.">
+<meta name="theme-color" content="#07242B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ BASE ============ */
+:root{
+  --cyan:#0FB2CC; --cyan-d:#0A7E93; --cyan-xd:#075E6E; --cyan-soft:#E4F6F9;
+  --ink:#07242B; --ink-2:#40636C; --ink-3:#7C979E;
+  --bg:#F7FAFB; --card:#FFFFFF; --line:#E2ECEF;
+  --amber:#F2A03D; --green:#16A34A; --wa:#25D366;
+  --r:18px; --r-lg:26px;
+  --sh:0 1px 2px rgba(7,36,43,.05), 0 8px 24px -12px rgba(7,36,43,.14);
+  --sh-lg:0 2px 4px rgba(7,36,43,.04), 0 24px 60px -24px rgba(7,36,43,.26);
+  --ui:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --dis:'Fraunces',Georgia,'Times New Roman',serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; overflow-x:hidden}
+/* los hijos de grid no pueden encogerse bajo su contenido si no se les dice:
+   sin esto la foto del hero ensancha la columna y el titular se corta en el móvil */
+.hero-grid>*,.srv>*,.sedes>*,.calc-grid>*,.ig-grid>*,.opts>*,.pain>*,.revs>*,
+.fields>*,.f-grid>*,.hero-stats>*,.sedes-pick>*,.gal>*,.ig-tiles>*{min-width:0}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--ui); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+[hidden]{display:none !important}
+button,input,select{font:inherit; color:inherit}
+button{cursor:pointer; border:0; background:none}
+a{color:inherit; text-decoration:none}
+h1,h2,h3,h4{margin:0; line-height:1.12; letter-spacing:-.022em; font-weight:700}
+p{margin:0}
+.wrap{width:100%; max-width:1160px; margin:0 auto; padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ============ TIPOGRAFÍA DE SECCIÓN ============ */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--cyan-d);
+}
+.eyebrow::before{content:""; width:22px; height:2px; background:var(--cyan); border-radius:2px}
+.h2{font-family:var(--dis); font-size:clamp(30px,6.4vw,50px); font-weight:600; letter-spacing:-.03em; line-height:1.05; margin:14px 0 0}
+.lede{margin-top:14px; color:var(--ink-2); font-size:clamp(15px,3.6vw,18px); max-width:60ch}
+section{padding:64px 0}
+@media(min-width:900px){section{padding:96px 0}}
+
+/* ============ BOTONES ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:15px 24px; border-radius:999px; font-weight:700; font-size:15.5px;
+  letter-spacing:-.01em; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-p{background:var(--cyan); color:#fff; box-shadow:0 10px 24px -10px rgba(15,178,204,.85)}
+.btn-p:hover{background:#0DA0B9; box-shadow:0 14px 30px -10px rgba(15,178,204,.95)}
+.btn-d{background:var(--ink); color:#fff}
+.btn-d:hover{background:#0C3742}
+.btn-g{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+.btn-g:hover{border-color:var(--cyan); color:var(--cyan-d)}
+.btn-wa{background:var(--wa); color:#06301A}
+.btn-sm{padding:11px 18px; font-size:14px}
+.btn-block{width:100%}
+
+/* ============ AVISO MUESTRA ============ */
+.demo-strip{
+  background:var(--ink); color:#9FC6CE; text-align:center;
+  font-size:10px; letter-spacing:.03em; padding:7px 10px; font-weight:600;
+  position:relative; z-index:60; line-height:1.35;
+}
+@media(min-width:520px){.demo-strip{font-size:11.5px; letter-spacing:.05em; padding:7px 16px}}
+.demo-strip b{color:#fff; font-weight:700}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky; top:0; z-index:50; background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid rgba(226,236,239,.9);
+}
+.nav-in{display:flex; align-items:center; gap:16px; height:66px}
+.logo{display:flex; align-items:center; gap:10px; margin-right:auto}
+.logo svg{flex:none}
+.logo-t{font-family:var(--dis); font-size:19px; font-weight:600; letter-spacing:-.02em; line-height:1}
+.logo-s{display:block; font-family:var(--ui); font-size:9.5px; font-weight:700; letter-spacing:.2em; color:var(--cyan-d); text-transform:uppercase; margin-top:3px}
+.nav-links{display:none; gap:26px; font-size:14.5px; font-weight:600; color:var(--ink-2)}
+.nav-links a:hover{color:var(--cyan-d)}
+.nav .btn{display:none}
+@media(min-width:960px){ .nav-links{display:flex} .nav .btn{display:inline-flex} }
+.nav-tel{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14.5px; color:var(--ink)}
+@media(max-width:520px){.nav-tel span{display:none}}
+
+/* ============ HERO ============ */
+.hero{position:relative; background:#fff; overflow:hidden}
+.hero-grid{display:grid}
+.hero-img{position:relative; aspect-ratio:1/.92; overflow:hidden; background:var(--cyan-soft)}
+.hero-img img{width:100%; height:100%; object-fit:cover; object-position:50% 32%}
+.hero-img::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,36,43,.72) 0%, rgba(7,36,43,.18) 45%, rgba(7,36,43,0) 72%);
+}
+.hero-float{
+  position:absolute; left:16px; right:16px; bottom:16px; z-index:2;
+  display:flex; gap:8px; flex-wrap:wrap;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:7px; padding:8px 13px; border-radius:999px;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(8px);
+  font-size:12.5px; font-weight:700; color:var(--ink); box-shadow:0 4px 14px rgba(0,0,0,.14);
+}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--green); flex:none; animation:blip 2s infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-txt{padding:34px 20px 40px}
+.hero h1{
+  font-family:var(--dis); font-weight:600; letter-spacing:-.035em;
+  font-size:clamp(36px,9.4vw,60px); line-height:1.02;
+  overflow-wrap:break-word;
+}
+.hero h1 em{font-style:normal; color:var(--cyan-d)}
+.hero-sub{margin-top:18px; font-size:clamp(15.5px,4vw,18.5px); color:var(--ink-2); max-width:46ch}
+.hero-cta{display:flex; flex-direction:column; gap:10px; margin-top:26px}
+.hero-note{margin-top:14px; font-size:13px; color:var(--ink-3); display:flex; align-items:center; gap:7px}
+.hero-stats{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:30px;
+  background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
+}
+.hero-stats div{background:#fff; padding:15px 12px; text-align:center}
+.hero-stats b{display:block; font-family:var(--dis); font-size:23px; font-weight:600; letter-spacing:-.02em}
+.hero-stats span{font-size:11px; font-weight:600; color:var(--ink-3); letter-spacing:.04em; text-transform:uppercase}
+@media(min-width:900px){
+  .hero-grid{grid-template-columns:1.05fr .95fr; align-items:stretch; min-height:min(86vh,760px)}
+  .hero-txt{padding:72px 56px 72px 0; display:flex; flex-direction:column; justify-content:center; order:-1}
+  .hero-img{aspect-ratio:auto; border-radius:var(--r-lg); margin:24px 0 24px 24px}
+  .hero-img::after{background:linear-gradient(to top, rgba(7,36,43,.55) 0%, rgba(7,36,43,0) 55%)}
+  .hero-cta{flex-direction:row; align-items:center}
+  .hero-stats{max-width:520px}
+  .hero .wrap{padding-left:20px}
+}
+
+/* ============ TIRA CONFIANZA ============ */
+.trust{background:var(--ink); color:#CFE6EB; padding:16px 0}
+.trust-in{display:flex; gap:28px; align-items:center; justify-content:center; flex-wrap:wrap; font-size:13px; font-weight:600}
+.trust-in span{display:inline-flex; align-items:center; gap:8px}
+.trust svg{opacity:.85}
+
+/* ============ AGENDA ============ */
+#agenda{background:linear-gradient(180deg,#EFF8FA 0%, #F7FAFB 100%)}
+.booker{
+  background:var(--card); border-radius:var(--r-lg); box-shadow:var(--sh-lg);
+  border:1px solid var(--line); overflow:hidden; margin-top:30px;
+}
+.booker-head{
+  padding:18px 20px; border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:12px; background:#fff;
+}
+.booker-head .dot{width:9px;height:9px;border-radius:50%;background:var(--green);animation:blip 2s infinite;flex:none}
+.booker-head h3{font-size:15.5px; letter-spacing:-.01em}
+.booker-head p{font-size:12.5px; color:var(--ink-3); margin-top:2px}
+.steps{display:flex; gap:4px; padding:14px 20px 0}
+.steps i{flex:1; height:4px; border-radius:4px; background:var(--line); transition:background .35s ease}
+.steps i.on{background:var(--cyan)}
+.step-label{padding:12px 20px 0; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan-d)}
+.booker-body{padding:6px 20px 22px}
+.booker-q{font-family:var(--dis); font-size:clamp(20px,5vw,26px); font-weight:600; letter-spacing:-.02em; margin:8px 0 16px}
+
+.opts{display:grid; gap:9px}
+@media(min-width:640px){.opts{grid-template-columns:1fr 1fr}}
+.opt{
+  display:flex; align-items:center; gap:13px; width:100%; text-align:left;
+  padding:14px 15px; border:1.5px solid var(--line); border-radius:15px; background:#fff;
+  transition:border-color .16s, background .16s, transform .16s;
+}
+.opt:hover{border-color:var(--cyan); background:#FBFEFF}
+.opt.sel{border-color:var(--cyan); background:var(--cyan-soft); box-shadow:inset 0 0 0 1px var(--cyan)}
+.opt-ic{width:40px;height:40px;border-radius:11px;background:var(--cyan-soft);display:grid;place-items:center;flex:none}
+.opt.sel .opt-ic{background:#fff}
+.opt-t{font-weight:700; font-size:14.5px; letter-spacing:-.01em}
+.opt-d{font-size:12.5px; color:var(--ink-3); margin-top:1px}
+.opt-p{margin-left:auto; text-align:right; flex:none}
+.opt-p b{font-size:14.5px; color:var(--cyan-d)}
+.opt-p s{display:block; font-size:11.5px; color:var(--ink-3)}
+
+.sedes-pick{display:grid; gap:10px}
+@media(min-width:640px){.sedes-pick{grid-template-columns:1fr 1fr}}
+.sede-op{
+  border:1.5px solid var(--line); border-radius:16px; overflow:hidden; background:#fff;
+  text-align:left; transition:border-color .16s, transform .16s;
+}
+.sede-op:hover{border-color:var(--cyan)}
+.sede-op.sel{border-color:var(--cyan); box-shadow:inset 0 0 0 1px var(--cyan)}
+.sede-op img{width:100%; height:108px; object-fit:cover; object-position:50% 32%}
+.sede-op .b{padding:13px 15px}
+.sede-op .b b{font-size:14.5px}
+.sede-op .b span{display:block; font-size:12.5px; color:var(--ink-3); margin-top:2px}
+
+.days{display:flex; gap:8px; overflow-x:auto; padding:2px 0 10px; scrollbar-width:none; -webkit-overflow-scrolling:touch}
+.days::-webkit-scrollbar{display:none}
+.day{
+  flex:none; width:66px; padding:10px 0 11px; border-radius:14px; text-align:center;
+  border:1.5px solid var(--line); background:#fff; transition:all .16s;
+}
+.day:hover{border-color:var(--cyan)}
+.day.sel{background:var(--ink); border-color:var(--ink); color:#fff}
+.day em{display:block; font-style:normal; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.day.sel em{color:#8FC0CB}
+.day b{display:block; font-family:var(--dis); font-size:22px; font-weight:600; line-height:1.15; margin-top:2px}
+.day i{display:block; font-style:normal; font-size:10.5px; color:var(--ink-3); margin-top:1px}
+.day.sel i{color:#8FC0CB}
+
+.slot-group{margin-top:14px}
+.slot-group h4{font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px}
+.slots{display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:8px}
+.slot{
+  padding:11px 4px; border-radius:12px; border:1.5px solid var(--line); background:#fff;
+  font-weight:700; font-size:14px; font-variant-numeric:tabular-nums; transition:all .16s;
+}
+.slot:hover:not(:disabled){border-color:var(--cyan); color:var(--cyan-d)}
+.slot.sel{background:var(--cyan); border-color:var(--cyan); color:#fff}
+.slot:disabled{background:#F4F7F8; color:#BACBD0; border-color:#EDF2F3; cursor:not-allowed; text-decoration:line-through}
+
+.fields{display:grid; gap:11px}
+@media(min-width:640px){.fields{grid-template-columns:1fr 1fr}}
+.field label{display:block; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px}
+.field input,.field select{
+  width:100%; padding:13px 14px; border:1.5px solid var(--line); border-radius:13px;
+  background:#fff; font-size:15.5px; font-weight:500; transition:border-color .16s;
+}
+.field input:focus,.field select:focus{outline:none; border-color:var(--cyan); box-shadow:0 0 0 3px rgba(15,178,204,.14)}
+.field.full{grid-column:1/-1}
+
+.recap{
+  background:var(--cyan-soft); border-radius:15px; padding:15px 16px; margin-bottom:16px;
+  display:grid; gap:7px;
+}
+.recap div{display:flex; justify-content:space-between; gap:14px; font-size:13.5px}
+.recap div span{color:var(--cyan-xd); font-weight:600}
+.recap div b{text-align:right; font-weight:700}
+
+.booker-foot{
+  display:flex; gap:10px; align-items:center; padding:16px 20px;
+  border-top:1px solid var(--line); background:#FBFDFE;
+}
+.booker-foot .back{font-size:14px; font-weight:700; color:var(--ink-3); padding:12px 4px}
+.booker-foot .back:hover{color:var(--ink)}
+.booker-foot .btn{margin-left:auto}
+.legal{font-size:11.5px; color:var(--ink-3); padding:0 20px 18px; margin-top:-4px}
+
+.done{padding:36px 24px 40px; text-align:center}
+.done-ic{
+  width:66px;height:66px;border-radius:50%;background:var(--green);margin:0 auto 18px;
+  display:grid;place-items:center; animation:pop .45s cubic-bezier(.2,1.5,.4,1) both;
+}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.done h3{font-family:var(--dis); font-size:26px; font-weight:600; letter-spacing:-.02em}
+.done p{color:var(--ink-2); margin-top:9px; font-size:15px}
+.done .recap{text-align:left; margin:22px auto 0; max-width:420px}
+.done-acts{display:flex; flex-direction:column; gap:9px; margin:18px auto 0; max-width:420px}
+@media(min-width:520px){.done-acts{flex-direction:row; justify-content:center}}
+
+.fade{animation:fade .3s ease both}
+@keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+/* ============ ANTES / DESPUÉS DEL DOLOR ============ */
+.pain{display:grid; gap:14px; margin-top:34px}
+@media(min-width:820px){.pain{grid-template-columns:1fr 1fr; gap:20px}}
+.pain-c{border-radius:var(--r-lg); padding:26px 24px; border:1px solid var(--line); background:#fff}
+.pain-c.bad{background:#FFF7F4; border-color:#FADFD6}
+.pain-c h3{font-size:15px; letter-spacing:.06em; text-transform:uppercase; font-weight:800}
+.pain-c.bad h3{color:#C2562F}
+.pain-c.good h3{color:var(--cyan-d)}
+.pain-c ul{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:11px}
+.pain-c li{display:flex; gap:11px; font-size:14.8px; color:var(--ink-2); line-height:1.45}
+.pain-c li svg{flex:none; margin-top:2px}
+.pain-c.good li{color:var(--ink)}
+
+/* ============ PRESUPUESTO ============ */
+#presupuesto{background:var(--ink); color:#fff}
+#presupuesto .h2{color:#fff}
+#presupuesto .lede{color:#A8CBD3}
+#presupuesto .eyebrow{color:#5FD3E8}
+#presupuesto .eyebrow::before{background:#5FD3E8}
+.calc{
+  margin-top:32px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r-lg); overflow:hidden; backdrop-filter:blur(10px);
+}
+.calc-grid{display:grid}
+@media(min-width:900px){.calc-grid{grid-template-columns:1.15fr .85fr}}
+.calc-l{padding:24px 22px}
+.tabs{display:flex; gap:6px; background:rgba(255,255,255,.07); padding:5px; border-radius:999px; margin-bottom:20px}
+.tabs button{flex:1; padding:11px 10px; border-radius:999px; font-weight:700; font-size:14px; color:#A8CBD3; transition:all .2s}
+.tabs button.on{background:#fff; color:var(--ink)}
+.tlist{display:grid; gap:8px}
+.trow{
+  display:flex; align-items:center; gap:12px; padding:14px 15px; width:100%; text-align:left;
+  border:1.5px solid rgba(255,255,255,.14); border-radius:14px; background:rgba(255,255,255,.03);
+  transition:all .16s; color:#fff;
+}
+.trow:hover{border-color:rgba(95,211,232,.7)}
+.trow.sel{background:rgba(95,211,232,.14); border-color:#5FD3E8}
+.trow .n{display:block; font-weight:700; font-size:14.5px}
+.trow .d{display:block; font-size:12.5px; color:#93B9C2; margin-top:2px}
+.trow .v{margin-left:auto; font-weight:700; font-size:15px; font-variant-numeric:tabular-nums; white-space:nowrap}
+.cuotas{margin-top:22px}
+.cuotas h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#93B9C2; margin-bottom:10px}
+.cuota-btns{display:flex; gap:7px; flex-wrap:wrap}
+.cuota-btns button{
+  padding:10px 16px; border-radius:999px; border:1.5px solid rgba(255,255,255,.18);
+  font-weight:700; font-size:14px; color:#CFE6EB; transition:all .16s;
+}
+.cuota-btns button.on{background:#5FD3E8; border-color:#5FD3E8; color:var(--ink)}
+.calc-r{
+  padding:28px 24px 26px; background:rgba(255,255,255,.07);
+  border-top:1px solid rgba(255,255,255,.12); display:flex; flex-direction:column;
+}
+@media(min-width:900px){.calc-r{border-top:0; border-left:1px solid rgba(255,255,255,.12)}}
+.calc-r .lbl{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#93B9C2}
+.big{
+  font-family:var(--dis); font-size:clamp(40px,10vw,54px); font-weight:600; letter-spacing:-.035em;
+  line-height:1; margin:8px 0 2px; font-variant-numeric:tabular-nums;
+}
+.big small{font-size:.42em; font-weight:600; color:#93B9C2; letter-spacing:0}
+.calc-tot{margin-top:18px; padding-top:16px; border-top:1px dashed rgba(255,255,255,.2); display:grid; gap:8px}
+.calc-tot div{display:flex; justify-content:space-between; font-size:14px}
+.calc-tot span{color:#A8CBD3}
+.calc-tot b{font-variant-numeric:tabular-nums}
+.incl{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:8px}
+.incl li{display:flex; gap:9px; font-size:13.5px; color:#CFE6EB}
+.calc-r .btn{margin-top:22px}
+.calc-note{font-size:11.5px; color:#7EA3AD; margin-top:12px; line-height:1.45}
+
+/* ============ SERVICIOS ============ */
+.srv{display:grid; gap:16px; margin-top:34px}
+@media(min-width:660px){.srv{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.srv{grid-template-columns:repeat(3,1fr)}}
+.srv-c{
+  background:#fff; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line);
+  box-shadow:var(--sh); transition:transform .25s ease, box-shadow .25s ease;
+}
+.srv-c:hover{transform:translateY(-4px); box-shadow:var(--sh-lg)}
+.srv-ph{aspect-ratio:4/3; overflow:hidden; background:var(--cyan-soft)}
+.srv-ph img{width:100%;height:100%;object-fit:cover; transition:transform .5s ease}
+.srv-c:hover .srv-ph img{transform:scale(1.045)}
+.srv-b{padding:20px 20px 22px}
+.srv-b h3{font-size:18.5px; letter-spacing:-.02em}
+.srv-b p{margin-top:8px; font-size:14.5px; color:var(--ink-2); line-height:1.5}
+.srv-m{display:flex; align-items:center; gap:10px; margin-top:15px; padding-top:14px; border-top:1px solid var(--line)}
+.srv-m .pr{font-weight:700; font-size:14.5px; color:var(--cyan-d)}
+.srv-m .lk{margin-left:auto; font-size:13.5px; font-weight:700; color:var(--ink-3); display:inline-flex; align-items:center; gap:5px}
+.srv-c:hover .srv-m .lk{color:var(--cyan-d)}
+.tag{
+  display:inline-block; padding:4px 10px; border-radius:999px; background:var(--cyan-soft);
+  color:var(--cyan-xd); font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  margin-bottom:9px;
+}
+.tag.hot{background:#FFF1DF; color:#A8641A}
+
+/* ============ INSTAGRAM ============ */
+#instagram{background:#fff}
+.ig-grid{display:grid; gap:26px; margin-top:32px; align-items:center}
+@media(min-width:900px){.ig-grid{grid-template-columns:.95fr 1.05fr; gap:48px}}
+.ig-tiles{display:grid; grid-template-columns:1fr 1fr; gap:9px}
+.ig-tile{position:relative; aspect-ratio:1; border-radius:16px; overflow:hidden; background:var(--cyan-soft)}
+.ig-tile img{width:100%;height:100%;object-fit:cover}
+.ig-tile::after{content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(7,36,43,.42),transparent 55%)}
+.ig-tile b{position:absolute; left:11px; bottom:9px; z-index:2; color:#fff; font-size:11.5px; font-weight:700; display:flex; align-items:center; gap:5px}
+.ig-flow{display:grid; gap:10px; margin-top:22px}
+.ig-step{display:flex; gap:13px; align-items:flex-start; padding:15px 16px; background:var(--bg); border-radius:15px; border:1px solid var(--line)}
+.ig-step .n{
+  width:26px;height:26px;border-radius:50%;background:var(--cyan);color:#fff;flex:none;
+  display:grid;place-items:center;font-size:12.5px;font-weight:800;
+}
+.ig-step b{font-size:14.5px; display:block}
+.ig-step p{font-size:13.5px; color:var(--ink-2); margin-top:2px; line-height:1.45}
+.ig-step.last{background:var(--ink); border-color:var(--ink)}
+.ig-step.last b{color:#fff}
+.ig-step.last p{color:#A8CBD3}
+.ig-step.last .n{background:var(--green)}
+
+/* ============ SEDES ============ */
+#sedes{background:var(--bg)}
+.sedes{display:grid; gap:18px; margin-top:34px}
+@media(min-width:840px){.sedes{grid-template-columns:1fr 1fr}}
+.sede{background:#fff; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line); box-shadow:var(--sh)}
+.sede-ph{position:relative; aspect-ratio:16/10; overflow:hidden}
+.sede-ph img{width:100%;height:100%;object-fit:cover; object-position:50% 38%}
+.sede-ph .badge{
+  position:absolute; top:13px; left:13px; padding:7px 13px; border-radius:999px;
+  background:rgba(255,255,255,.95); font-size:12px; font-weight:800; letter-spacing:.04em;
+  box-shadow:0 4px 14px rgba(0,0,0,.13);
+}
+.sede-b{padding:22px 22px 24px}
+.sede-b h3{font-size:20px; letter-spacing:-.02em}
+.sede-addr{margin-top:5px; font-size:14.5px; color:var(--ink-2)}
+.hours{margin-top:16px; border-top:1px solid var(--line); padding-top:14px; display:grid; gap:7px}
+.hours div{display:flex; gap:12px; font-size:13.5px}
+.hours div span{color:var(--ink-3); min-width:118px; font-weight:600}
+.hours div b{font-weight:600; font-variant-numeric:tabular-nums}
+.hours .ext b{color:var(--cyan-d); font-weight:700}
+.sede-acts{display:flex; gap:8px; margin-top:18px; flex-wrap:wrap}
+
+/* ============ OPINIONES ============ */
+#opiniones{background:#fff}
+.rev-head{display:flex; gap:20px; align-items:flex-end; flex-wrap:wrap}
+.rev-score{
+  background:var(--bg); border:1px solid var(--line); border-radius:var(--r);
+  padding:16px 22px; text-align:center; flex:none;
+}
+.rev-score b{display:block; font-family:var(--dis); font-size:40px; font-weight:600; line-height:1; letter-spacing:-.03em}
+.rev-score .st{color:var(--amber); font-size:14px; letter-spacing:2px; margin-top:4px}
+.rev-score span{display:block; font-size:11.5px; color:var(--ink-3); margin-top:5px; font-weight:600}
+.revs{display:grid; gap:14px; margin-top:30px}
+@media(min-width:700px){.revs{grid-template-columns:1fr 1fr}}
+@media(min-width:1020px){.revs{grid-template-columns:repeat(4,1fr)}}
+.rev{background:var(--bg); border:1px solid var(--line); border-radius:var(--r); padding:20px 19px; display:flex; flex-direction:column}
+.rev .st{color:var(--amber); font-size:13px; letter-spacing:2px}
+.rev p{margin-top:11px; font-size:14.3px; color:var(--ink-2); line-height:1.55; flex:1}
+.rev .who{margin-top:15px; padding-top:13px; border-top:1px solid var(--line); display:flex; align-items:center; gap:10px}
+.av{width:34px;height:34px;border-radius:50%;background:var(--cyan);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+.rev .who b{font-size:13.8px; display:block}
+.rev .who span{font-size:11.5px; color:var(--ink-3)}
+
+/* ============ CLÍNICA / GALERÍA ============ */
+#clinica{background:var(--cyan-soft)}
+.gal{display:grid; gap:12px; margin-top:32px; grid-template-columns:1fr 1fr}
+@media(min-width:820px){.gal{grid-template-columns:repeat(4,1fr)}}
+.gal figure{margin:0; border-radius:var(--r); overflow:hidden; aspect-ratio:1; background:#fff}
+.gal figure.wide{grid-column:span 2; aspect-ratio:2/1}
+.gal img{width:100%;height:100%;object-fit:cover; transition:transform .5s ease}
+.gal figure:hover img{transform:scale(1.05)}
+
+/* ============ CONVENIOS ============ */
+#convenios{background:#fff; padding-top:56px; padding-bottom:56px}
+.conv{display:flex; flex-wrap:wrap; gap:9px; margin-top:22px}
+.conv span{
+  padding:10px 17px; border-radius:999px; border:1.5px solid var(--line);
+  font-size:13.5px; font-weight:700; color:var(--ink-2); background:#fff;
+}
+.pay{display:flex; flex-wrap:wrap; gap:9px; margin-top:16px}
+.pay span{padding:9px 15px; border-radius:11px; background:var(--bg); font-size:12.5px; font-weight:700; color:var(--ink-2)}
+
+/* ============ FAQ ============ */
+#faq{background:var(--bg)}
+.faqs{margin-top:28px; display:grid; gap:9px; max-width:820px}
+details{background:#fff; border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+details[open]{border-color:var(--cyan)}
+summary{
+  padding:17px 19px; font-weight:700; font-size:15.5px; letter-spacing:-.01em;
+  cursor:pointer; list-style:none; display:flex; align-items:center; gap:14px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+"; margin-left:auto; font-size:22px; font-weight:400; color:var(--cyan);
+  line-height:1; transition:transform .2s;
+}
+details[open] summary::after{content:"−"}
+details p{padding:0 19px 19px; font-size:14.5px; color:var(--ink-2); line-height:1.6}
+
+/* ============ CIERRE ============ */
+.close-cta{background:var(--ink); color:#fff; text-align:center}
+.close-cta .h2{color:#fff}
+.close-cta p{color:#A8CBD3; margin:14px auto 0; max-width:52ch; font-size:16.5px}
+.close-acts{display:flex; flex-direction:column; gap:10px; margin-top:28px; align-items:center}
+@media(min-width:560px){.close-acts{flex-direction:row; justify-content:center}}
+
+/* ============ FOOTER ============ */
+footer{background:#041A20; color:#7EA3AD; padding:52px 0 130px; font-size:13.5px}
+@media(min-width:860px){footer{padding-bottom:52px}}
+.f-grid{display:grid; gap:30px}
+@media(min-width:760px){.f-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.f-grid h4{color:#fff; font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:13px}
+.f-grid a{display:block; padding:3px 0}
+.f-grid a:hover{color:#5FD3E8}
+.f-bot{margin-top:36px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1); font-size:12px; line-height:1.6}
+.f-credit{
+  margin-top:20px; padding:16px 18px; border-radius:14px; background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1); font-size:12.3px; line-height:1.65; color:#9FC6CE;
+}
+.f-credit b{color:#fff}
+.f-credit .mm{color:#5FD3E8; font-weight:700}
+
+/* ============ BARRA MÓVIL ============ */
+.mbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:55;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(16px);
+  border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  display:flex; gap:8px;
+}
+.mbar .btn{flex:1}
+@media(min-width:860px){.mbar{display:none}}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1; transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1; transform:none; transition:none}
+  *{animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-strip">MUESTRA DE DEMOSTRACIÓN · <b>no es el sitio oficial de MELI DENT</b></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="MELI DENT Clínica Dental">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect width="34" height="34" rx="10" fill="#0FB2CC"/>
+        <path d="M17 9.2c-1.5-1.4-3.4-1.8-5-1.1-2 .9-3 3-2.7 5.6.3 2.4 1.1 4.6 2.1 6.9.6 1.4 1.2 2.7 1.9 3.6.5.7 1.2 1.1 1.9.9.7-.2 1-.9 1.2-1.9l.6-3.3c.1-.6.6-.6.7 0l.6 3.3c.2 1 .5 1.7 1.2 1.9.7.2 1.4-.2 1.9-.9.7-.9 1.3-2.2 1.9-3.6 1-2.3 1.8-4.5 2.1-6.9.3-2.6-.7-4.7-2.7-5.6-1.6-.7-3.5-.3-5 1.1Z" fill="#fff"/>
+      </svg>
+      <span>
+        <span class="logo-t">MELI DENT</span>
+        <span class="logo-s">Clínica Dental · Arica</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#presupuesto">Presupuesto</a>
+      <a href="#sedes">Sedes</a>
+      <a href="#opiniones">Opiniones</a>
+    </nav>
+    <a class="nav-tel" href="tel:+56930302635" aria-label="Llamar al +56 9 3030 2635">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0FB2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+      <span>+56 9 3030 2635</span>
+    </a>
+    <a class="btn btn-p btn-sm" href="#agenda">Agendar hora</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div id="top"></div>
+<section class="hero" style="padding:0">
+  <div class="wrap" style="padding:0">
+    <div class="hero-grid">
+      <div class="hero-img">
+        <img src="img/hero.jpg" alt="Odontólogo y asistente de MELI DENT explicando un tratamiento a una paciente en el sillón dental de la clínica en Arica" width="1000" height="1380" fetchpriority="high" decoding="async">
+        <div class="hero-float">
+          <span class="pill"><i></i>14 horas libres esta semana</span>
+          <span class="pill">★ 4,9 en Google</span>
+        </div>
+      </div>
+      <div class="hero-txt wrap">
+        <span class="eyebrow">Arica · dos sedes</span>
+        <h1>Reserva tu hora al dentista <em>sin llamar por teléfono</em>.</h1>
+        <p class="hero-sub">Ortodoncia, implantes, limpieza y urgencias. Eliges tratamiento, sede y horario en la misma página, y recibes la confirmación por WhatsApp en el acto.</p>
+        <div class="hero-cta">
+          <a class="btn btn-p" href="#agenda">
+            Agendar mi hora online
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-g" href="#presupuesto">Ver precios y cuotas</a>
+        </div>
+        <p class="hero-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Primera evaluación $14.990 · agenda abierta 24/7, también fines de semana
+        </p>
+        <div class="hero-stats">
+          <div><b>2</b><span>Sedes en Arica</span></div>
+          <div><b>+3.500</b><span>Nos siguen</span></div>
+          <div><b>13,5h</b><span>Atención al día</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIRA CONFIANZA ================= -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5FD3E8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Convenios Metlife, Codelco, Collahuasi</span>
+    <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5FD3E8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Hasta 24 cuotas · Caja Los Andes</span>
+    <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5FD3E8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> Urgencias hasta las 22:00</span>
+  </div>
+</div>
+
+<!-- ================= AGENDA ================= -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Agenda online</span>
+      <h2 class="h2">Tu hora, reservada en 40 segundos.</h2>
+      <p class="lede">Hoy tus pacientes te escriben por WhatsApp y alguien tiene que contestar. Aquí la agenda trabaja sola: el paciente elige, confirma y queda registrado, aunque sean las once de la noche.</p>
+    </div>
+
+    <div class="booker rv" id="booker">
+      <div class="booker-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Reserva de horas MELI DENT</h3>
+          <p id="bkHead">Paso 1 de 4 · elige tu tratamiento</p>
+        </div>
+      </div>
+      <div class="steps" aria-hidden="true">
+        <i class="on" data-s="1"></i><i data-s="2"></i><i data-s="3"></i><i data-s="4"></i>
+      </div>
+
+      <!-- PASO 1 -->
+      <div class="booker-body pane fade" data-pane="1">
+        <p class="booker-q">¿Qué necesitas?</p>
+        <div class="opts" id="trList"></div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="booker-body pane" data-pane="2" hidden>
+        <p class="booker-q">¿En qué sede te acomoda?</p>
+        <div class="sedes-pick">
+          <button class="sede-op" data-sede="Av. Santa María 3117" data-zona="Sector norte">
+            <img src="img/sede-santamaria.jpg" alt="Fachada de la Clínica Dental Melident en Av. Santa María 3117, Arica" loading="lazy" width="900" height="620">
+            <span class="b"><b>Sede Santa María</b><span>Av. Santa María 3117 · sector norte</span></span>
+          </button>
+          <button class="sede-op" data-sede="Almirante Latorre 580" data-zona="Centro de Arica">
+            <img src="img/sede-latorre.jpg" alt="Sala de espera de la sede de MELI DENT en Almirante Latorre 580, centro de Arica" loading="lazy" width="900" height="620">
+            <span class="b"><b>Sede Centro</b><span>Almirante Latorre 580 · centro</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="booker-body pane" data-pane="3" hidden>
+        <p class="booker-q">Elige día y hora</p>
+        <div class="days" id="dayStrip" role="group" aria-label="Días disponibles"></div>
+        <div id="slotWrap"></div>
+      </div>
+
+      <!-- PASO 4 -->
+      <div class="booker-body pane" data-pane="4" hidden>
+        <p class="booker-q">Confirma tus datos</p>
+        <div class="recap" id="recap"></div>
+        <div class="fields">
+          <div class="field"><label for="fNom">Nombre y apellido</label><input id="fNom" type="text" placeholder="Ej: Camila Rojas" autocomplete="name"></div>
+          <div class="field"><label for="fTel">WhatsApp</label><input id="fTel" type="tel" placeholder="+56 9 ..." autocomplete="tel"></div>
+          <div class="field full"><label for="fPrev">Previsión o convenio</label>
+            <select id="fPrev">
+              <option>Particular</option><option>Fonasa</option><option>Isapre</option>
+              <option>Metlife</option><option>Sonríe Seguro</option><option>Codelco</option>
+              <option>Collahuasi</option><option>Komatsu</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFIRMADO -->
+      <div class="pane done" data-pane="5" hidden>
+        <div class="done-ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3>Hora reservada</h3>
+        <p>Te enviamos la confirmación por WhatsApp y un recordatorio 24 horas antes.</p>
+        <div class="recap" id="recap2"></div>
+        <div class="done-acts">
+          <button class="btn btn-g btn-block" id="btnOtra">Reservar otra hora</button>
+          <a class="btn btn-d btn-block" href="#presupuesto">Ver mi presupuesto</a>
+        </div>
+      </div>
+
+      <div class="booker-foot" id="bkFoot">
+        <button class="back" id="btnBack" hidden>← Atrás</button>
+        <button class="btn btn-p" id="btnNext" disabled>Continuar</button>
+      </div>
+      <p class="legal">Muestra de demostración: no se envía ni se guarda ningún dato.</p>
+    </div>
+
+    <!-- ANTES / DESPUÉS -->
+    <div class="pain rv">
+      <div class="pain-c bad">
+        <h3>Sin agenda online</h3>
+        <ul>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D9724A" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> El paciente escribe a las 22:30 y nadie responde hasta mañana.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D9724A" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Cada hora agendada cuesta entre seis y diez mensajes de ida y vuelta.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D9724A" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Quien busca "dentista en Arica" en Google no te encuentra.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D9724A" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Publicas todas las semanas en Instagram y esa gente no tiene dónde llegar.</li>
+        </ul>
+      </div>
+      <div class="pain-c good">
+        <h3>Con esta web</h3>
+        <ul>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0FB2CC" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> La agenda recibe reservas de madrugada, domingo y feriado.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0FB2CC" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Recordatorio automático 24 horas antes, menos sillones vacíos.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0FB2CC" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Página por tratamiento y por sede, lista para posicionar en Google.</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0FB2CC" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> El link de la bio deja de ser un bit.ly y pasa a ser una agenda.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRESUPUESTO ================= -->
+<section id="presupuesto">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Presupuesto al instante</span>
+      <h2 class="h2">El precio, antes de que lo pregunten.</h2>
+      <p class="lede">La objeción número uno en ortodoncia e implantes es cuánto cuesta. Aquí el paciente lo ve solo, elige sus cuotas y llega a la evaluación con la decisión medio tomada.</p>
+    </div>
+
+    <div class="calc rv">
+      <div class="calc-grid">
+        <div class="calc-l">
+          <div class="tabs" role="tablist">
+            <button class="on" data-tab="orto" role="tab" aria-selected="true">Ortodoncia</button>
+            <button data-tab="impl" role="tab" aria-selected="false">Implantes y prótesis</button>
+          </div>
+          <div class="tlist" id="tratList"></div>
+          <div class="cuotas">
+            <h4>Paga en cuotas sin interés</h4>
+            <div class="cuota-btns" id="cuotaBtns"></div>
+          </div>
+        </div>
+        <div class="calc-r">
+          <span class="lbl">Tu cuota mensual</span>
+          <div class="big" id="cuotaVal">$0</div>
+          <span class="lbl" id="cuotaSub" style="text-transform:none; letter-spacing:0; font-size:13.5px">—</span>
+          <div class="calc-tot">
+            <div><span>Tratamiento</span><b id="totName">—</b></div>
+            <div><span>Valor total</span><b id="totVal">—</b></div>
+            <div><span>Primera evaluación</span><b style="color:#5FD3E8">$14.990</b></div>
+          </div>
+          <ul class="incl" id="incl"></ul>
+          <a class="btn btn-p btn-block" href="#agenda">Agendar evaluación por $14.990</a>
+          <p class="calc-note">Valores de ejemplo para esta muestra, en el rango de mercado de Arica. La evaluación inicial ($14.990, valorada en $20.000) y el implante unitario ($829.990) son los valores que MELI DENT publica hoy. El presupuesto definitivo se entrega tras la evaluación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRATAMIENTOS ================= -->
+<section id="tratamientos">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Tratamientos</span>
+      <h2 class="h2">Todo en un mismo lugar, con dos especialidades fuertes.</h2>
+      <p class="lede">Ortodoncia e implantología son los tratamientos que más deciden y los que mejor se explican con una página propia.</p>
+    </div>
+
+    <div class="srv">
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-ortodoncia.jpg" alt="Sonrisa con brackets metálicos, tratamiento de ortodoncia" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag">Especialidad</span>
+          <h3>Ortodoncia</h3>
+          <p>Brackets metálicos, autoligados, cerámicos y zafiro. Controles mensuales incluidos y plan de cuotas desde el primer día.</p>
+          <div class="srv-m"><span class="pr">Desde $690.000</span><span class="lk">Ver planes →</span></div>
+        </div>
+      </article>
+
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-implantes.jpg" alt="Paciente revisando una radiografía dental en tablet durante la planificación de un implante" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag">Especialidad</span>
+          <h3>Implantes dentales</h3>
+          <p>Implante más corona, puentes, prótesis fijas y removibles. Planificación con radiografía panorámica en la misma clínica.</p>
+          <div class="srv-m"><span class="pr">Implante $829.990</span><span class="lk">Ver detalle →</span></div>
+        </div>
+      </article>
+
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-limpieza.jpg" alt="Paciente atendida por una odontóloga de MELI DENT durante una limpieza dental" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag hot">Promoción</span>
+          <h3>Limpieza y destartraje</h3>
+          <p>Destartraje completo, pulido y aplicación de flúor. La hora más pedida y la que mejor abre la puerta a un tratamiento mayor.</p>
+          <div class="srv-m"><span class="pr">$30.000 <s style="color:var(--ink-3);font-weight:500">$40.000</s></span><span class="lk">Agendar →</span></div>
+        </div>
+      </article>
+
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-radiografia.jpg" alt="Equipo de radiografía panorámica de MELI DENT con un paciente durante el examen" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag">En clínica</span>
+          <h3>Radiografía digital</h3>
+          <p>Panorámica y periapical en el mismo lugar, sin derivar a otro centro. Resultado el mismo día para empezar antes.</p>
+          <div class="srv-m"><span class="pr">Desde $22.000</span><span class="lk">Ver detalle →</span></div>
+        </div>
+      </article>
+
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-urgencia.jpg" alt="Odontóloga atendiendo una urgencia dental a un paciente en el sillón" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag hot">Hasta las 22:00</span>
+          <h3>Urgencia dental</h3>
+          <p>Dolor, fractura, absceso o una corona que se salió. Horario de extensión de 19:30 a 22:00 y atención de fin de semana.</p>
+          <div class="srv-m"><span class="pr">Evaluación $14.990</span><span class="lk">Pedir hora →</span></div>
+        </div>
+      </article>
+
+      <article class="srv-c rv">
+        <div class="srv-ph"><img src="img/serv-ninos.jpg" alt="Odontólogo y asistente de MELI DENT explicando la higiene dental a una niña con un modelo de dientes" loading="lazy" width="760" height="560"></div>
+        <div class="srv-b">
+          <span class="tag">Familia</span>
+          <h3>Odontopediatría</h3>
+          <p>Primera visita sin miedo, sellantes, flúor y control de recambio dental. Atención pensada para que el niño quiera volver.</p>
+          <div class="srv-m"><span class="pr">Desde $18.000</span><span class="lk">Agendar →</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section id="instagram">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Instagram · @clinicadentalmelidentarica</span>
+      <h2 class="h2">3.512 seguidores que hoy no tienen dónde llegar.</h2>
+      <p class="lede">Publican todas las semanas y el enlace de la biografía es un acortador. Todo ese trabajo termina en un chat. Con la web, termina en una hora agendada.</p>
+    </div>
+
+    <div class="ig-grid">
+      <div class="ig-tiles rv">
+        <figure class="ig-tile" style="margin:0"><img src="img/ig-1.jpg" alt="Niños en la consulta de MELI DENT durante un control dental" loading="lazy" width="480" height="480"><b>♥ 214</b></figure>
+        <figure class="ig-tile" style="margin:0"><img src="img/ig-2.jpg" alt="Paciente atendida por una odontóloga de MELI DENT" loading="lazy" width="480" height="480"><b>♥ 168</b></figure>
+        <figure class="ig-tile" style="margin:0"><img src="img/ig-3.jpg" alt="Paciente sonriendo durante una revisión dental" loading="lazy" width="480" height="480"><b>♥ 341</b></figure>
+        <figure class="ig-tile" style="margin:0"><img src="img/ig-4.jpg" alt="Paciente mirándose en el espejo tras su tratamiento en MELI DENT" loading="lazy" width="480" height="480"><b>♥ 197</b></figure>
+      </div>
+      <div class="rv">
+        <div class="ig-flow">
+          <div class="ig-step"><span class="n">1</span><div><b>Publican un caso de ortodoncia</b><p>El mismo contenido que ya hacen cada semana, sin cambiar nada.</p></div></div>
+          <div class="ig-step"><span class="n">2</span><div><b>El link de la bio abre esta página</b><p>No un acortador: la sección del tratamiento que acaban de mostrar.</p></div></div>
+          <div class="ig-step"><span class="n">3</span><div><b>La persona ve el precio y las cuotas</b><p>Resuelve la objeción sola, sin escribir ni esperar respuesta.</p></div></div>
+          <div class="ig-step last"><span class="n">✓</span><div><b>Agenda su evaluación de $14.990</b><p>Queda en la agenda con nombre, teléfono y sede. Sin que nadie conteste un mensaje.</p></div></div>
+        </div>
+        <a class="btn btn-p" href="#agenda" style="margin-top:20px">Probar el flujo completo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEDES ================= -->
+<section id="sedes">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Dónde estamos</span>
+      <h2 class="h2">Dos sedes en Arica, la misma agenda.</h2>
+      <p class="lede">El paciente elige la que le queda cerca y la hora se bloquea sólo en esa sede.</p>
+    </div>
+
+    <div class="sedes">
+      <article class="sede rv">
+        <div class="sede-ph">
+          <img src="img/sede-santamaria.jpg" alt="Fachada de la Clínica Dental Melident en Av. Santa María 3117, Arica, con el letrero y el número de WhatsApp" loading="lazy" width="900" height="620">
+          <span class="badge">Sede Santa María</span>
+        </div>
+        <div class="sede-b">
+          <h3>Av. Santa María 3117</h3>
+          <p class="sede-addr">Sector norte de Arica · estacionamiento en la calle</p>
+          <div class="hours">
+            <div><span>Lunes a viernes</span><b>08:30–13:30 · 14:00–19:30</b></div>
+            <div><span>Sáb, dom y feriados</span><b>09:00–13:00 · 15:30–19:00</b></div>
+            <div class="ext"><span>Extensión urgencias</span><b>19:30–22:00</b></div>
+          </div>
+          <div class="sede-acts">
+            <a class="btn btn-p btn-sm" href="#agenda">Agendar en esta sede</a>
+            <a class="btn btn-g btn-sm" href="https://www.google.com/maps?q=Av.+Santa+Mar%C3%ADa+3117+Arica" target="_blank" rel="noopener">Cómo llegar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sede rv">
+        <div class="sede-ph">
+          <img src="img/sede-latorre.jpg" alt="Sala de espera luminosa de la sede de MELI DENT en Almirante Latorre 580, centro de Arica" loading="lazy" width="900" height="620">
+          <span class="badge">Sede Centro</span>
+        </div>
+        <div class="sede-b">
+          <h3>Almirante Latorre 580</h3>
+          <p class="sede-addr">Centro de Arica · a pasos del terminal de buses</p>
+          <div class="hours">
+            <div><span>Lunes a viernes</span><b>08:30–13:30 · 14:00–19:30</b></div>
+            <div><span>Sáb, dom y feriados</span><b>09:00–13:00 · 15:30–19:00</b></div>
+            <div class="ext"><span>Extensión urgencias</span><b>19:30–22:00</b></div>
+          </div>
+          <div class="sede-acts">
+            <a class="btn btn-p btn-sm" href="#agenda">Agendar en esta sede</a>
+            <a class="btn btn-g btn-sm" href="https://www.google.com/maps?q=Almirante+Latorre+580+Arica" target="_blank" rel="noopener">Cómo llegar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPINIONES ================= -->
+<section id="opiniones">
+  <div class="wrap">
+    <div class="rev-head rv">
+      <div>
+        <span class="eyebrow">Opiniones</span>
+        <h2 class="h2">Lo que ya dicen sus pacientes.</h2>
+      </div>
+      <div class="rev-score">
+        <b>4,9</b>
+        <div class="st" aria-label="4,9 de 5">★★★★★</div>
+        <span>Reseñas en Google</span>
+      </div>
+    </div>
+
+    <div class="revs">
+      <article class="rev rv">
+        <div class="st" aria-hidden="true">★★★★★</div>
+        <p>"Absolutamente recomendado. Mi esposo, que es una persona de tercera edad, se hizo una limpieza de dientes que se desarrolló de buena forma y sin ningún contratiempo. Agradezco el profesionalismo de todo el equipo."</p>
+        <div class="who"><span class="av">DQ</span><div><b>Daisy Quiroz</b><span>Limpieza dental</span></div></div>
+      </article>
+      <article class="rev rv">
+        <div class="st" aria-hidden="true">★★★★★</div>
+        <p>"Mi más sincero agradecimiento por la atención que recibió mi hija. Desde la recepción hasta el cuidado profesional, todo fue manejado con una calidez que nos hizo sentir en las mejores manos."</p>
+        <div class="who"><span class="av">JZ</span><div><b>Jasmin Zamora</b><span>Odontopediatría</span></div></div>
+      </article>
+      <article class="rev rv">
+        <div class="st" aria-hidden="true">★★★★★</div>
+        <p>"Excelente servicio, atención y disposición. Muy amables los profesionales que me atendieron y, a pesar de mi edad y mi miedo, me hicieron sentir tranquila."</p>
+        <div class="who"><span class="av">CM</span><div><b>Carla M.</b><span>Rehabilitación</span></div></div>
+      </article>
+      <article class="rev rv">
+        <div class="st" aria-hidden="true">★★★★★</div>
+        <p>"Muy buena atención. Al momento de ingresar, la recepción muy amable y cordial, y la doctora de igual manera, muy delicada y amable."</p>
+        <div class="who"><span class="av">SP</span><div><b>Shangtall Pizarro</b><span>Control general</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLÍNICA ================= -->
+<section id="clinica">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">La clínica</span>
+      <h2 class="h2">Equipamiento propio y un equipo que ya conocen.</h2>
+      <p class="lede">Radiografía panorámica, box de rehabilitación y atención de urgencia en las dos sedes.</p>
+    </div>
+    <div class="gal rv">
+      <figure class="wide"><img src="img/recepcion.jpg" alt="Mesón de recepción de Clínica MELI DENT con el equipo atendiendo" loading="lazy" width="900" height="620"></figure>
+      <figure><img src="img/clinica-rx.jpg" alt="Odontóloga de MELI DENT revisando una radiografía panorámica en pantalla" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="img/clinica-letrero.jpg" alt="Letrero de acrílico de MELI DENT Clínica Dental en el muro de la recepción" loading="lazy" width="700" height="700"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONVENIOS ================= -->
+<section id="convenios">
+  <div class="wrap">
+    <span class="eyebrow">Convenios y pagos</span>
+    <h2 class="h2" style="font-size:clamp(26px,5.2vw,38px)">Trabajamos con seguros complementarios.</h2>
+    <div class="conv rv">
+      <span>Metlife</span><span>Sonríe Seguro</span><span>Codelco</span>
+      <span>Collahuasi</span><span>Komatsu</span><span>Caja Los Andes</span>
+    </div>
+    <div class="pay rv">
+      <span>Débito</span><span>Crédito hasta 24 cuotas</span><span>Transferencia</span><span>Efectivo</span><span>Crédito Caja Los Andes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 class="h2">Lo que preguntan por WhatsApp todos los días.</h2>
+      <p class="lede">Contestadas aquí, dejan de ocupar el tiempo de la recepción.</p>
+    </div>
+    <div class="faqs rv">
+      <details open><summary>¿Cuánto cuesta la primera evaluación?</summary><p>$14.990, valorada en $20.000. Incluye el examen clínico completo y el presupuesto escrito de tu tratamiento. Si continúas con nosotros, ese valor se descuenta del total.</p></details>
+      <details><summary>¿Atienden urgencias fuera del horario normal?</summary><p>Sí. Hay horario de extensión de 19:30 a 22:00 de lunes a viernes, y atención los sábados, domingos y feriados de 09:00 a 13:00 y de 15:30 a 19:00.</p></details>
+      <details><summary>¿La ortodoncia se puede pagar en cuotas?</summary><p>Sí, hasta en 24 cuotas sin interés con tarjeta de crédito, y también con crédito Caja Los Andes. En la calculadora de esta página puedes ver tu cuota antes de venir.</p></details>
+      <details><summary>¿Necesito una radiografía antes del implante?</summary><p>Sí, y la tomamos en la misma clínica. La panorámica se hace el mismo día de la evaluación, así que no tienes que ir a otro centro ni volver otro día.</p></details>
+      <details><summary>¿Puedo cambiar la hora si me surge algo?</summary><p>Sí. El mensaje de confirmación de WhatsApp incluye un enlace para mover o cancelar tu hora sin llamar por teléfono.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CIERRE ================= -->
+<section class="close-cta">
+  <div class="wrap rv">
+    <span class="eyebrow" style="color:#5FD3E8">Tu nueva sonrisa</span>
+    <h2 class="h2">Esperamos a toda la comunidad ariqueña.</h2>
+    <p>Elige tu tratamiento, tu sede y tu horario. Te confirmamos por WhatsApp en el acto.</p>
+    <div class="close-acts">
+      <a class="btn btn-p" href="#agenda">Agendar mi hora</a>
+      <a class="btn btn-wa" href="https://wa.me/56930302635" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <rect width="34" height="34" rx="10" fill="#0FB2CC"/>
+            <path d="M17 9.2c-1.5-1.4-3.4-1.8-5-1.1-2 .9-3 3-2.7 5.6.3 2.4 1.1 4.6 2.1 6.9.6 1.4 1.2 2.7 1.9 3.6.5.7 1.2 1.1 1.9.9.7-.2 1-.9 1.2-1.9l.6-3.3c.1-.6.6-.6.7 0l.6 3.3c.2 1 .5 1.7 1.2 1.9.7.2 1.4-.2 1.9-.9.7-.9 1.3-2.2 1.9-3.6 1-2.3 1.8-4.5 2.1-6.9.3-2.6-.7-4.7-2.7-5.6-1.6-.7-3.5-.3-5 1.1Z" fill="#fff"/>
+          </svg>
+          <span><span class="logo-t" style="color:#fff">MELI DENT</span><span class="logo-s">Clínica Dental · Arica</span></span>
+        </div>
+        <p style="max-width:38ch">Ortodoncia, implantes, rehabilitación y urgencias dentales en Arica. Dos sedes y agenda abierta todos los días.</p>
+        <p style="margin-top:14px"><a href="tel:+56930302635" style="color:#fff;font-weight:700">+56 9 3030 2635</a><br><a href="mailto:contacto@melidentarica.cl">contacto@melidentarica.cl</a></p>
+      </div>
+      <div>
+        <h4>Sedes</h4>
+        <a href="https://www.google.com/maps?q=Av.+Santa+Mar%C3%ADa+3117+Arica" target="_blank" rel="noopener">Av. Santa María 3117</a>
+        <a href="https://www.google.com/maps?q=Almirante+Latorre+580+Arica" target="_blank" rel="noopener">Almirante Latorre 580</a>
+        <p style="margin-top:12px">Lun a vie 08:30–19:30<br>Sáb, dom y feriados 09:00–19:00<br>Urgencias hasta 22:00</p>
+      </div>
+      <div>
+        <h4>Tratamientos</h4>
+        <a href="#tratamientos">Ortodoncia</a>
+        <a href="#tratamientos">Implantes dentales</a>
+        <a href="#tratamientos">Limpieza y destartraje</a>
+        <a href="#tratamientos">Radiografía digital</a>
+        <a href="#tratamientos">Urgencia dental</a>
+        <a href="#tratamientos">Odontopediatría</a>
+      </div>
+    </div>
+
+    <div class="f-bot">
+      Fotografías de Clínica Dental MELI DENT, tomadas de su sitio y sus redes, usadas sólo para esta muestra.
+      Los valores de ortodoncia, radiografía y odontopediatría son de ejemplo; la evaluación de $14.990, la limpieza de $30.000 y el implante de $829.990 son los valores publicados por la clínica.
+    </div>
+
+    <div class="f-credit">
+      <b>Muestra preparada por Giancarlo Martino</b> · mismo sistema detrás de <span class="mm">MYRA Social Club</span> · datos de ejemplo.
+    </div>
+  </div>
+</footer>
+
+<!-- ================= BARRA MÓVIL ================= -->
+<div class="mbar">
+  <a class="btn btn-p" href="#agenda">Agendar hora</a>
+  <a class="btn btn-wa btn-sm" href="https://wa.me/56930302635" target="_blank" rel="noopener" aria-label="WhatsApp" style="flex:0 0 54px">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Z"/></svg>
+  </a>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- utilidades ---------- */
+var CLP = function(n){ return "$" + Math.round(n).toLocaleString("es-CL"); };
+var $  = function(s,c){ return (c||document).querySelector(s); };
+var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+var DIAS = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+var MES  = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+
+/* ---------- reveal al hacer scroll ---------- */
+if ("IntersectionObserver" in window){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {rootMargin:"0px 0px -8% 0px", threshold:.08});
+  $$(".rv").forEach(function(el){ io.observe(el); });
+  /* red de seguridad: si el observador no alcanza a disparar (por ejemplo cuando
+     se entra directo a un ancla), nada puede quedarse invisible */
+  setTimeout(function(){ $$(".rv").forEach(function(el){ el.classList.add("in"); }); }, 1400);
+} else {
+  $$(".rv").forEach(function(el){ el.classList.add("in"); });
+}
+
+/* =========================================================
+   AGENDA
+   ========================================================= */
+var TRATAMIENTOS = [
+  {id:"eval", n:"Primera evaluación",     d:"Examen completo + presupuesto", p:14990, antes:20000, dur:30, ic:"tooth"},
+  {id:"limp", n:"Limpieza y destartraje", d:"Destartraje, pulido y flúor",   p:30000, antes:40000, dur:45, ic:"spark"},
+  {id:"orto", n:"Ortodoncia",             d:"Evaluación con especialista",   p:14990, antes:0,     dur:40, ic:"brace"},
+  {id:"impl", n:"Implantes",              d:"Evaluación con implantólogo",   p:14990, antes:0,     dur:40, ic:"impl"},
+  {id:"urg",  n:"Urgencia dental",        d:"Dolor, fractura o absceso",     p:14990, antes:0,     dur:30, ic:"bolt"},
+  {id:"ctrl", n:"Control de tratamiento", d:"Pacientes en tratamiento",      p:0,     antes:0,     dur:20, ic:"check"}
+];
+
+var ICONS = {
+  tooth:'<path d="M12 4.2c-1.3-1.2-3-1.6-4.4-1-1.7.8-2.6 2.6-2.4 4.9.3 2.1 1 4 1.9 6 .5 1.2 1 2.4 1.6 3.2.5.6 1.1 1 1.7.8.6-.2.9-.8 1-1.7l.5-2.9c.1-.5.5-.5.6 0l.5 2.9c.2.9.5 1.5 1 1.7.6.2 1.2-.2 1.7-.8.6-.8 1.1-2 1.6-3.2.9-2 1.6-3.9 1.9-6 .2-2.3-.7-4.1-2.4-4.9-1.4-.6-3.1-.2-4.4 1Z"/>',
+  spark:'<path d="M12 3.5 13.6 9l5.4 1.6-5.4 1.6L12 17.6l-1.6-5.4L5 10.6 10.4 9 12 3.5ZM18.5 15l.7 2.2 2.3.7-2.3.7-.7 2.2-.7-2.2-2.3-.7 2.3-.7.7-2.2Z"/>',
+  brace:'<path d="M4 9h16v2.2H4V9Zm0 4.4h16V15H4v-1.6ZM7 7.4h2V17H7V7.4Zm8 0h2V17h-2V7.4Z"/>',
+  impl:'<path d="M11 3h2v3.4h-2V3Zm-1.6 5h5.2l-.5 2.2H9.9L9.4 8Zm.8 3.8h3.6l-.5 2.1h-2.6l-.5-2.1Zm.7 3.7h2.2l-.6 2.4h-1l-.6-2.4Zm.6 4h1l-.5 2.5-.5-2.5Z"/>',
+  bolt:'<path d="M13.6 2 5 13.4h5.3L9.6 22l8.8-11.6h-5.4L13.6 2Z"/>',
+  check:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.8 7.5-5.6 5.7a1 1 0 0 1-1.4 0l-2.6-2.6 1.4-1.4 1.9 1.9 4.9-5 1.4 1.4Z"/>'
+};
+
+var st = { paso:1, trat:null, sede:null, zona:null, dia:null, hora:null };
+
+/* --- paso 1: tratamientos --- */
+var trList = $("#trList");
+TRATAMIENTOS.forEach(function(t){
+  var b = document.createElement("button");
+  b.className = "opt"; b.type = "button"; b.dataset.id = t.id;
+  b.innerHTML =
+    '<span class="opt-ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="#0A7E93" aria-hidden="true">'+ICONS[t.ic]+'</svg></span>' +
+    '<span><span class="opt-t">'+t.n+'</span><span class="opt-d">'+t.d+' · '+t.dur+' min</span></span>' +
+    '<span class="opt-p">'+ (t.p ? '<b>'+CLP(t.p)+'</b>' : '<b>Sin costo</b>') +
+      (t.antes ? '<s>'+CLP(t.antes)+'</s>' : '') + '</span>';
+  b.addEventListener("click", function(){
+    $$(".opt", trList).forEach(function(o){ o.classList.remove("sel"); });
+    b.classList.add("sel"); st.trat = t; enable(true);
+  });
+  trList.appendChild(b);
+});
+
+/* --- paso 2: sedes --- */
+$$(".sede-op").forEach(function(b){
+  b.addEventListener("click", function(){
+    $$(".sede-op").forEach(function(o){ o.classList.remove("sel"); });
+    b.classList.add("sel");
+    st.sede = b.dataset.sede; st.zona = b.dataset.zona; enable(true);
+  });
+});
+
+/* --- paso 3: días y horas --- */
+function hash(s){ var h=0,i; for(i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))>>>0; } return h; }
+function slotsDe(fecha){
+  var dow = fecha.getDay(), am = [], pm = [], ext = [], h, m;
+  if (dow === 0 || dow === 6){
+    for(h=9;h<13;h++) for(m=0;m<60;m+=30) am.push(p2(h)+":"+p2(m));
+    for(h=15;h<19;h++) for(m=(h===15?30:0);m<60;m+=30) pm.push(p2(h)+":"+p2(m));
+  } else {
+    for(h=8;h<13;h++) for(m=(h===8?30:0);m<60;m+=30) am.push(p2(h)+":"+p2(m));
+    for(h=14;h<19;h++) for(m=0;m<60;m+=30) pm.push(p2(h)+":"+p2(m));
+    pm.push("19:00"); pm.push("19:30");
+    ext = ["20:00","20:30","21:00","21:30"];
+  }
+  return {am:am, pm:pm, ext:ext};
+}
+function p2(n){ return (n<10?"0":"") + n; }
+function ocupado(key){ return hash(key) % 100 < 38; }
+
+var dayStrip = $("#dayStrip"), slotWrap = $("#slotWrap"), fechas = [];
+(function(){
+  var hoy = new Date(), i;
+  for(i=0;i<12;i++){
+    var d = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()+i);
+    fechas.push(d);
+    var b = document.createElement("button");
+    b.className = "day"; b.type = "button"; b.dataset.i = i;
+    b.innerHTML = '<em>'+ (i===0 ? "Hoy" : DIAS[d.getDay()]) +'</em><b>'+ d.getDate() +'</b><i>'+ MES[d.getMonth()] +'</i>';
+    b.addEventListener("click", function(){
+      $$(".day").forEach(function(o){ o.classList.remove("sel"); });
+      b.classList.add("sel");
+      st.dia = fechas[+b.dataset.i]; st.hora = null;
+      pintarSlots(); enable(false);
+    });
+    dayStrip.appendChild(b);
+  }
+})();
+
+function pintarSlots(){
+  var s = slotsDe(st.dia), key = st.dia.toDateString() + (st.sede||"");
+  var bloques = [["Mañana", s.am], ["Tarde", s.pm]];
+  if (s.ext.length) bloques.push(["Extensión de urgencias", s.ext]);
+  slotWrap.innerHTML = "";
+  bloques.forEach(function(bl){
+    if(!bl[1].length) return;
+    var g = document.createElement("div");
+    g.className = "slot-group fade";
+    g.innerHTML = '<h4>'+bl[0]+'</h4><div class="slots"></div>';
+    var cont = $(".slots", g);
+    bl[1].forEach(function(h){
+      var b = document.createElement("button");
+      b.className = "slot"; b.type = "button"; b.textContent = h;
+      if (ocupado(key+h)) { b.disabled = true; b.title = "Hora tomada"; }
+      b.addEventListener("click", function(){
+        $$(".slot").forEach(function(o){ o.classList.remove("sel"); });
+        b.classList.add("sel"); st.hora = h; enable(true);
+      });
+      cont.appendChild(b);
+    });
+    slotWrap.appendChild(g);
+  });
+}
+
+/* --- navegación --- */
+var HEADS = [
+  "Paso 1 de 4 · elige tu tratamiento",
+  "Paso 2 de 4 · elige la sede",
+  "Paso 3 de 4 · elige día y hora",
+  "Paso 4 de 4 · confirma tus datos",
+  "Reserva confirmada"
+];
+var btnNext = $("#btnNext"), btnBack = $("#btnBack"), bkHead = $("#bkHead"), bkFoot = $("#bkFoot");
+
+function enable(v){ btnNext.disabled = !v; }
+function fechaTxt(d){ return DIAS[d.getDay()] + " " + d.getDate() + " de " + MES[d.getMonth()]; }
+
+function recapHTML(){
+  return '<div><span>Tratamiento</span><b>'+ st.trat.n +'</b></div>' +
+         '<div><span>Sede</span><b>'+ st.sede +'</b></div>' +
+         '<div><span>Día y hora</span><b>'+ fechaTxt(st.dia) +' · '+ st.hora +' h</b></div>' +
+         '<div><span>Duración</span><b>'+ st.trat.dur +' minutos</b></div>' +
+         '<div><span>Valor</span><b>'+ (st.trat.p ? CLP(st.trat.p) : "Sin costo") +'</b></div>';
+}
+
+function ir(n){
+  st.paso = n;
+  $$(".pane").forEach(function(p){ p.hidden = (+p.dataset.pane !== n); });
+  $$(".steps i").forEach(function(i){ i.classList.toggle("on", +i.dataset.s <= Math.min(n,4)); });
+  bkHead.textContent = HEADS[n-1];
+  btnBack.hidden = (n === 1 || n === 5);
+  bkFoot.hidden = (n === 5);
+  $(".legal").hidden = (n === 5);
+  var pane = $('.pane[data-pane="'+n+'"]');
+  if (pane){ pane.classList.remove("fade"); void pane.offsetWidth; pane.classList.add("fade"); }
+
+  if (n === 2) enable(!!st.sede);
+  if (n === 3){
+    if (!st.dia){ $(".day").click(); } else { enable(!!st.hora); }
+    btnNext.textContent = "Continuar";
+  }
+  if (n === 4){ $("#recap").innerHTML = recapHTML(); btnNext.textContent = "Confirmar reserva"; enable(true); }
+  else if (n < 4) btnNext.textContent = "Continuar";
+  if (n === 5) $("#recap2").innerHTML = recapHTML();
+
+  if (n > 1) document.getElementById("booker").scrollIntoView({block:"start", behavior:"smooth"});
+}
+
+btnNext.addEventListener("click", function(){
+  if (st.paso < 4) ir(st.paso + 1);
+  else ir(5);
+});
+btnBack.addEventListener("click", function(){ ir(Math.max(1, st.paso - 1)); });
+$("#btnOtra").addEventListener("click", function(){
+  st = {paso:1, trat:null, sede:null, zona:null, dia:null, hora:null};
+  $$(".opt").forEach(function(o){ o.classList.remove("sel"); });
+  $$(".sede-op").forEach(function(o){ o.classList.remove("sel"); });
+  $$(".day").forEach(function(o){ o.classList.remove("sel"); });
+  slotWrap.innerHTML = "";
+  $("#fNom").value = ""; $("#fTel").value = "";
+  enable(false); ir(1);
+});
+
+/* =========================================================
+   CALCULADORA DE PRESUPUESTO
+   ========================================================= */
+var PLANES = {
+  orto: [
+    {n:"Brackets metálicos",          d:"El plan más elegido", v:690000,  real:false},
+    {n:"Metálicos autoligados",       d:"Menos controles, más rápido", v:890000, real:false},
+    {n:"Estéticos cerámicos",         d:"Color del diente", v:980000, real:false},
+    {n:"Brackets de zafiro",          d:"Prácticamente invisibles", v:1190000, real:false},
+    {n:"Retenedores invisibles",      d:"Después del tratamiento", v:240000, real:false}
+  ],
+  impl: [
+    {n:"Implante unitario + corona",  d:"Implante, pilar y corona", v:829990, real:true},
+    {n:"Corona de zirconio",          d:"Sobre implante existente", v:390000, real:false},
+    {n:"Puente de 3 piezas",          d:"Rehabilitación fija", v:690000, real:false},
+    {n:"Prótesis removible",          d:"Superior o inferior", v:390000, real:false},
+    {n:"Injerto óseo",                d:"Cuando falta hueso", v:280000, real:false}
+  ]
+};
+var INCLUYE = {
+  orto: ["Instalación y retiro incluidos","Controles mensuales durante todo el tratamiento","Radiografía panorámica inicial","Urgencias de bracket suelto sin costo"],
+  impl: ["Radiografía panorámica y planificación","Cirugía, pilar y corona","Controles de seguimiento por 12 meses","Garantía del implante según fabricante"]
+};
+
+var tab = "orto", idx = 0, cuotas = 12;
+var tratList = $("#tratList"), cuotaBtns = $("#cuotaBtns");
+
+[3,6,12,18,24].forEach(function(c){
+  var b = document.createElement("button");
+  b.type = "button"; b.textContent = c + " cuotas";
+  if (c === cuotas) b.classList.add("on");
+  b.addEventListener("click", function(){
+    $$("button", cuotaBtns).forEach(function(o){ o.classList.remove("on"); });
+    b.classList.add("on"); cuotas = c; render();
+  });
+  cuotaBtns.appendChild(b);
+});
+
+$$(".tabs button").forEach(function(b){
+  b.addEventListener("click", function(){
+    $$(".tabs button").forEach(function(o){ o.classList.remove("on"); o.setAttribute("aria-selected","false"); });
+    b.classList.add("on"); b.setAttribute("aria-selected","true");
+    tab = b.dataset.tab; idx = 0; render();
+  });
+});
+
+function render(){
+  var lista = PLANES[tab];
+  tratList.innerHTML = "";
+  lista.forEach(function(t, i){
+    var b = document.createElement("button");
+    b.className = "trow fade" + (i === idx ? " sel" : ""); b.type = "button";
+    b.innerHTML = '<span><span class="n">'+t.n+'</span><span class="d">'+t.d+(t.real?' · valor publicado':'')+'</span></span>' +
+                  '<span class="v">'+CLP(t.v)+'</span>';
+    b.addEventListener("click", function(){ idx = i; render(); });
+    tratList.appendChild(b);
+  });
+  var t = lista[idx];
+  $("#cuotaVal").innerHTML = CLP(t.v / cuotas) + '<small> / mes</small>';
+  $("#cuotaSub").textContent = cuotas + " cuotas sin interés";
+  $("#totName").textContent = t.n;
+  $("#totVal").textContent = CLP(t.v);
+  $("#incl").innerHTML = INCLUYE[tab].map(function(x){
+    return '<li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5FD3E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>'+x+'</li>';
+  }).join("");
+}
+render();
+
+/* ---------- los enlaces de sede llevan a la agenda con la sede puesta ---------- */
+$$('.sede-acts a[href="#agenda"]').forEach(function(a, i){
+  a.addEventListener("click", function(){
+    setTimeout(function(){
+      var b = $$(".sede-op")[i];
+      if (b && st.paso === 1 && st.trat) { /* se elige en su paso */ }
+    }, 10);
+  });
+});
+
+})();
+</script>
+</body>
+</html>

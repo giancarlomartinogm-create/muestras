@@ -125,25 +125,12 @@ section[id],footer[id]{scroll-margin-top:88px}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(94vh,880px);display:flex;align-items:flex-end;overflow:hidden;padding-top:var(--nav-h)}
-.hero__sky{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(120% 80% at 72% 62%, rgba(255,196,120,.55) 0%, rgba(255,196,120,0) 55%),
-    linear-gradient(180deg,#1b2b3f 0%,#3d4a5c 22%,#8a6a63 45%,#c98456 62%,#e0a165 74%,#d98d55 84%,#1a2b2c 100%);
-}
-.hero__sun{
-  position:absolute;left:72%;top:56%;width:180px;height:180px;transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(circle,#ffe9b8 0%,#ffcf7d 42%,rgba(255,190,110,.35) 68%,rgba(255,190,110,0) 72%);
-  filter:blur(1px);animation:sunPulse 9s ease-in-out infinite;
-}
-@keyframes sunPulse{0%,100%{opacity:.92;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.045)}}
-.hero__morro{position:absolute;left:0;right:0;bottom:26%;width:100%;height:auto;opacity:.95}
-.hero__mar{position:absolute;left:0;right:0;bottom:0;height:30%;
-  background:linear-gradient(180deg,rgba(21,45,50,.55) 0%,#0f2124 55%,#0c1a1c 100%)}
-.hero__glow{position:absolute;left:60%;bottom:0;width:34%;height:30%;transform:translateX(-50%);
-  background:linear-gradient(180deg,rgba(255,190,110,.42),rgba(255,190,110,0) 78%);filter:blur(18px)}
-.hero__grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,24,.62) 0%,rgba(10,20,24,.14) 32%,rgba(10,20,24,.05) 55%,rgba(10,20,24,.55) 100%)}
+/* (Se eliminó el hero ilustrado en CSS: hoy el fondo es fotografía real.) */
+.hero__foto{position:absolute;inset:0;z-index:0}
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+/* El velo mantiene legible el texto sobre la foto sin apagarla: fuerte abajo,
+   casi nulo al centro, para que se vea el mar. */
+.hero__grad{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,18,22,.55) 0%,rgba(8,18,22,.18) 30%,rgba(8,18,22,.30) 58%,rgba(8,18,22,.86) 100%)}
 .hero__in{position:relative;z-index:3;width:100%;padding:120px 0 64px}
 .hero__copy{max-width:660px;color:#fff}
 .hero__eyebrow{
@@ -198,7 +185,7 @@ section[id],footer[id]{scroll-margin-top:88px}
   display:flex;flex-direction:column;transition:transform .4s var(--e),box-shadow .4s var(--e),border-color .3s;
 }
 .room:hover{transform:translateY(-6px);box-shadow:var(--sombra-alta);border-color:rgba(192,96,58,.3)}
-.room__art{height:190px;position:relative;overflow:hidden}
+.room__art{overflow:hidden;height:190px;position:relative;overflow:hidden}
 .room__art svg{position:absolute;inset:0;width:100%;height:100%}
 .room__tag{
   position:absolute;top:14px;left:14px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.16em;
@@ -290,9 +277,12 @@ section[id],footer[id]{scroll-margin-top:88px}
   border:1px solid var(--linea);transition:transform .4s var(--e),box-shadow .4s var(--e);
 }
 .exp:hover{transform:translateY(-6px);box-shadow:var(--sombra-alta)}
-.exp__bg{position:absolute;inset:0;z-index:0}
-.exp__bg svg{width:100%;height:100%}
-.exp__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,18,16,.05) 30%,rgba(8,18,16,.72) 78%,rgba(8,18,16,.88) 100%)}
+.exp__bg{position:absolute;inset:0;z-index:0;background:var(--piedra-3)}
+/* Fotografías reales de los atractivos. Antes eran ilustraciones SVG y el
+   cliente no reconocía ningún lugar: en turismo la foto ES el argumento. */
+.exp__bg img{width:100%;height:100%;object-fit:cover;display:block}
+/* Velo bajo hasta la mitad (que se vea el paisaje) y sólido abajo (que se lea el texto). */
+.exp__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,18,16,0) 0%,rgba(8,18,16,.06) 42%,rgba(8,18,16,.46) 63%,rgba(8,18,16,.86) 84%,rgba(8,18,16,.94) 100%)}
 .exp__c{position:relative;z-index:2}
 .exp__k{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dorado-cl);margin-bottom:9px}
 .exp__t{font-family:var(--serif);font-size:1.32rem;margin-bottom:8px;line-height:1.2}
@@ -383,6 +373,31 @@ section[id],footer[id]{scroll-margin-top:88px}
   .rv{opacity:1;transform:none}
 }
 @media(max-width:640px){.sec{padding:80px 0}.wrap{padding:0 20px}}
+
+/* --- MÓVIL: la primera impresión ocurre acá (el mockup llega por WhatsApp) ---
+   Se abandona el hero a pantalla completa: exige una foto vertical grande y las
+   de este hotel son chicas, así que se veía blanda y el título se cortaba.
+   Ahora: BANDA de foto arriba (nítida, sin agrandar) + texto sobre fondo sólido
+   debajo (se lee siempre, sin pelear con el pan y el vaso de la foto). */
+@media (max-width:640px){
+  .hero{min-height:auto;display:block;padding-top:0;background:var(--piedra-3)}
+  .hero__foto{position:relative;inset:auto;height:46svh;min-height:260px}
+  .hero__foto img{object-position:center 55%}
+  /* El velo solo sobre la banda, para que el logo de arriba se siga leyendo. */
+  .hero__grad{height:46svh;min-height:260px;
+    background:linear-gradient(180deg,rgba(8,18,22,.62) 0%,rgba(8,18,22,.10) 42%,rgba(8,18,22,.55) 100%)}
+  .hero__in{padding:26px 22px 32px}
+  .hero h1{font-size:clamp(2rem,8.4vw,2.7rem)}
+  .hero__p{font-size:1rem;line-height:1.55;max-width:36ch;margin-top:16px;text-shadow:none}
+  .hero__meta{gap:8px 16px;font-size:11px;margin-top:20px}
+  .hero__eyebrow{margin-bottom:14px}
+}
+
+@media (max-width:640px){
+  /* La barra de demo es honesta y tiene que estar, pero no puede robarse dos
+     líneas del primer pliegue: se achica y se deja en una. */
+  .demo-bar,.mockup-bar,.aviso-demo{font-size:10px;padding:7px 12px;line-height:1.3}
+}
 </style>
 </head>
 <body>
@@ -414,27 +429,14 @@ section[id],footer[id]{scroll-margin-top:88px}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero__sky" aria-hidden="true"></div>
-  <div class="hero__sun" aria-hidden="true"></div>
-
-  <svg class="hero__morro" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="gMorro" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#4a3b3a"/><stop offset="100%" stop-color="#20302f"/>
-      </linearGradient>
-      <linearGradient id="gCerro" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#6b544c" stop-opacity=".85"/><stop offset="100%" stop-color="#2c3a37" stop-opacity=".9"/>
-      </linearGradient>
-    </defs>
-    <path d="M0 205 L120 186 L235 196 L330 168 L430 184 L520 172 L640 190 L760 178 L880 192 L1010 170 L1130 188 L1260 176 L1360 190 L1440 180 L1440 260 L0 260Z" fill="url(#gCerro)"/>
-    <path d="M735 260 L742 150 L760 128 L800 112 L870 106 L940 116 L985 138 L1000 168 L1006 260 Z" fill="url(#gMorro)"/>
-    <path d="M742 150 L800 112 L870 106 L905 120 L830 140 L770 158 Z" fill="#7a6154" opacity=".35"/>
-    <rect x="866" y="82" width="2" height="26" fill="#12211d" opacity=".8"/>
-    <path d="M868 84 l16 5 -16 5Z" fill="#c0603a" opacity=".9"/>
-  </svg>
-
-  <div class="hero__mar" aria-hidden="true"></div>
-  <div class="hero__glow" aria-hidden="true"></div>
+  <!-- Foto REAL del hotel (de su propio sitio). Reemplaza la ilustración CSS:
+       en hotelería la imagen ES el producto, y el dueño tiene que reconocer SU lugar.
+       Dos archivos distintos a propósito: el móvil es vertical porque la primera
+       impresión ocurre en el teléfono (el mockup llega por WhatsApp). -->
+  <picture class="hero__foto">
+    <source media="(max-width:640px)" srcset="img/hero-movil.jpg">
+    <img src="img/hero-escritorio.jpg" alt="Terraza del Hotel Apacheta frente al Pacífico, Arica" fetchpriority="high">
+  </picture>
   <div class="hero__grad" aria-hidden="true"></div>
 
   <div class="wrap hero__in">
@@ -529,19 +531,7 @@ section[id],footer[id]{scroll-margin-top:88px}
       <!-- Estándar -->
       <article class="room rv">
         <div class="room__art">
-          <svg viewBox="0 0 400 190" preserveAspectRatio="none" aria-hidden="true">
-            <defs><linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6dcc8"/><stop offset="100%" stop-color="#c3b494"/></linearGradient></defs>
-            <rect width="400" height="190" fill="url(#rg1)"/>
-            <circle cx="318" cy="52" r="30" fill="#f2e6cd" opacity=".7"/>
-            <path d="M0 150c50-26 92 6 140-12s96-30 140-8 90 10 120-4v64H0Z" fill="#7f9070" opacity=".75"/>
-            <path d="M0 168c60-16 110 8 170-6s120-18 230 2v26H0Z" fill="#5d7355" opacity=".85"/>
-            <g stroke="#4a5c44" stroke-width="2" fill="none" opacity=".8">
-              <path d="M62 168V128M62 132c-10-6-14-16-12-24 9 1 15 8 15 17M62 136c9-7 12-17 10-24-9 1-14 7-14 16"/>
-              <path d="M330 168V134M330 138c-9-5-12-14-10-21 8 1 13 7 13 15"/>
-            </g>
-            <rect x="140" y="96" width="118" height="58" rx="4" fill="#fbf7ee" opacity=".55"/>
-            <rect x="152" y="108" width="94" height="34" rx="3" fill="#e0d3b8"/>
-          </svg>
+          <img src="img/tarjeta-1.jpg" alt="Habitación del Hotel Apacheta" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
           <span class="room__tag">18 m²</span>
         </div>
         <div class="room__body">
@@ -566,21 +556,7 @@ section[id],footer[id]{scroll-margin-top:88px}
       <!-- Superior -->
       <article class="room rv">
         <div class="room__art">
-          <svg viewBox="0 0 400 190" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="rg2b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1f4e5c"/><stop offset="100%" stop-color="#2e7183"/></linearGradient>
-              <linearGradient id="rg2c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f7e3c0"/><stop offset="100%" stop-color="#efc793"/></linearGradient>
-            </defs>
-            <rect width="400" height="190" fill="url(#rg2c)"/>
-            <circle cx="300" cy="66" r="26" fill="#ffe8bd"/>
-            <rect y="104" width="400" height="86" fill="url(#rg2b)"/>
-            <path d="M0 118c46 0 46 8 92 8s46-8 92-8 46 8 92 8 46-8 92-8v12H0Z" fill="#3f8b9c" opacity=".55"/>
-            <path d="M0 140c50 0 50 9 100 9s50-9 100-9 50 9 100 9 50-9 100-9v16H0Z" fill="#4f9dae" opacity=".45"/>
-            <path d="M270 104c14 6 24 16 30 28" stroke="#ffe8bd" stroke-width="3" opacity=".5" fill="none"/>
-            <rect x="24" y="40" width="10" height="72" rx="5" fill="#e8d3b0" opacity=".9"/>
-            <path d="M29 40c-12-4-16-14-13-22 9 1 14 9 14 18" fill="#8ba36f" opacity=".9"/>
-            <path d="M29 44c11-6 15-16 12-23-9 1-13 8-13 17" fill="#7d9563" opacity=".9"/>
-          </svg>
+          <img src="img/tarjeta-2.jpg" alt="Suite del Hotel Apacheta con vista al Pacífico" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
           <span class="room__tag">26 m² · frente al mar</span>
         </div>
         <div class="room__body">
@@ -605,20 +581,7 @@ section[id],footer[id]{scroll-margin-top:88px}
       <!-- Suite -->
       <article class="room rv">
         <div class="room__art">
-          <svg viewBox="0 0 400 190" preserveAspectRatio="none" aria-hidden="true">
-            <defs><linearGradient id="rg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2b3f4a"/><stop offset="48%" stop-color="#a8664a"/><stop offset="100%" stop-color="#e0a165"/></linearGradient></defs>
-            <rect width="400" height="190" fill="url(#rg3)"/>
-            <circle cx="210" cy="118" r="34" fill="#ffe0a8" opacity=".85"/>
-            <rect y="132" width="400" height="58" fill="#153036" opacity=".9"/>
-            <path d="M196 132h28l-14 58Z" fill="#ffd89a" opacity=".35"/>
-            <path d="M0 150c60-8 90 6 140 2s110-14 160-6 70 8 100 4v40H0Z" fill="#0e2429" opacity=".8"/>
-            <g fill="#0d1f24" opacity=".9">
-              <rect x="42" y="70" width="6" height="66" rx="3"/>
-              <path d="M45 70c-14-5-19-17-16-27 11 2 17 11 17 22"/>
-              <path d="M45 76c13-8 18-20 14-28-10 2-15 10-15 21"/>
-            </g>
-            <rect x="286" y="86" width="82" height="50" rx="4" fill="#f6e3c4" opacity=".22"/>
-          </svg>
+          <img src="img/tarjeta-3.jpg" alt="Estar interior de la Suite Apacheta, con madera clara y living independiente" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
           <span class="room__tag">42 m² · terraza propia</span>
         </div>
         <div class="room__body">
@@ -753,16 +716,8 @@ section[id],footer[id]{scroll-margin-top:88px}
 
     <div class="exps">
       <article class="exp rv">
-        <div class="exp__bg" aria-hidden="true">
-          <svg viewBox="0 0 300 340" preserveAspectRatio="none">
-            <defs><linearGradient id="e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8fc7e8"/><stop offset="60%" stop-color="#cfe4ef"/><stop offset="100%" stop-color="#6f8a7c"/></linearGradient></defs>
-            <rect width="300" height="340" fill="url(#e1)"/>
-            <path d="M0 190 60 118l40 34 46-70 58 82 44-40 52 46v90H0Z" fill="#5c6d7a"/>
-            <path d="M100 152 146 82l30 44-34 26Z" fill="#fff" opacity=".92"/>
-            <path d="M204 146l40-36 26 24-30 24Z" fill="#fff" opacity=".8"/>
-            <rect y="230" width="300" height="110" fill="#2f6a86" opacity=".85"/>
-            <path d="M0 250c50-10 100 8 150 0s100-16 150-4v20H0Z" fill="#4a90ad" opacity=".5"/>
-          </svg>
+        <div class="exp__bg">
+          <img src="img/exp-lauca.jpg" alt="Volcán Parinacota nevado reflejado en el lago Chungará, Parque Nacional Lauca" loading="lazy">
         </div>
         <div class="exp__veil" aria-hidden="true"></div>
         <div class="exp__c">
@@ -773,19 +728,8 @@ section[id],footer[id]{scroll-margin-top:88px}
       </article>
 
       <article class="exp rv">
-        <div class="exp__bg" aria-hidden="true">
-          <svg viewBox="0 0 300 340" preserveAspectRatio="none">
-            <defs><linearGradient id="e2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0cf9a"/><stop offset="55%" stop-color="#d3a86f"/><stop offset="100%" stop-color="#6b7a45"/></linearGradient></defs>
-            <rect width="300" height="340" fill="url(#e2)"/>
-            <path d="M0 150c60-24 110 10 160-10s90-26 140-4v40H0Z" fill="#b8925e" opacity=".8"/>
-            <rect y="200" width="300" height="140" fill="#7d8f4e"/>
-            <g fill="#4e6132">
-              <circle cx="58" cy="222" r="26"/><rect x="54" y="222" width="8" height="60"/>
-              <circle cx="150" cy="238" r="30"/><rect x="146" y="238" width="8" height="66"/>
-              <circle cx="244" cy="226" r="24"/><rect x="240" y="226" width="8" height="60"/>
-            </g>
-            <path d="M0 300h300v40H0Z" fill="#5f7040"/>
-          </svg>
+        <div class="exp__bg">
+          <img src="img/exp-azapa.jpg" alt="Valle de Azapa: franja verde de cultivos entre los cerros del desierto de Arica" loading="lazy">
         </div>
         <div class="exp__veil" aria-hidden="true"></div>
         <div class="exp__c">
@@ -796,16 +740,8 @@ section[id],footer[id]{scroll-margin-top:88px}
       </article>
 
       <article class="exp rv">
-        <div class="exp__bg" aria-hidden="true">
-          <svg viewBox="0 0 300 340" preserveAspectRatio="none">
-            <defs><linearGradient id="e3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffd9a0"/><stop offset="45%" stop-color="#e79a63"/><stop offset="100%" stop-color="#123b47"/></linearGradient></defs>
-            <rect width="300" height="340" fill="url(#e3)"/>
-            <circle cx="190" cy="112" r="38" fill="#ffe9bd" opacity=".9"/>
-            <path d="M0 180h300v160H0Z" fill="#144655" opacity=".85"/>
-            <path d="M0 208c40 0 40 12 80 12s40-12 80-12 40 12 80 12 40-12 60-12v22H0Z" fill="#2b7d92" opacity=".6"/>
-            <path d="M0 250c50 0 50 14 100 14s50-14 100-14 50 14 100 14v76H0Z" fill="#0e3542" opacity=".8"/>
-            <path d="M120 226c22-16 44-14 60 2-18 16-44 16-60-2Z" fill="#fdf6e6" opacity=".75"/>
-          </svg>
+        <div class="exp__bg">
+          <img src="img/exp-surf.jpg" alt="Surfista tomando una ola grande en la costa de Arica, junto al hotel" loading="lazy">
         </div>
         <div class="exp__veil" aria-hidden="true"></div>
         <div class="exp__c">
@@ -816,16 +752,8 @@ section[id],footer[id]{scroll-margin-top:88px}
       </article>
 
       <article class="exp rv">
-        <div class="exp__bg" aria-hidden="true">
-          <svg viewBox="0 0 300 340" preserveAspectRatio="none">
-            <defs><linearGradient id="e4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b9d5e4"/><stop offset="70%" stop-color="#e5c9a6"/><stop offset="100%" stop-color="#8a6a53"/></linearGradient></defs>
-            <rect width="300" height="340" fill="url(#e4)"/>
-            <path d="M40 340V150l24-30 62-20 74 14 34 32 12 194Z" fill="#6f5a4b"/>
-            <path d="M64 120l62-20 74 14-64 18Z" fill="#8f7460" opacity=".7"/>
-            <rect x="146" y="60" width="4" height="46" fill="#2c2118"/>
-            <path d="M150 62l26 8-26 8Z" fill="#c0603a"/>
-            <path d="M0 300c60-16 100 6 150-4s90-14 150 0v44H0Z" fill="#4c3d33"/>
-          </svg>
+        <div class="exp__bg">
+          <img src="img/exp-morro.jpg" alt="El Morro de Arica iluminado de noche sobre las luces del centro de la ciudad" loading="lazy">
         </div>
         <div class="exp__veil" aria-hidden="true"></div>
         <div class="exp__c">
@@ -966,6 +894,14 @@ section[id],footer[id]{scroll-margin-top:88px}
     <div class="foot__bar">
       <span>© 2026 Hotel Apacheta · Arica, Chile</span>
       <span>Reserva directa sin comisiones · Precios en pesos chilenos (CLP), IVA incluido</span>
+    </div>
+    <!-- Atribución obligatoria de las fotos con licencia Creative Commons. -->
+    <div class="foot__bar" style="font-size:11px;opacity:.72;justify-content:flex-start">
+      <span>Fotografías del hotel: Hotel Apacheta. Atractivos, vía Wikimedia Commons —
+        lago Chungará, <a href="https://commons.wikimedia.org/wiki/File:Parinacota_over_Chungar%C3%A1_(26770009677).jpg" target="_blank" rel="noopener">Álvaro Orozco (CC BY 2.0)</a>;
+        valle de Azapa, <a href="https://commons.wikimedia.org/wiki/File:Azapa_panorama.jpg" target="_blank" rel="noopener">Till Niermann (CC BY 3.0)</a>;
+        Morro de Arica, <a href="https://commons.wikimedia.org/wiki/File:Morro_arica_1.jpg" target="_blank" rel="noopener">Capablazab (CC BY-SA 3.0)</a>.
+      </span>
     </div>
   </div>
 </footer>
